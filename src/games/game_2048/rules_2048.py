@@ -56,10 +56,9 @@ def create_new_tile(grid):
     grid[coord[0]][coord[1]] = random.randint(1,2)*2
     return grid
 
-def check_for_lost(grid):
+def is_grid_full(grid):
     """Check whether the grid is full or not"""
     for i in range(4):
-        for j in range(4):
-            if grid[i][j] == " ":
-                return False
+        if grid != evolve_grid(grid,i):
+            return False
     return True
