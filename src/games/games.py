@@ -13,10 +13,10 @@ class Game:
     """
     This is an object which is designed to represent a game using functions written somewhere elem_to_string_size
     The main functions needed to initialize this object are :
-        - is_over : which returns True if the game is over, and False if it is not
-        - make_a_move : which modifies the grid according to a move given in args
-        - next_turn : which modifies the grid according to what is supposed to happen when a player finishes his turn (i.e. 2k48 --> spawn a new tile)
-        - display_grid : which return the string used to display the board
+        - is_over : returns True if the game is over, and False if it is not
+        - make_a_move : modifies the board according to a move given in args but don't return it
+        - next_turn : modifies the board according to what is supposed to happen when a player finishes his turn but don't return it (i.e. 2k48 --> spawn a new tile)
+        - display_board : returns the string used to display the board
     """
     def __init__(self):
         self.name = "" #name of the game
@@ -35,32 +35,32 @@ class Game:
         self.player_playing = 0 #id of the player which is currently playing
         self.next_turn_function = lambda x: None
         self.calc_score_function = lambda x: None
+        self.max_char_size = 8
 
     def get_board(self, player = 0):
         return self.list_board[player]
 
     def make_a_move(self, move):
         if self.is_board_equal:
-            new_board = self.make_a_move_function(self.list_board[self.player_playing], move, self.player_playing)
             for i in range(len(self.list_board)):
-                self.list_board[i] = new_board
+                self.make_a_move_function(self.list_board[i],move,self.player_playing)
         else:
-            self.list_board[self.player_playing] = self.make_a_move_function(self.list_board[self.player_playing], move, self.player_playing)
+                self.make_a_move_function(self.list_board[self.player_playing],move,self.player_playing)
 
     def is_over(self, *args):
         return (self.is_over_function(self.list_board[self.player_playing],*args), self.player_playing)
 
     def display_board(self, *args):
-        return None
+        return grid_to_string_with_size(self.max_char_size)
 
     def next_turn(self, *args):
-        self.list_board[self.player_playing] = self.next_turn_function(self.list_board[self.player_playing])
+        self.next_turn_function(self.list_board[self.player_playing])
 
     def change_player(self):
         self.player_playing = self.list_player[(self.player_playing +1)%len(self.list_player)]
 
     def calc_score(self, *args):
-        return calc_score_function
+        return calc_score_function(self.list_board[self.player_playing],*args)
 
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
@@ -97,6 +97,6 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game.is_board_equal = True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = lambda x: x
     else:
-        raise
+        raise Exception("Jeu non reconnu")
 
     return new_game

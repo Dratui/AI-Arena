@@ -1,5 +1,7 @@
 import random
 from copy import deepcopy
+import numpy as np
+
 
 def evolve_line(line):
     """evolve a line as if it yas pushed to the left"""
@@ -39,7 +41,7 @@ def make_a_move(board,direction, player = 0):
             board.set_row(i, evolve_line(board.read_row(i)))
         board.transpose_grid_anticlockwise()
 
-def create_new_tile(grid):
+def create_new_tile(board):
     """fill an empty tile with a 2 or a 4"""
     free_tiles = []
     for i in range(4):
@@ -49,7 +51,6 @@ def create_new_tile(grid):
     k = random.randint(0,len(free_tiles)-1)
     coord = free_tiles[k]
     board.change_tile(i,j,random.randint(1,2)*2)
-    return grid
 
 def move_possible(board):
     """return the list of the moves that are possible"""
@@ -66,3 +67,9 @@ def is_over(board):
     if move_possible(board) == []:
         return True
     return False
+
+def calc_score(board):
+    sum = 0
+    for i in board.get_all_tiles():
+        sum += int(i * (np.log2(i)-1))
+    return sum
