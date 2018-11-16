@@ -19,7 +19,6 @@ def get_player_move(board):
     """ask and return the move the player want to play"""
     size_horizontal = board.width
     move = input("Où voulez-vous jouez")
-    print(type(move))
     cond = True
     if move.isdigit():
         cond  = not(int(move)-1 < size_horizontal and int(move)-1 >= 0) or board.read_tile(0,int(move)-1) != " "

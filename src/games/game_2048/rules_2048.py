@@ -40,7 +40,7 @@ def make_a_move(board,direction, player = 0):
             board.set_column(i, line[::-1])
 
             #board.set_column(i, evolve_line(board.read_column(i)[::-1])[::-1])
-
+    return board
 def create_new_tile(board):
     """fill an empty tile with a 2 or a 4"""
     free_tiles = []
