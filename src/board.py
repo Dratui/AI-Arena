@@ -43,6 +43,7 @@ class Board:
         """
         self.grid = self.transpose_grid_clockwise()
         self.grid = self.transpose_grid_clockwise()
+
         return self.transpose_grid_clockwise()
         
         
@@ -103,4 +104,3 @@ class Board:
     
     
 
-    
