@@ -5,7 +5,7 @@ def player_setup_theme():
     theme_number = input("Rentrez le numéro du thème que vous souhaitez avoir")
     if not(theme_number in THEMES.keys()):
         theme_number = input("Numéro invalide, réessayer s'il vous plaît")
-    return theme_number
+    return int(theme_number)
 
 def player_setup_size():
     """ask and return the size of the grid wanted by the player"""
@@ -15,7 +15,7 @@ def player_setup_size():
     return int(size_number)
 
 
-def get_player_direction():
+def get_player_move():
     """ask and return the direction wanted by the player, 0 : right, 1 : left, 2 : up, 3 : down """
     direction = input("Dans quelle direction voulez-vous jouez ? (d : droite, g : gauche, h : haut, b : bas)")
     while not(direction in ["d","g","h","b"]):

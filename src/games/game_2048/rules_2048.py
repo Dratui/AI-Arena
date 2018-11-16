@@ -17,7 +17,7 @@ def evolve_line(line):
                     break
     return line
 
-def evolve_grid(grid,direction):
+def make_a_move(grid,direction):
     """evolve the grid according to the direction asked by the player"""
     if direction == 0:
         for i in range(4):
@@ -60,6 +60,6 @@ def is_over(grid):
     """Check whether the grid is full or not"""
     grid_copy = deepcopy(grid)
     for i in range(4):
-        if grid_copy != evolve_grid(grid,i):
+        if grid_copy != make_a_move(grid,i):
             return False
     return True
