@@ -58,11 +58,12 @@ class Game:
         self.player_playing = self.list_player[(self.player_playing +1)%len(self.list_player)]
 
 
-def init_game(name, vertical_size = 6, horizontal_size = 6):
+def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
+    """Create a new game with the name given in args"""
     if name == "2048":
         new_game = Game()
         new_game.name = "2048"
-        new_game.list_board = [grid_2048.init_grid() for i in range(2)]
+        new_game.list_board = [grid_2048.init_grid() for i in range(players_number)]
         new_game.list_player = [0,1]
         new_game.move_available = [0,1,2,3] #list of the input available
         new_game.is_over_function = rules_2048.is_over
