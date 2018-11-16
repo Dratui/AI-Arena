@@ -2,11 +2,11 @@ import operator
 import src.players as player
 import src.games.games as games
 
+
 class Tournament:
     """This is the class that is going to manage tournaments, it includes all necessary information"""
     number_players = 0
     game_name = "" #Holds the name of the game
-    list_players_who_is=[] #This list gives the list of players (with the number of each player being the position in the list) and states the corresponding AI or human
     list_players = []
     score=[] #score[i] holds the number of matches that player i has won
     leaderboard=[] #Leaderboard[i] hold the rank of player i.
@@ -56,26 +56,56 @@ class Tournament:
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
         while not self.game.is_over :
-            if display_ai_game or human in self.list_players_who_is[player0] + self.list_players_who_is[player1]: #If there is at least one human or if we have decided to watch the human players, we show them
+            if display_ai_game or human in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the human players, we show them
                 self.game.display_grid()
             next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
             self.game.make_a_move(next_move)
             self.game.next_turn()
             self.game.player_playing = (self.game.player_playing + 1) % self.number_players
+        #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
             self.score[player0] += 1
+            self.matches[player1][player0] = player0
+            self.matches[player0][player1] = player0
         elif self.game.score[1] > self.game.score[0]:
             self.score[player1] += 1
+            self.matches[player0][player1] = player1
+            self.matches[player1][player0] = player1
         else :
             self.score[player0] += .5
             self.score[player1] += .5
+            self.matches[player0][player1] = "ex aequo"
+            self.matches[player1][player0] = "ex aequo"
+            
         self.leaderboard = calculate_leaderboard(self.score)
+        
+    def launch_tournament(self,display_ai_game = False) :
+        """This function launches a tournament and manages the launching of the games, prints who wins every time and finally displays the leaderboard"""
+        for x in range(self.number_players) :
+            for y in range(x+1, self.number_players) :
+                self.launch_a_game(x,y,display_ai_game)
+                if self.matches[x][y] != "ex aequo" :
+                    print("The winner is ", self.list_player, "\n")
+                else :
+                    print(self.matches[x][y],"\n")
+        self.print_leaderboard(self.leaderboard)
+                    
+    def print_leaderboard(self, leaderboard) :
+        print("RANKING : \n")
+        for i in range(self.number_players) :
+            current_best, current_rank = max(enumerate(leaderboard), key=operator.itemgetter(1))
+            print(self.list_players[current_best].name, " is number ", current_rank)
+            leaderboard[current_best] = 0
+            
+            
+        
+        
         
         
         
 def select_player(number_player):   
     """Asks a human who every player is, whether a human of the name of an AI"""
-    list_player = [player.Player()]
+    list_player = [player.Player()] * number_player
     number_human_players = 1
     for i in range(1,number_player+1):
         temp_player = input("State the name of the IA for the player number {} (simply state h for a human player) : ".format(i))
