@@ -28,4 +28,28 @@ def evaluation(pop):
 def selection(pop):
     pop_score = list(set(zip(pop,evaluation(pop))))
     sorted(pop_score,key=lambda x: x[1])
-    return
+    return pop_score(list(set([x[0] for x in pop_score])))[pop//2:]
+#Mutation with a simple concatenation
+def mutation1(ind1,ind2):
+    return ind1[:len(ind1)//2]+ind2[len(ind1)//2:]
+#Mutation with a ping pong
+def mutation2(ind1,ind2):
+    son=[]
+    for i in range(len(ind1)):
+        if i%2==0:
+            son.append(ind1)
+        else:
+            son.append(ind2)
+    return son
+#Mutation random mix
+
+def mutation3(ind1,ind2):
+    son=[]
+    for i in range(len(ind1)):
+        if rd.random()>0.4:
+            son.append(ind1)
+        else:
+            son.append(ind2)
+    return son
+
+
