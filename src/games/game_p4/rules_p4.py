@@ -1,4 +1,4 @@
-def make_a_move(board, player, move):
+def make_a_move(board,  move, player):
     """update the grid to acknowledge the last move"""
     i= 0
     while board.read_tile(i,move) == " ":
@@ -19,7 +19,7 @@ def is_over(board, move, player):
     directions = [(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1)]
     for dir in directions:
         k=0
-        while i+dir[0]*k >= 0 and i+dir[0]*k < board.width and move+k*dir[1] >= 0 and move+k*dir[1] < len(grid[0]):
+        while i+dir[0]*k >= 0 and i+dir[0]*k < board.width and move+k*dir[1] >= 0 and move+k*dir[1] <board.width:
             if board.read_tile(i+dir[0]*k,move+k*dir[1]) == player:
                 k+=1
             else:
