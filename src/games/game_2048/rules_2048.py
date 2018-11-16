@@ -22,7 +22,6 @@ def evolve_line(line):
 
 def make_a_move(board,direction, player = 0):
     """evolve the grid according to the direction asked by the player"""
-    print(direction)
     if direction == 1: #droite
         for i in range(4):
             line = board.read_row(i)[::-1]
@@ -41,7 +40,7 @@ def make_a_move(board,direction, player = 0):
             board.set_column(i, line[::-1])
 
             #board.set_column(i, evolve_line(board.read_column(i)[::-1])[::-1])
-
+    return board
 def create_new_tile(board):
     """fill an empty tile with a 2 or a 4"""
     free_tiles = []
