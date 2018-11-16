@@ -5,26 +5,26 @@ class Board:
         self.height = height
         self.width = width
         self.grid = [[' ' for i in range(self.width)] for j in range(self.height)]
-    
-    
+
+
     def change_tile(self, row, col,value):
         """
         CHANGE ONE VALUE OF THE GRID
         row: Row (int)
         col: Column (int)
         value: value (str)
-        
+
         Returns nothing
         """
         self.grid[row][col]=value
-        
-        
+
+
     def read_tile(self, row, col):
         """
         READ ONE VALUE OF THE GRID
         row: Row (int)
         col: Column (int)
-        
+
         Returns the value (row, col) of the grid
         """
         return self.grid[row][col]
@@ -35,8 +35,8 @@ class Board:
         TRANSPOSE THE BOARD CLOCKWISE
         """
         return [list(elem) for elem in zip(*self.grid[::-1])]
-        
-        
+
+
     def transpose_grid_anticlockwise(self):
         """
         TRANSPOSE THE BOARD ANTICLOCKWISE (CHIBRALLY)
@@ -45,48 +45,48 @@ class Board:
         self.grid = self.transpose_grid_clockwise()
 
         return self.transpose_grid_clockwise()
-        
-        
+
+
     def read_row(self, x):
         """
         READ ONE ROW OF THE GRID
         row: Row (int)
-        
+
         Returns the row as a list
         """
         return self.grid[row]
-        
+
     def set_row(self, x,ROW):
         """
         SET ONE ROW OF THE GRID
         row: RowIndex (int)
         ROW; Row (list)
-        
+
         Returns nothing
         """
-        self.grid[x]=ROW   
-        
+        self.grid[x]=ROW
+
     def read_column(self, col):
         """
         READ ONE COLUMN OF THE GRID
         col: Column (int)
-        
+
         Returns the column as a list
         """
         return [self.grid[i][col] for i in range(self.height)]
-    
+
     def set_col(self, y,COL):
         """
         SET ONE COL OF THE GRID
         col: ColIndex (int)
         COL; Col (list)
-        
+
         Returns nothing
         """
         for i in range(self.height):
             self.grid[i][y]=COL[i]
-        
-    
+
+
     def get_all_tiles(self):
         """
         RETURNS A LIST CONTAINING EVERY TILE OF THE GRID
@@ -97,11 +97,11 @@ class Board:
                 list_tiles.append(self.read_tile(i,j))
         return list_tiles
 
-        
+
     def grid_to_string_with_size(self, maxsize):
         """
         RETURNS A STRING MODELLING THE GRID, TAKING ACCOUNT OF THE BIGGEST VALUE TO AVOID SHIFT
-        maxsize : size of the biggest number/value displayed 
+        maxsize : size of the biggest number/value displayed
         """
         width = self.width
         height = self.height
@@ -112,16 +112,10 @@ class Board:
         lines_str = []
         for i in range(height) :
             line = """|"""
-            numbers = [str(list_tiles[width*i+j]).ljust(n) for j in range(width)]
+            numbers = [str(list_tiles[width*i+j]).ljust(maxsize) for j in range(width)]
             line = line + "|".join(numbers)
             line = line + """|\n"""
             lines_str.append(line)
         grid_str = sticks.join(lines_str)
         grid_str = sticks + grid_str + """ ==="""*width + """ """
         return grid_str
-        
-
-    
-    
-    
-
