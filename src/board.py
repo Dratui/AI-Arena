@@ -47,7 +47,7 @@ class Board:
         return self.transpose_grid_clockwise()
 
 
-    def read_row(self, x):
+    def read_row(self, row):
         """
         READ ONE ROW OF THE GRID
         row: Row (int)
