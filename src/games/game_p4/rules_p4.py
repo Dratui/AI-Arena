@@ -10,8 +10,8 @@ def make_a_move(grid, player, move):
     grid[i-1][move] = player
     return grid
 
-def is_last_move_winning(grid,player,move):
-    """check if the last move played makes the player who played it win"""
+def is_over(grid,player,move):
+    """check if the last move played makes the player who played it win, and return in the second argument the number of the winning player"""
     i= 0
     while grid[i][move] == " ":
         i+=1
@@ -27,5 +27,5 @@ def is_last_move_winning(grid,player,move):
         list_near_points.append(k-1)
     for k in range(4):
         if list_near_points[k]+list_near_points[k+4] >2 :
-            return True
-    return False
+            return (True, player)
+    return (False, player)
