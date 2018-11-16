@@ -41,8 +41,8 @@ class Board:
         """
         TRANSPOSE THE BOARD ANTICLOCKWISE (CHIBRALLY)
         """
-        self.transpose_grid_clockwise()
-        self.transpose_grid_clockwise()
+        self.grid = self.transpose_grid_clockwise()
+        self.grid = self.transpose_grid_clockwise()
         return self.transpose_grid_clockwise()
         
         
