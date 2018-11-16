@@ -113,7 +113,7 @@ class Board:
         lines_str = []
         for i in range(height) :
             line = """|"""
-            numbers = [str(list_tiles[width*i+j]).ljust(n) for j in range(width)]
+            numbers = [str(list_tiles[width*i+j]).ljust(maxsize) for j in range(width)]
             line = line + "|".join(numbers)
             line = line + """|\n"""
             lines_str.append(line)
