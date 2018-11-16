@@ -41,9 +41,6 @@ def test_grid_to_string_with_size():
 	A.change_tile(1,0,"Hi")
 	A.change_tile(0,1,"Guten")
 
-	txt=""" ======== ========
-|Bonjour |Guten   |
- ======== ========
-|Hi      |Salut   |
- ======== ======== """
-	assert A.grid_to_string_with_size()==txt
+	txt=" ======== ========\n|Bonjour |Guten   |\n ======== ========\n|Hi      |Salut   |\n ======== ======== "
+	txt2=A.grid_to_string_with_size()
+	assert txt2==txt

@@ -106,8 +106,8 @@ class Board:
         height = self.height
         list_tiles = self.get_all_tiles()
         grid_str = """"""
-        bord="="*maxsize+" "
-        sticks = " "+bord*width + """\n"""
+        bord=" "+"="*maxsize
+        sticks = bord*width + """\n"""
 
         lines_str = []
         for i in range(height) :
@@ -118,5 +118,5 @@ class Board:
             lines_str.append(line)
 
 
-        txt=sticks+sticks.join(lines_str)+" "+bord*width
+        txt=sticks+sticks.join(lines_str)+bord*width+" "
         return txt
