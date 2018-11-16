@@ -1,110 +1,89 @@
-The Code of Conduct (CoC) governs player behavior while playing The Lord of the Rings Online™: Shadows of Angmar™ and/or The Lord of the Rings Online™: Mines of Moria™ (as applicable, subject to the payment of applicable software license and services fees, the “Game”) operated by Standing Stone Games, LLC. (“Standing Stone Games”) and participating on the GameWebsite http://www.lotro.com/, including the forums. The Code of Conduct is designed to make players’ game experience as enjoyable as possible. Failure to follow the Code of Conduct may result in the suspension or termination of your Game account without refund (if applicable).
+# Citizen Code of Conduct
 
-1. While participating in the Game or on the Game Website you must respect the rights of others to play and enjoy the Game world as intended by Standing Stone Games.
+## 1. Support Your Team
 
-2. You may not communicate any player’s real-world information through the use of the Game Website, Game client or server software or any other means.
+"[Teamwork] is the fuel that allows common people to attain uncommon results." -Andrew Carnegie
 
-3. You may not use or distribute sexually explicit, harmful, threatening, abusive, defamatory, obscene, hateful, racially or ethnically offensive language (including, by way of example, but not limited to, ethnic slurs and religious epithets), content, character names, titles, descriptions, or in-game labels (including, by way of example, but not limited to, offensive or inappropriate guild names, pet names and inscriptions).
+While we all carry a diverse set of individual ambitions and expectations into a game of League of Legends, once we hit the Field we're a part of a team. For better or worse, our fates are intertwined with that of our teammates. Once the game gets into full swing, you have to make a choice between being a positive force for your team, or contributing to your own demise.
 
-4. While playing the Game or participating in related services, you may not exhibit or partake in behavior that is disruptive to the Game’s normal playability, causes grief or alarm to other players, or degrades the service performance or other players’ client software (for example, deliberately using game bugs or loopholes to disrupt the game or dropping excessive items).
+Being a good team player begins at champion select. Be open minded when considering the needs of your team. If you're the last one to pick, try to fill a niche in your team that hasn't already been filled. If everyone's picked and something stands out as a deficiency in your team composition, try asking for another player to fill the gap, or change roles to embrace that responsibility yourself. Remember, that by taking on a role you don't normally play, you'll learn more about unfamiliar champions and increase your own skill level.
 
-5. You may not spam or flood with multiple posts the Game chat or the Game Website features.
+Once you get in game, try to keep an open line of communication. Warn your teammates if someone is missing from your lane, or if something is placing them in immediate danger. If they're not paying attention to chat you can always try pinging the map. Just remember that one ping is enough! Also, remember that you have to be there to contribute, so don't leave the game or go AFK! Encourage players who are having trouble, and congratulate those who are playing well. And most of all, if you're having a bad game don't take it out on your team!.
 
-6. You may not impersonate any Game Support Staff member or other Standing Stone Games employee, past or present.
+## 2. Drive Constructive Feedback
 
-7. You may not violate any local, state, national, or international laws or regulations.
+"When you confront a problem you begin to solve it." -Rudy Giuliani
 
-8. You may not market, promote, advertise, or solicit products or services within the Game or Game Website.
+Player feedback is an important force in the decision making process of Riot Games. If you want to make your voice heard, taking the time to let us know how you're feeling about the game is a good place to start. When you give feedback, make sure you take a holistic approach. If you only give negative feedback, you may find that the changes you influence detract from what you initially enjoyed. Moreover, people are simply more likely to listen if you present yourself in a calm, well thought out manner.
 
-9. You may not modify the Game client, server or any part of the Game Website.
+That being said, don't be afraid to tell us if you feel strongly, and why. Try to be straightforward, specific, and always try to make your feedback direct and concise. For instance, saying something along the lines of:
 
-10. You may not advertise the intent to, commit the act of, or facilitate the ability of others to commit the act of, unauthorized selling, buying, transferring or sharing access to any Game account.
+"I used to love playing Katarina because her skills give her high mobility in lane, but with the latest nerfs to Death Lotus, I no longer feel like I have a strong enough presence in team fights to be viable. I don't think that I'm going to be playing Kat in the future unless she undergoes some revisions."
 
-11. You may not advertise the intent to, commit the act of, or facilitate the ability of others to commit the act of, unauthorized selling or buying of Game items for real-world monetary values or other consideration.
+Is a much better way of expressing your dismay at a patch than beginning with an irate tirade, then asking for changes to be reverted or attempting to force an alternate solution. Remember that we're listening and making changes every couple of weeks, so, with a little patience, you may find that your issues will work themselves out.
 
-12. While participating in the Game, both in-Game and through the official Website, you will follow the instructions and guidelines of authorized Game support staff at all times.
+## 3. Facilitate Civil Discussion
 
-13. You may not form or participate in groups whose ideology is based upon or resembles anti-religious, anti-ethnic, anti-sexual orientation, nationalistic, racist or sexist philosophies.
+"To disagree, one doesn't have to be disagreeable." -Barry Goldwater
 
-14. You may not intentionally hide or falsify personal information that is deemed necessary for Game account or website account creation.
+As we mentioned earlier, we want you to give feedback, but being part of the community doesn't stop there. Whether you're in chat, in a game, or on the forums, there are plenty of people to meet, and plenty of topics to discuss. Whether you're discussing game balance and champion viability, trying to form a premade team, or just want to express your affection for the legendary and infamous Gentleman Cho'gath, we encourage you to share your thoughts with other players.
 
-15. You may not upload or transmit copyrighted material to any aspect of the Game or related services without the express consent of the copyright holder.
+When you choose to participate in a discussion with the rest of the playerbase, always try to be receptive to another player's point of view. If you keep an open mind, you'd be surprised what valuable information you can glean from your fellow players. Also, be mindful of how you present your point of view. If a player feels strongly on a subject, don't get caught up trying to have the last word. Just state your side and exit the conversation gracefully rather than give them the opportunity to pick a fight.
 
-16. You will not attempt to interfere with, hack into, or decipher any transmissions to or from the Game or related services.
+## 4. Enjoy Yourself, but not at Anyone Else's Expense
 
-17. You will not exploit, distribute or publicly communicate any Game error, miscue or bug which gives an unintended advantage within the Game world. You may report bugs at https://help.standingstonegames.com/hc/en-us/requests/new?ticket_form_id....
+"Short is the joy that guilty pleasure brings." -Euripides
 
-18. You may not create, post, use or distribute any utilities, emulators or other third party software tools without the express written permission of  Standing Stone Games (including, without limitation, macroing programs, botting programs, server emulators, client hacks, map hacks, and data gathering utilities).
+Making games is our business, so it should come as no surprise that we want you to have a lot of fun. We want you to get excited, to have tension-filled moments, and to celebrate your success. This doesn't mean that we're okay with you ruining anybody else's day.
 
-19. You may not harass other players or  Standing Stone Games staff, including by way of example, but not limited to, threats, stalking or abuse of others.
+Remember, taking a jab at your friend in the middle of the game is a lot different than making a glib remark at a complete stranger. Someone who is unfamiliar with what you consider playful may take your comment as an attack and react unfavorably. If two players on a team start fighting, good communication and teamwork become nearly impossible. Once communication breaks down, the likelihood of victory is drastically diminished. It isn't uncommon for simple, good natured teasing to spiral out of control into a loss, so do yourself a favor and don't run the risk of sabotaging your own success.
 
-20. You may not post website links or URLs in the Game that point to content deemed by  Standing Stone Games to be inappropriate, including, without limitation, any website links or URLs directed to other commercial products or services. You may not post website links or URLs to any materials (including software and other information) that could harm (or is designed to harm) other players’ computers or would allow others to inappropriately access software or websites.
+## 5. Weapons Policy
 
-21. You may not use the Game and/or related services for illegal activities.  Standing Stone Games is not responsible for anything you say (text or voice) in-game or in our chat rooms or forums, or for any consequences that arise from what you say. If you break the law, you alone will be responsible for the consequences.
+No weapons will be allowed at 2048 Online events, community spaces, or in other spaces covered by the scope of this Code of Conduct. Weapons include but are not limited to guns, explosives (including fireworks), and large knives such as those used for hunting or display, as well as any other item used for the purpose of causing injury or harm to others. Anyone seen in possession of one of these items will be asked to leave immediately, and will only be allowed to return without the weapon. Community members are further expected to comply with all state and local laws on this matter.
 
-22. Although the Game is a role-playing game, you may not claim “role-playing” in defense of any violation of the Code of Conduct.
+## 6. Consequences of Unacceptable Behavior
 
-23. You may not conduct surveys, contests, pyramid schemes, chain letters, junk email, spamming or any duplicative or unsolicited messages (commercial or otherwise).
+Unacceptable behavior from any community member, including sponsors and those with decision-making authority, will not be tolerated.
 
-24. You may not defame, abuse, harass, stalk, threaten or otherwise violate the legal rights (such as rights of privacy and publicity) of others.
+Anyone asked to stop unacceptable behavior is expected to comply immediately.
 
-25. You may not post or upload files that contain viruses, Trojan horses, worms, time bombs, cancelbots, corrupted files or data, or any other similar software or programs that may damage the operation of the Game or other users’ computer.
+If a community member engages in unacceptable behavior, the community organizers may take any action they deem appropriate, up to and including a temporary ban or permanent expulsion from the community without warning (and without refund in the case of a paid event).
 
-26. You may not advertise or offer to sell or buy any goods or services for any purpose, unless the Game specifically allows such messages.
+## 7. Reporting Guidelines
 
-27. You may not falsify, delete or disable any copyright management information, such as author attributions, legal or other proper notices or proprietary designations or labels of the origin or source of software or other content.
+If you are subject to or witness unacceptable behavior, or have any other concerns, please notify a community organizer as soon as possible. .
 
-28. You may not restrict or inhibit any other user from using and enjoying the Game or related services. For example, disrupting the flow of chat in chat rooms with vulgar language, abusiveness, hitting the return key repeatedly, inputting excessively large images so the screen goes by too fast to read, use of excessive SHOUTING (all caps) in an attempt to disturb other users, “spamming,” or “scrolling” (continuous posting repetitive text), are prohibited.
 
-29. You may not harvest (in an automated manner or otherwise) or otherwise collect personal information about others, including e-mail addresses, or use such information to send unsolicited emails.
 
-30. You may not use, download or otherwise copy, or provide (whether or not for a fee) to a person or entity any directory of users of the Game and related services or other user or usage information or any portion thereof.
+Additionally, community organizers are available to help community members engage with local law enforcement or to otherwise help those experiencing unacceptable behavior feel safe. In the context of in-person events, organizers will also provide escorts as desired by the person experiencing distress.
 
-31. You may not attempt to get a password, other account information, or other private information from a member or any other user of Game and/or related services.
+## 8. Addressing Grievances
 
-32. You may not improperly use in-Game support or complaint buttons or make false reports to  Standing Stone Games administrators.
+If you feel you have been falsely or unfairly accused of violating this Code of Conduct, you should notify  with a concise description of your grievance. Your grievance will be handled in accordance with our existing governing policies. 
 
-33. You may not use the Game and/or related services in any manner other than for personal communication as an individual user (i.e. not as a corporation or other entity).
 
-34. You may not use the Game and/or related services for fraudulent transactions including, without limitation, fraudulent in-Game virtual transactions.
 
-Note:  Standing Stone Games has final say over what constitutes a violation of this Code of Conduct.  Standing Stone Games reserves the right to change the Code of Conduct at any time. Check the GameWebsite http://www.lotro.com periodically for updates to the Code of Conduct.
+## 9. Scope
 
-Remedies to inappropriate behavior:
+We expect all community participants (contributors, paid or otherwise; sponsors; and other guests) to abide by this Code of Conduct in all community venues--online and in-person--as well as in all one-on-one communications pertaining to community business.
 
-A player who violates the Code of Conduct may be warned by  Standing Stone Games staff, but some particularly serious violations or repeated violations can result in other sanctions, such as a lockout or permanent ban, without warning. In addition,  Standing Stone Games reserves the right to delete characters or entire accounts as we see fit, without warning, for certain violations.
+This code of conduct and its related procedures also applies to unacceptable behavior occurring outside the scope of community activities when such behavior has the potential to adversely affect the safety and well-being of community members.
 
-Chat (text and voice) in the Game and Game Website may be logged and may be reviewed at any time and for any reason, including, without limitation, to assist in making decisions regarding violations of the Code of Conduct. This includes, but is not limited to, private chat, fellowship chat and kinship chat.
+## 10. Contact info
 
-If you understand the terms of the End User License Agreement and the Code of Conduct and these terms are acceptable, please indicate your agreement and your intent to be legally bound by them by affirmatively accepting the terms where indicated.
 
-LOTRO Character Naming Policy
 
-Character names in The Lord of the Rings Online should try to reflect the adventurous and heroic spirit of The Lord of the Rings. When selecting a character name, please be aware of the type of character you are creating, be it a Human, Elf, Dwarf, or Hobbit. Each race has its own naming conventions and it is encouraged that you select a name befitting the race and spirit of your character. Although this is not required, it does helps to shape a fun, engaging, and immersive world for everyone.
+## 11. License and attribution
 
-The following are examples of character names and guild names that are NOT appropriate for The Lord of the Rings Online and is also applied to kinship and organization names. Some names that do not fall within one of the examples below may still be inappropriate. The Lord of the Rings Online Support has final say over what constitutes a violation of the character naming policy.
+The Citizen Code of Conduct is distributed by [Stumptown Syndicate](http://stumptownsyndicate.org) under a [Creative Commons Attribution-ShareAlike license](http://creativecommons.org/licenses/by-sa/3.0/). 
 
-Proper names and places or close facsimiles thereof, from the story characters or non-player characters (NPCs) introduced in the fiction of Lord of the Rings Online.
+Portions of text derived from the [Django Code of Conduct](https://www.djangoproject.com/conduct/) and the [Geek Feminism Anti-Harassment Policy](http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy).
 
-    Sexually explicit, defamatory, obscene, racially or ethnically offensive names.
-    Names of historical or religious significance.
-    Trademarked names of products, goods, materials or services.
-    Common names, slang or references to drug related substances, culture or paraphernalia.
-    Names causing harm, mockery or imitation of Lord of the Rings Online players or NPCs, in addition to Standing Stone Games, Inc. employees, past or present.
-    Misspelled variations or homonyms of any of the above rules.
+_Revision 2.3. Posted 6 March 2017._
 
- 
+_Revision 2.2. Posted 4 February 2016._
 
-Policy Enforcement
+_Revision 2.1. Posted 23 June 2014._
 
-There is a Zero Tolerance rule in effect for the following name violations:
-
-    Sexually explicit, defamatory, obscene, racially or ethnically offensive names.
-    Common names, slang or references to drug related substances, culture or paraphernalia.
-    Names causing harm, mockery or imitation of Lord of the Rings Online players or NPCs, in addition to Standing Stone Games, Inc. employees, past or present.
-
- 
-
-This means that if your character or kinship name is in violation, the name will be changed without question. For characters that violate this rule, your character name will be changed and your account will be automatically placed on a one day suspension for a first offense. For kinships that are in violation, the kinship name will be changed and the account of the kinship leader will be placed on a one day suspension for a first offense. Additional offenses will consist of further account actions, including possible closure.
-
-For other naming violations, a Lord of the Rings Online Game Master will contact you in-game to discuss your character's name.
+_Revision 2.0, adopted by the [Stumptown Syndicate](http://stumptownsyndicate.org) board on 10 January 2013. Posted 17 March 2013._
