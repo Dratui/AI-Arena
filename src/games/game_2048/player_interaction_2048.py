@@ -1,5 +1,9 @@
 from src.games.game_2048.themes import THEMES
 
+move_description = "d : droite, g : gauche, h : haut, b : bas"
+
+
+
 def player_setup_theme():
     """ask and return the theme wanted by the player"""
     theme_number = input("Rentrez le numéro du thème que vous souhaitez avoir")

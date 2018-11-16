@@ -20,14 +20,14 @@ def evolve_line(line):
 
 def make_a_move(grid,direction, player = 0):
     """evolve the grid according to the direction asked by the player"""
-    if direction == 0:
+    if direction == 1: #droite
         for i in range(4):
             grid[i] = evolve_line(grid[i][::-1])[::-1]
             print()
-    if direction == 1:
+    if direction == 3: #gauche
         for i in range(4):
             grid[i] = evolve_line(grid[i])
-    if direction == 2:
+    if direction == 0: #haut
         for i in range(4):
             line = []
             for j in range(4):
@@ -35,7 +35,7 @@ def make_a_move(grid,direction, player = 0):
             line = evolve_line(line)
             for j in range(4):
                 grid[j][i] = line[j]
-    if direction == 3:
+    if direction == 2: #bas
         for i in range(4):
             line = []
             for j in range(4):
