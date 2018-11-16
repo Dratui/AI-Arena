@@ -10,7 +10,7 @@ def make_a_move(grid, player, move):
     grid[i-1][move] = player
     return grid
 
-def is_over(grid,move, player):
+def is_over(grid, move, player):
     """check if the last move played makes the player who played it win,
     and return in the second argument the number of the winning player"""
     i= 0

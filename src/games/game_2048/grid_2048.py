@@ -20,7 +20,7 @@ def init_grid():
     grid[i4][j4] = 4
     return grid
 
-def display_grid(grid,theme_number, player_size):
+def display_grid(grid, player_size, theme_number):
     """Convert grid to string to display it according to the parameters given by the player"""
     theme = THEMES[theme_number]
     theme_size_calc = theme_size(theme)
