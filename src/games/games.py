@@ -11,12 +11,19 @@ class Game:
         self.move_description = "" #what would be displayed to help the player uderstand what input corresponds to which move
         self.display_grid_function = lambda x: None
         self.map_input_to_move = {}
+        self.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
 
     def get_grid(self, player = 0):
         return self.list_board[player]
 
     def make_a_move(self, move,player):
-        self.grid = self.make_a_move_function(self.grid, move,player)
+
+        if self.is_board_equal:
+            new_grid = self.make_a_move_function(self.grid, move, player)
+            for i in range(len(list_board)):
+                list_board[i] = new_grid
+        else:
+            self.list_board[player] = self.make_a_move_function(self.grid, move, player)
 
     def is_over(self, *args):
         return self.is_over_function(*args)
