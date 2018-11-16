@@ -20,11 +20,11 @@ def test_init_grid():
 def test_diplay_grid():
     a=""" ==== ==== ==== ==== \n|    |    |    |    |\n ==== ==== ==== ==== \n|    |    |    |    |\n ==== ==== ==== ==== \n|    |    |    |    |\n ==== ==== ==== ==== \n| 2  |    |    | 2  |\n ==== ==== ==== ==== """
     print(a)
-    assert display_grid([[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [2, ' ', ' ', 2]],"0",0)==a
+    assert display_grid([[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [2, ' ', ' ', 2]],0,0)==a
 
 def test_theme_size():
-    assert theme_size(THEMES['0']) == 4
-    assert theme_size(THEMES['1']) == 2
+    assert theme_size(THEMES[0]) == 4
+    assert theme_size(THEMES[1]) == 2
 
 def test_elem_to_string_size():
     assert elem_to_string_size("test") == 4
