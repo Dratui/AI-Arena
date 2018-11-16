@@ -18,30 +18,26 @@ def evolve_line(line):
                     break
     return line
 
-def make_a_move(grid,direction, player = 0):
+def make_a_move(board,direction, player = 0):
     """evolve the grid according to the direction asked by the player"""
     if direction == 1: #droite
         for i in range(4):
-            grid[i] = evolve_line(grid[i][::-1])[::-1]
+            line = board.read_row(i)[::-1]
+            line = evolve_line(line)
+            board.set_row(i, line[::-1])
     if direction == 3: #gauche
         for i in range(4):
-            grid[i] = evolve_line(grid[i])
+            board.set_row(i, evolve_line(board.read_row(i)))
     if direction == 0: #haut
+        board.transpose_grid_anticlockwise()
         for i in range(4):
-            line = []
-            for j in range(4):
-                line.append(grid[j][i])
-            line = evolve_line(line)
-            for j in range(4):
-                grid[j][i] = line[j]
+            board.set_row(i, evolve_line(board.read_row(i)))
+        board.transpose_grid_clockwise()
     if direction == 2: #bas
+        board.transpose_grid_clockwise()
         for i in range(4):
-            line = []
-            for j in range(4):
-                line.append(grid[3-j][i])
-            line = evolve_line(line)
-            for j in range(4):
-                grid[3-j][i] = line[j]
+            board.set_row(i, evolve_line(board.read_row(i)))
+        board.transpose_grid_anticlockwise()
     return grid
 
 def create_new_tile(grid):
@@ -49,11 +45,11 @@ def create_new_tile(grid):
     free_tiles = []
     for i in range(4):
         for j in range(4):
-            if grid[i][j] == " ":
+            if board.read_tile(i,j) == " ":
                 free_tiles.append((i,j))
     k = random.randint(0,len(free_tiles)-1)
     coord = free_tiles[k]
-    grid[coord[0]][coord[1]] = random.randint(1,2)*2
+    board.write_tile = random.randint(1,2)*2
     return grid
 
 def is_over(grid):
