@@ -7,6 +7,7 @@ class Board:
         self.height = height
         self.width = width
         self.grid = [[' ' for i in range(self.width)] for j in range(self.height)]
+
         
     def change_tile(self, row, col,value):
         """
@@ -49,8 +50,7 @@ class Board:
         Returns the column as a list
         """
         return [self.grid[i][col] for i in range(self.height)]
-    
-        
-        
+
+
     
     
