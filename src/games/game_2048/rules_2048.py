@@ -38,7 +38,6 @@ def make_a_move(board,direction, player = 0):
         for i in range(4):
             board.set_row(i, evolve_line(board.read_row(i)))
         board.transpose_grid_anticlockwise()
-    return grid
 
 def create_new_tile(grid):
     """fill an empty tile with a 2 or a 4"""

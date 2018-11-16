@@ -75,7 +75,8 @@ class Board:
         """
         return [self.grid[i][col] for i in range(self.height)]
 
-    def set_col(self, y,COL):
+    def set_column(self, y,COL):
+
         """
         SET ONE COL OF THE GRID
         col: ColIndex (int)
