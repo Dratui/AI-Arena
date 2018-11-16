@@ -33,6 +33,7 @@ class Tournament:
         for i in range(self.number_players): #Here we create the matrix for all 1 one 1 match.
             tempRow=[-1]*self.number_players
             matches.append(tempRow)
+        self.matches = matches
         
     def import_2048(self):
         """Imports the game 2048 into the attributes of self"""
@@ -55,9 +56,9 @@ class Tournament:
     def launch_a_game(self, player0, player1, display_ai_game = False):
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
-        while not self.game.is_over:
-            if display_ai_game or human in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the human players, we show them
-                self.game.display_grid()
+        while not self.game.is_over()[0]:
+            if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the human players, we show them
+                self.game.display_board()
             next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
             self.game.make_a_move(next_move)
             self.game.next_turn()
