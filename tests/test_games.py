@@ -16,4 +16,6 @@ def test_init_game():
     new_game = init_game("2048", players_number = 5)
     grid = deepcopy(new_game.list_board[0])
     new_game.make_a_move(0)
-    assert mk_mv(grid,0) == new_game.list_board[0]
+    board_test = mk_mv(grid,0)
+    new_game.list_board[0]
+    assert [[board_test.read_tile(i,j) for i in range(4)] for j in range(4)] == [[new_game.list_board[0].read_tile(i,j) for i in range(4)] for j in range(4)]
