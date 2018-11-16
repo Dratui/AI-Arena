@@ -19,5 +19,8 @@ class Board:
         """
         self.grid[x][y]=value
 
-    def transpose_(self):
+    def transpose(self):
         return [list(elem) for elem in zip(*A[::-1])]
+    
+    
+    
