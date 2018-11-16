@@ -76,6 +76,7 @@ class Board:
         return [self.grid[i][col] for i in range(self.height)]
 
     def set_column(self, y,COL):
+
         """
         SET ONE COL OF THE GRID
         col: ColIndex (int)
@@ -92,7 +93,7 @@ class Board:
         RETURNS A LIST CONTAINING EVERY TILE OF THE GRID
         """
         list_tiles = []
-        for i,j in range(self.height):
+        for i in range(self.height):
             for j in range(self.width):
                 list_tiles.append(self.read_tile(i,j))
         return list_tiles
@@ -105,7 +106,7 @@ class Board:
         """
         width = self.width
         height = self.height
-        list_tiles = self.get_all_tiles
+        list_tiles = self.get_all_tiles()
         grid_str = """"""
         sticks = """ ==="""*width + """ \n"""
         string_grid = sticks
