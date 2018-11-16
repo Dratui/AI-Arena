@@ -98,8 +98,7 @@ class Board:
                 list_tiles.append(self.read_tile(i,j))
         return list_tiles
 
-
-    def grid_to_string_with_size(self, maxsize):
+    def grid_to_string_with_size(self, maxsize=8):
         """
         RETURNS A STRING MODELLING THE GRID, TAKING ACCOUNT OF THE BIGGEST VALUE TO AVOID SHIFT
         maxsize : size of the biggest number/value displayed
@@ -108,15 +107,17 @@ class Board:
         height = self.height
         list_tiles = self.get_all_tiles()
         grid_str = """"""
-        sticks = """ ==="""*width + """ \n"""
-        string_grid = sticks
+        bord="="*maxsize+" "
+        sticks = " "+bord*width + """\n"""
+
         lines_str = []
         for i in range(height) :
             line = """|"""
-            numbers = [str(list_tiles[width*i+j]).ljust(n) for j in range(width)]
+            numbers = [str(list_tiles[width*i+j]).ljust(maxsize) for j in range(width)]
             line = line + "|".join(numbers)
             line = line + """|\n"""
             lines_str.append(line)
-        grid_str = sticks.join(lines_str)
-        grid_str = sticks + grid_str + """ ==="""*width + """ """
-        return grid_str
+
+
+        txt=sticks+sticks.join(lines_str)+" "+bord*width
+        return txt

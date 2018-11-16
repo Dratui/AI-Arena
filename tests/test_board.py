@@ -33,3 +33,17 @@ def test_get_all_tiles():
 	A.change_tile(0,1,"Guten Tag")
 	L=['Bonjour','Guten Tag','Hi','Salut']
 	assert A.get_all_tiles()==L
+
+def test_grid_to_string_with_size():
+	A=Board(2,2)
+	A.change_tile(1,1,"Salut")
+	A.change_tile(0,0,"Bonjour")
+	A.change_tile(1,0,"Hi")
+	A.change_tile(0,1,"Guten")
+
+	txt=""" ======== ========
+|Bonjour |Guten   |
+ ======== ========
+|Hi      |Salut   |
+ ======== ======== """
+	assert A.grid_to_string_with_size()==txt
