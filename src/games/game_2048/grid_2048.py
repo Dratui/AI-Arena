@@ -1,6 +1,6 @@
 import random
 import numpy as np
-from game2048.themes import THEMES
+from src.games.game_2048.themes import THEMES
 
 def create_grid():
     """create an empty grid"""

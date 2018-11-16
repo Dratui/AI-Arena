@@ -1,4 +1,4 @@
-from game2048.themes import THEMES
+from src.games.game_2048.themes import THEMES
 
 def player_setup_theme():
     """ask and return the theme wanted by the player"""

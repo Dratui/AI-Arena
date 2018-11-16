@@ -1,4 +1,4 @@
-from gamep4.player_interaction_p4 import *
+from src.games.game_p4.player_interaction_p4 import *
 from pytest import *
 
 a= 4

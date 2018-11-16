@@ -1,4 +1,4 @@
-from game2048.player_interaction_2048 import *
+from src.games.game_2048.player_interaction_2048 import *
 from pytest import *
 
 def test_player_theme(monkeypatch):

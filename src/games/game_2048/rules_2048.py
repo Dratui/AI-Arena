@@ -1,5 +1,5 @@
 import random
-
+from copy import deepcopy
 def evolve_line(line):
     """evolve a line as if it yas pushed to the left"""
     for i in range(4):
@@ -56,9 +56,10 @@ def create_new_tile(grid):
     grid[coord[0]][coord[1]] = random.randint(1,2)*2
     return grid
 
-def is_grid_full(grid):
+def is_over(grid):
     """Check whether the grid is full or not"""
+    grid_copy = deepcopy(grid)
     for i in range(4):
-        if grid != evolve_grid(grid,i):
+        if grid_copy != evolve_grid(grid,i):
             return False
     return True

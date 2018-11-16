@@ -1,4 +1,4 @@
-from gamep4.grid_p4 import *
+from src.games.game_p4.grid_p4 import *
 from pytest import *
 
 

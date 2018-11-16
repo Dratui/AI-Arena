@@ -1,4 +1,4 @@
-from games.game_p4.rules_p4 import *
+from src.games.game_p4.rules_p4 import *
 from pytest import *
 
 

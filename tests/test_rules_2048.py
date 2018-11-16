@@ -1,7 +1,7 @@
-from games.game_2048.rules_2048 import *
+from src.games.game_2048.rules_2048 import *
 from pytest import *
 
-from game2048.themes import THEMES
+from src.games.game_2048.themes import THEMES
 
 def test_evolve_line():
     assert evolve_line([" " for i in range(4)]) == [" " for i in range(4)]
