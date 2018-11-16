@@ -1,7 +1,3 @@
-
-
-
-
 class Board:
     def __init__(self, height, width):
         self.height = height
@@ -29,8 +25,13 @@ class Board:
         """
         return self.grid[row][col]
 
-    def transpose_grid(self):
-        return [list(elem) for elem in zip(*A[::-1])]
+    def transpose_grid_clockwise(self):
+        return [list(elem) for elem in zip(*self.grid[::-1])]
+        
+    def transpose_grid_anticlockwise(self):
+        self.transpose_grid_clockwise()
+        self.transpose_grid_clockwise()
+        return self.transpose_grid_clockwise()
         
     def read_row(self, x):
         """
