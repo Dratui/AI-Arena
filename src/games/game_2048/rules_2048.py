@@ -1,5 +1,6 @@
 import random
 from copy import deepcopy
+
 def evolve_line(line):
     """evolve a line as if it yas pushed to the left"""
     for i in range(4):
@@ -17,7 +18,7 @@ def evolve_line(line):
                     break
     return line
 
-def make_a_move(grid,direction):
+def make_a_move(grid,direction, player = 0):
     """evolve the grid according to the direction asked by the player"""
     if direction == 0:
         for i in range(4):
