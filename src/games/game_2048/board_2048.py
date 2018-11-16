@@ -10,4 +10,4 @@ def init_board(board):
     while i2 == i4 and j2 == j4:
         i4,j4 = random.randint(0,3),random.randint(0,3)
     board.change_tile(i4,j4,4)
-    return grid
+    return board

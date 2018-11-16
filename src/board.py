@@ -6,7 +6,6 @@ class Board:
         self.width = width
         self.grid = [[' ' for i in range(self.width)] for j in range(self.height)]
 
-
     def change_tile(self, row, col,value):
         """
         CHANGE ONE VALUE OF THE GRID

@@ -22,6 +22,7 @@ def evolve_line(line):
 
 def make_a_move(board,direction, player = 0):
     """evolve the grid according to the direction asked by the player"""
+    print(direction)
     if direction == 1: #droite
         for i in range(4):
             line = board.read_row(i)[::-1]
@@ -31,15 +32,15 @@ def make_a_move(board,direction, player = 0):
         for i in range(4):
             board.set_row(i, evolve_line(board.read_row(i)))
     if direction == 0: #haut
-        board.transpose_grid_anticlockwise()
         for i in range(4):
-            board.set_row(i, evolve_line(board.read_row(i)))
-        board.transpose_grid_clockwise()
+            board.set_column(i, evolve_line(board.read_column(i)))
     if direction == 2: #bas
-        board.transpose_grid_clockwise()
         for i in range(4):
-            board.set_row(i, evolve_line(board.read_row(i)))
-        board.transpose_grid_anticlockwise()
+            line = board.read_column(i)[::-1]
+            line = evolve_line(line)
+            board.set_column(i, line[::-1])
+
+            #board.set_column(i, evolve_line(board.read_column(i)[::-1])[::-1])
 
 def create_new_tile(board):
     """fill an empty tile with a 2 or a 4"""
@@ -50,14 +51,13 @@ def create_new_tile(board):
                 free_tiles.append((i,j))
     k = random.randint(0,len(free_tiles)-1)
     coord = free_tiles[k]
-    board.change_tile(i,j,random.randint(1,2)*2)
+    board.change_tile(coord[0],coord[1],random.randint(1,2)*2)
 
 def move_possible(board):
     """return the list of the moves that are possible"""
     list = []
     for i in range(4):
-        board_copy = board
-        if board != make_a_move(board,i):
+        if board != make_a_move(deepcopy(board),i):
             list.append(i)
     return list
 

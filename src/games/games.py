@@ -35,7 +35,7 @@ class Game:
         self.player_playing = 0 #id of the player which is currently playing
         self.next_turn_function = lambda x: None
         self.calc_score_function = lambda x: None
-        self.max_char_size = 8
+        self.max_char_size = 2
 
     def get_board(self, player = 0):
         return self.list_board[player]
@@ -68,7 +68,7 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game = Game()
         new_game.name = "2048"
         new_game.score = [0 for i in range(players_number)]
-        new_game.list_board = [Board(4,4) for i in range(players_number)]
+        new_game.list_board = [board_2048.init_board(Board(4,4)) for i in range(players_number)]
         new_game.list_player = [i for i in range(players_number)]
         new_game.board_size = (4,4)
         new_game.move_available = [0,1,2,3] #list of the input available
@@ -88,7 +88,7 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game.list_board = [Board(vertical_size, horizontal_size) for i in range(2)]
         new_game.list_player = [0,1]
         new_game.board_size = (vertical_size,horizontal_size)
-        new_game.move_available = [i in range(horizontal_size)] #list of the input available
+        new_game.move_available = [i for i in range(horizontal_size)] #list of the input available
         new_game.is_over_function = rules_p4.is_over
         new_game.make_a_move_function = rules_p4.make_a_move
         new_game.move_description = player_interaction_p4.move_description # ex :"d : droite, g : gauche, h : haut, b : bas" what would be displayed to help the player uderstand what input corresponds to which move
