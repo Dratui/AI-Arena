@@ -6,12 +6,14 @@ class tournament:
     number_players = 0
     game = ""
     list_players_who_is=[]
-    leaderboard=[[]]
+    leaderboard=[]
     
     def tournament_init(self):
         self.number_players = int(input("How many players are there in this tournament ? (IA included) : "))
         self.list_players = select_player(self.number_players)
         self.game = input("What game are we going to play ? ")
+        self.game = importlib.import_module("src."+self.game+".py")
+        self.leaderboard = [(0,i) for i in range(self.number_players)]
 
 def select_player(number_player):
     who_is_player = []
