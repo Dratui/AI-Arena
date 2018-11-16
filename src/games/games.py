@@ -79,7 +79,7 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game.map_move_to_input = {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
         new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = rules_2048.create_new_tile
-#        new_game.calc_score_function =
+        new_game.calc_score_function = rules_2048.calc_score
 
     elif name == "p4":
         new_game = Game()
