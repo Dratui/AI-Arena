@@ -27,9 +27,15 @@ class Board:
         return self.grid[row][col]
 
     def transpose_grid_clockwise(self):
+        """
+        TRANSPOSE THE BOARD CLOCKWISE
+        """
         return [list(elem) for elem in zip(*self.grid[::-1])]
         
     def transpose_grid_anticlockwise(self):
+        """
+        TRANSPOSE THE BOARD ANTICLOCKWISE (CHIBRALLY)
+        """
         self.transpose_grid_clockwise()
         self.transpose_grid_clockwise()
         return self.transpose_grid_clockwise()
