@@ -25,3 +25,11 @@ def test_transpose_grid_anticlockwise():
 	B=A.transpose_grid_anticlockwise()
 	C=[[" ","Bonjour"],[" "," "]]
 	assert B==C
+def test_get_all_tiles():
+	A=Board(2,2)
+	A.change_tile(1,1,"Salut")
+	A.change_tile(0,0,"Bonjour")
+	A.change_tile(1,0,"Hi")
+	A.change_tile(0,1,"Guten Tag")
+	L=['Bonjour','Guten Tag','Hi','Salut']
+	assert A.get_all_tiles()==L
