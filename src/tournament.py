@@ -1,33 +1,36 @@
 import operator
 import src.players as player
+import src.games.games as games
 
 class Tournament:
     """This is the class that is going to manage tournaments, it includes all necessary information"""
     number_players = 0
-    game = "" #Holds the name of the game
+    game_name = "" #Holds the name of the game
     list_players_who_is=[] #This list gives the list of players (with the number of each player being the position in the list) and states the corresponding AI or human
+    list_players = []
     score=[] #score[i] holds the number of matches that player i has won
     leaderboard=[] #Leaderboard[i] hold the rank of player i.
     #The following three hold the modules that correspond to the game being played
     grid = None
     player_interaction = None
     rules = None
+    game = games.Game()
     matches = [[]] #Is a nested list where matches[x][y] is an integer where -1 means the game between players x and y has not been played yet and otherwise this integer being the winner of the match
     
     def tournament_init(self):
         """Starts a new tournament, retrieving all relevant information on the game and the players"""
         self.number_players = int(input("How many players are there in this tournament ? (IA included) : "))
-        self.list_players = select_player(self.number_players)
-        self.game = input("What game are we going to play ? 'puissance4' ou '2048' ? ")
-        while self.game != "2048" and self.game != "puissance4" :
-            self.game = input("Not a valid game, try again : ")
-        if self.game == "2048" : #Import of all relevant function to the game
-            import_2048(self)
-        if self.game == "p4" : #Same
-            import_p4(self)
+        self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
+        self.game_name = input("What game are we going to play ? 'p4' ou '2048' ? ")
+        while self.game_name != "2048" and self.game_name != "p4" :
+            self.game_name = input("Not a valid game, try again : ")
+        if self.game_name == "2048" : #Import of all relevant function to the game
+            self.import_2048
+        if self.game_name == "p4" : #Same
+            self.import_p4
         self.score = [0] * self.number_players
         matches = []
-        for i in range(self.number_players) :
+        for i in range(self.number_players) : #Here we create the matrix for all 1 one 1 match.
             tempRow=[-1]*self.number_players
             matches.append(tempRow)
         
@@ -49,7 +52,25 @@ class Tournament:
         import src.games.game_p4.rules_p4
         self.rules = src.games.game_p4.rules_p4
         
-    #def play_one_game(player1,player2):
+    def launch_a_game(self, player0, player1, display_ai_game = False) :
+        """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
+        self.game = games.init_game(self.game_name)
+        while not self.game.is_over :
+            if display_ai_game or human in self.list_players_who_is[player0] + self.list_players_who_is[player1]: #If there is at least one human or if we have decided to watch the human players, we show them
+                self.game.display_grid()
+            next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
+            self.game.make_a_move(next_move)
+            self.game.next_turn()
+            self.game.player_playing = (self.game.player_playing + 1) % self.number_players
+        if self.game.score[0] > self.game.score[1]:
+            self.score[player0] += 1
+        elif self.game.score[1] > self.game.score[0]:
+            self.score[player1] += 1
+        else :
+            self.score[player0] += .5
+            self.score[player1] += .5
+        self.leaderboard = calculate_leaderboard(self.score)
+        
         
         
 def select_player(number_player):   
@@ -67,7 +88,7 @@ def select_player(number_player):
         else :
             list_player[i-1].name = temp_player
             list_player[i-1].is_ai = True
-            list_player[i-1].file = "IA." + temp_player
+            list_player[i-1].file = temp_player
     return list_player
     
 def calculate_leaderboard(score):
