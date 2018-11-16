@@ -9,7 +9,7 @@ def test_game():
     game.is_over_function = lambda x: 1
     game.list_board = [Board(4,4)]
     assert game.is_over()[0] == 1
-    assert game.get_board() == Board(4,4)
+    assert game.get_board() == game.list_board[0]
     game.display_grid_function = lambda x: print(x)
 
 def test_init_game():
