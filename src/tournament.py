@@ -1,4 +1,5 @@
 import operator
+import src.players as player
 
 class Tournament:
     """This is the class that is going to manage tournaments, it includes all necessary information"""
@@ -48,19 +49,26 @@ class Tournament:
         import src.games.game_p4.rules_p4
         self.rules = src.games.game_p4.rules_p4
         
+    #def play_one_game(player1,player2):
         
-def select_player(number_player):
+        
+def select_player(number_player):   
     """Asks a human who every player is, whether a human of the name of an AI"""
-    who_is_player = []
+    list_player = [player.Player()]
     number_human_players = 1
     for i in range(1,number_player+1):
-        temp_player = input("State the name of the IA for the player number {} (state h for a human player) : ".format(i))
+        temp_player = input("State the name of the IA for the player number {} (simply state h for a human player) : ".format(i))
         if temp_player == "h" :
-            temp_player = "human_"
-            temp_player += str(number_human_players)
+            list_player[i-1].is_ai = False
+            temp_player = "human_" + str(number_human_players)
             number_human_players += 1
-        who_is_player.append(temp_player)
-    return who_is_player
+            list_player[i-1].name = temp_player
+            list_player[i-1].file = "human_ia"
+        else :
+            list_player[i-1].name = temp_player
+            list_player[i-1].is_ai = True
+            list_player[i-1].file = "IA." + temp_player
+    return list_player
     
 def calculate_leaderboard(score):
     """Recieves the list of the score of every player and returns the rank of each player"""
