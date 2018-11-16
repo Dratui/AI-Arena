@@ -1,0 +1,4 @@
+* linguist-vendored
+game2048/* linguist-vendored=false
+
+test/* linguist-vendored=false
