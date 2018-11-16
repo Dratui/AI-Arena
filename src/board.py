@@ -3,24 +3,54 @@
 
 
 class Board:
-    def __init__(self, width, height):
-        self.width = width
+    def __init__(self, height, width):
         self.height = height
+        self.width = width
         self.grid = [[' ' for i in range(self.width)] for j in range(self.height)]
-    
-    def change(self, x,y,value):
+
+        
+    def change_tile(self, row, col,value):
         """
         CHANGE ONE VALUE OF THE GRID
-        x: Lignes (int)
-        y: Colonnes (int)
-        value: valeur (str)
+        row: Row (int)
+        col: Column (int)
+        value: value (str)
         
         Returns nothing
         """
-        self.grid[x][y]=value
+        self.grid[row][col]=value
+        
+    def read_tile(self, row, col):
+        """
+        READ ONE VALUE OF THE GRID
+        row: Row (int)
+        col: Column (int)
+        
+        Returns the value (row, col) of the grid
+        """
+        return self.grid[row][col]
 
-    def transpose(self):
+    def transpose_grid(self):
         return [list(elem) for elem in zip(*A[::-1])]
-    
+        
+    def read_row(self, x):
+        """
+        READ ONE ROW OF THE GRID
+        row: Row (int)
+        
+        Returns the row as a list
+        """
+        return self.grid[row]
+        
+    def read_column(self, col):
+        """
+        READ ONE COLUMN OF THE GRID
+        col: Column (int)
+        
+        Returns the column as a list
+        """
+        return [self.grid[i][col] for i in range(self.height)]
+
+
     
     
