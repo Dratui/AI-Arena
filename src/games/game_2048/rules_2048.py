@@ -23,7 +23,6 @@ def make_a_move(grid,direction, player = 0):
     if direction == 1: #droite
         for i in range(4):
             grid[i] = evolve_line(grid[i][::-1])[::-1]
-            print()
     if direction == 3: #gauche
         for i in range(4):
             grid[i] = evolve_line(grid[i])
@@ -59,8 +58,8 @@ def create_new_tile(grid):
 
 def is_over(grid):
     """Check whether the grid is full or not"""
-    grid_copy = deepcopy(grid)
     for i in range(4):
-        if grid_copy != make_a_move(grid,i):
+        grid_copy = deepcopy(grid)
+        if grid != make_a_move(grid_copy,i):
             return False
     return True

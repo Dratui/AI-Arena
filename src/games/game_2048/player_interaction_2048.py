@@ -20,8 +20,9 @@ def player_setup_size():
 
 
 def get_player_move():
-    """ask and return the direction wanted by the player, 0 : right, 1 : left, 2 : up, 3 : down """
+    """ask and return the direction wanted by the player, 0 : up, 1 : right, 2 : down, 3 : left """
     direction = input("Dans quelle direction voulez-vous jouez ? (d : droite, g : gauche, h : haut, b : bas)")
     while not(direction in ["d","g","h","b"]):
         direction = input("Direction invalide, reéssayez (d : droite, g : gauche, h : haut, b : bas)")
-    return ["d","g","h","b"].index(direction)
+    move = ["h","d","b","g"].index(direction)
+    return move

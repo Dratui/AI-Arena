@@ -28,5 +28,5 @@ def is_over(grid, move, player):
         list_near_points.append(k-1)
     for k in range(4):
         if list_near_points[k]+list_near_points[k+4] >2 :
-            return (True, player)
-    return (False, player)
+            return True
+    return False

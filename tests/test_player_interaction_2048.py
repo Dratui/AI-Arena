@@ -7,9 +7,9 @@ def test_player_theme(monkeypatch):
 
 def test_get_player_move(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda x: "d")
-    assert get_player_move() == 0
+    assert get_player_move() == 1
     monkeypatch.setattr('builtins.input', lambda x: "h")
-    assert get_player_move() == 2
+    assert get_player_move() == 0
 
 def test_player_setup_size(monkeypatch):
     monkeypatch.setattr('builtins.input', lambda x: "4")

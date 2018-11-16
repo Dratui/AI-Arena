@@ -9,7 +9,7 @@ def create_grid(horizontal_size, vertical_size):
     return grid
 
 
-def display_grid(grid, size):
+def display_grid(grid, size = 5):
     """Convert grid to string to display it according to the parameters given by the player"""
     string = "|"
     for i in range(len(grid)):
