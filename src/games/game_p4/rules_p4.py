@@ -30,5 +30,3 @@ def is_over(grid, move, player):
         if list_near_points[k]+list_near_points[k+4] >2 :
             return True
     return False
-
-def calc_score(grid):

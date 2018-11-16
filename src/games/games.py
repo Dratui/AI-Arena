@@ -67,7 +67,7 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     if name == "2048":
         new_game = Game()
         new_game.name = "2048"
-        new_game.score = [0 for i in range(number_players)]
+        new_game.score = [0 for i in range(players_number)]
         new_game.list_board = [Board(4,4) for i in range(players_number)]
         new_game.list_player = [i for i in range(players_number)]
         new_game.board_size = (4,4)

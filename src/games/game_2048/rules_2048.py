@@ -49,13 +49,21 @@ def create_new_tile(grid):
                 free_tiles.append((i,j))
     k = random.randint(0,len(free_tiles)-1)
     coord = free_tiles[k]
-    board.write_tile = random.randint(1,2)*2
+    board.change_tile(i,j,random.randint(1,2)*2)
     return grid
 
-def is_over(grid):
-    """Check whether the grid is full or not"""
+def move_possible(board):
+    """return the list of the moves that are possible"""
+    list = []
     for i in range(4):
-        grid_copy = deepcopy(grid)
-        if grid != make_a_move(grid_copy,i):
-            return False
-    return True
+        board_copy = board
+        if board != make_a_move(board,i):
+            list.append(i)
+    return list
+
+
+def is_over(board):
+    """Check whether the grid is full or not"""
+    if move_possible(board) == []:
+        return True
+    return False
