@@ -29,3 +29,11 @@ def is_over(board, move, player):
         if list_near_points[k]+list_near_points[k+4] >2 :
             return True
     return False
+
+def score(board):
+    """Returns a score of 1 for the player that has won"""
+    score = [0,0]
+    x, y = is_over(board)
+    if x == True :
+        score[y] = 1
+    return score
