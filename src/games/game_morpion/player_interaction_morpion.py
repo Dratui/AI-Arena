@@ -1,4 +1,4 @@
-move_description =""" Entrer le numéro de la colonne ou de le ligne (entre 1 et 3) """
+move_description =""" entrer le numéro de ligne puis celui de la colonne (ex: 1,1 ) : """
 
 
 def get_player_move(board):
