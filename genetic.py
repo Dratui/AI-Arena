@@ -1,16 +1,35 @@
 import random as rd
-#MOVES = ['h','b','g','d']
+GAME = '2048'
 MOVES= [0,1,2,3]
 #Initialisation of a community : number of movements
 import src.games.games as games
 
-def calc_score22(board):
+#Way to attribute a score to algorithms
+def calc_score_sum(board):
+    """
+    Simple sum of all the tiles
+    :param board:
+    :return:
+    """
     sum = 0
     for i in board.get_all_tiles():
         if i!=' ':
             sum += int(int(i))
     return sum
 
+def calc_score_sum_squared(board):
+    """
+    Sum of all the tiles by squared
+    :param board:
+    :return:
+    """
+    sum = 0
+    for i in board.get_all_tiles():
+        if i!=' ':
+            sum += int(int(i))
+    return sum
+
+#Initialisation
 def initialisation(move_numb,pop_size):
     """
     Initialisation of a random population of list of instructions
@@ -24,6 +43,7 @@ def initialisation(move_numb,pop_size):
         population.append([rd.choice(MOVES) for i in range(move_numb)])
     return population
 
+#Evaluation
 def evaluation(population):
     """
     Generate a list of scores to rate each individual compared to each other
@@ -32,20 +52,21 @@ def evaluation(population):
     """
     scores = []
     for individual in population:
-        game=games.init_game('2048',calc_score_function = calc_score22)
-        n=0
+        game=games.init_game(name=GAME)
+        game.calc_score_function=calc_score_sum
         i=0
-        while not(game.is_over()[0]) and (n<100):
+
+        while not(game.is_over()[0] or len([x for x in individual if x in game.get_move_effective()])):
+            #The game ends if the game is over or of all moves in the individual won't do anything to the board
             if i==len(individual):
                 i=0
             game.make_a_move(individual[i])
             game.next_turn()
             i=i+1
-            n=n+1
         scores.append(game.calc_score())
     return scores
 
-
+#Selection of the best individuals
 def selection(population):
     """
     Split the population between the best and the worst.
@@ -75,7 +96,7 @@ def son2(ind1,ind2):
     2 individual to create one child
     :param ind1:
     :param ind2:
-    :return: a new individual
+    :return: a mutated individual (or not, who knows)
     """
     son=[]
     for i in range(len(ind1)):
@@ -87,11 +108,11 @@ def son2(ind1,ind2):
 
 #Mutation random mix
 def son3(ind1,ind2):
-    """ son2: randomly choose between ind1 and ind2 with a chance ponderation
+    """ son2: randomly choose between ind1 and ind2 with a chance ponderated
     2 individual to create one child
     :param ind1:
     :param ind2:
-    :return: a new individual
+    :return: a mutated individual (or not, who knows)
     """
     son=[]
     for i in range(len(ind1)):
@@ -101,12 +122,24 @@ def son3(ind1,ind2):
             son.append(ind2[i])
     return son
 
+#Mutation of individuals
 def mutation(ind):
-    if rd.random()>0.5:
+    """
+    Mutate randomly an individual
+    :param ind:
+    :return: a mutated individual (or not, who knows)
+    """
+    if rd.random() > 0.5:
         ind[rd.choice(range(len(ind)))]= rd.choice(MOVES)
     return ind
 
+#Creation of a new generation with
 def new_generation(population):
+    """
+    Creates a new generation population.
+    :param population:
+    :return: a new population : the next generation
+    """
     pop_size= len(population)
     population=selection(population)
     i=0
@@ -121,9 +154,37 @@ def new_generation(population):
     for ind in population:
         pop2.append(mutation(ind))
     return pop2
-population=initialisation(2, 50)
 
-for i in range(100):
-    print(i)
-    population=new_generation(population)
-print(population[0:5])
+def results(population):
+    """
+    At the end, we check the number of each sequence that is the same and list them by descendant values.
+    :param population:
+    :return: sequences with number of individual with this
+    """
+    sequences=[]
+    numb_ind_per_sequence=[]
+    for ind in population:
+        if ind in sequences:
+            i=sequences.index(ind)
+            numb_ind_per_sequence[i]=numb_ind_per_sequence[i]+1
+        else:
+            sequences.append(ind)
+            numb_ind_per_sequence.append(1)
+    return sorted([(sequences[i],numb_ind_per_sequence[i]) for i in range(len(sequences))],key=lambda x:x[1],reverse=True)
+            #Return the descendant list of (individual, number of presence)
+
+def genetic_algorithm(individual_size, population_size, number_of_generation):
+    """
+    Final algorithme which print the result of the wanted algorithm
+    :param population_size:
+    :param individual_size:
+    :param number_of_generation:
+    :return: Nothing
+    """
+    population=initialisation(individual_size,population_size)
+    for i in range(number_of_generation):
+        if(i*100)%number_of_generation==0:
+            print("Genetic algorithm of {} individuals of {} size with {} iterations at {} %".format(population_size,individual_size,number_of_generation,(i*100)%number_of_generation ))
+        population=new_generation(population)
+    print(results(population))
+
