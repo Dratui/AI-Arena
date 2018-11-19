@@ -56,11 +56,11 @@ class Game:
         else:
                 self.make_a_move_function(self.list_board[self.player_playing],move,self.player_playing)
 
-    def is_over(self, player = None, *args):
+    def is_over(self, *args, player = None):
         if player == None:
             player = self.player_playing
         return (self.is_over_function(self.list_board[player],*args), player)
-        
+
     def all_over(self, *args):
         test = True
         for i in range(len(self.list_board)):
@@ -94,6 +94,10 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     elif name == "p4":
         new_game = Game()
         init_game_p4.create_p4(new_game, vertical_size, horizontal_size)
+        return new_game
+    elif name == "morpion":
+        new_game = Game()
+        init_game_morpion.create_morpion(new_game)
         return new_game
     else:
         raise Exception("Jeu non reconnu")
