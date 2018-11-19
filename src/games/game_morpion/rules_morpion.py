@@ -1,6 +1,6 @@
-def make_a_move(board,x,y,player):
-    if board.read_tile(x,y) == " ":
-        board.change_tile(x,y,player)
+def make_a_move(board,move,player):
+    if board.read_tile(move[0],move[1]) == " ":
+        board.change_tile(move[0],move[1],player)
 
 def move_effective(board):
     list = []

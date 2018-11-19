@@ -33,7 +33,7 @@ def launch():
             print(gp4_game.list_board[0].grid_to_string_with_size(3))
             move = player_interaction_p4.get_player_move(gp4_game.list_board[0])
             gp4_game.make_a_move(move)
-            if not(gp4_game.is_over(move, gp4_game.player_playing)[0]):
+            if not(gp4_game.is_over()[0]):
                 gp4_game.next_turn()
                 gp4_game.change_player()
             else:
