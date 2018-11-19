@@ -11,7 +11,7 @@ g2k_game = init_game("2048")
 gp4_game = init_game("p4")
 morpion_game = init_game("morpion")
 
-game = "p4"
+game = "morpion"
 
 def launch():
     if game == "2048":
@@ -45,7 +45,7 @@ def launch():
             print(morpion_game.list_board[0].grid_to_string_with_size(3))
             move = player_interaction_morpion.get_player_move(morpion_game.list_board[0])
             morpion_game.make_a_move(move)
-            if not(morpion_game.is_over(move, morpion_game.player_playing)[0]):
+            if not(morpion_game.is_over()[0]):
                 morpion_game.next_turn()
                 morpion_game.change_player()
             else:
