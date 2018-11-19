@@ -19,7 +19,7 @@ class Tournament:
     
     def tournament_init(self):
         """Starts a new tournament, retrieving all relevant information on the game and the players"""
-        temp_number_players = int(input("How many players are there in this tournament ? (IA included) : "))
+        temp_number_players = int(input("How many players are there in this tournament ? (AI included) : "))
         while not type(temp_number_players) == type(2) :
             temp_number_players = int(input("Please enter a valid integer : "))
         self.number_players = temp_number_players
@@ -118,13 +118,13 @@ def select_player(number_player):
     number_human_players = 1
     number_ai_players = 1
     for i in range(1,number_player+1):
-        temp_player = input("State the name of the IA for the player number {} (simply state h for a human player) : ".format(i))
+        temp_player = input("State the name of the AI for the player number {} (simply state h for a human player) : ".format(i))
         if temp_player == "h": #If we have a human, we wish to give a different name to them
             list_player[i-1].is_ai = False
             temp_player = "human_" + str(number_human_players)
             number_human_players += 1
             list_player[i-1].name = temp_player
-            list_player[i-1].file = "human_ia"
+            list_player[i-1].file = "human_ai"
         else:
             list_player[i-1].is_ai = True
             list_player[i-1].file = temp_player
