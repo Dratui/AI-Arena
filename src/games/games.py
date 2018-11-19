@@ -13,7 +13,7 @@ class Game:
     """
     This is an object which is designed to represent a game using functions written somewhere elem_to_string_size
     The main functions needed to initialize this object are :
-        - is_over : returns True if the game is over, and False if it is not
+        - is_over : returns a tuple, with the first item being True if the game is over, and False if it is not and the second being the player that win
         - make_a_move : modifies the board according to a move given in args but don't return it
         - next_turn : modifies the board according to what is supposed to happen when a player finishes his turn but don't return it (i.e. 2k48 --> spawn a new tile)
         - display_board : returns the string used to display the board
