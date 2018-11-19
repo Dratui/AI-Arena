@@ -21,3 +21,4 @@ def create_morpion(new_game):
         new_game.map_move_to_input = {}
         new_game.is_board_equal = True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = lambda x: x
+        new_game.move_effective_function = rules_morpion.move_effective
