@@ -4,7 +4,7 @@ MOVES= [0,1,2,3]
 #Initialisation of a community : number of movements
 import src.games.games as games
 
-def calc_score(board):
+def calc_score22(board):
     sum = 0
     for i in board.get_all_tiles():
         if i!=' ':
@@ -32,7 +32,7 @@ def evaluation(population):
     """
     scores = []
     for individual in population:
-        game=games.init_game('2048',calc_score_function = calc_score)
+        game=games.init_game('2048',calc_score_function = calc_score22)
         n=0
         i=0
         while not(game.is_over()[0]) and (n<100):
