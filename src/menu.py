@@ -8,19 +8,25 @@ fenetre.title("AI Arena")
 canvas = Canvas(fenetre, width=900, height=700, cursor="target")
 photo = PhotoImage(file="../graphics/menu.PNG")
 
-canvas.create_image(0, 0, anchor=NW, image=photo)
-canvas.create_text(450,260,text="Play",font=TILES_FONT,fill="#de8421",activefill="#ff3300") 
-canvas.pack()
-def clic_play(events):
-    print("Play")
-def clavier(event):
-    touche = event.keysym
-    for i in range(4):
-        for j in range(4):
-            game_grid[i][j]="0"
+def clic(events):
     
+    print("Play")
 
-    fenetre.update()
+def Joueurs(event):
+    
+    fenetrejoueurs=Tk()
+    fenetrejoueurs.title('Joueurs')
+   
+    label=Label(fenetrejoueurs,text="Nombre de joueurs:",bg="yellow").pack(padx=10, pady=10)
+    Nombre=Spinbox(fenetrejoueurs, from_=0, to=10)
+    Nombre.pack()
+    
+canvas.create_image(0, 0, anchor=NW, image=photo)
+canvas.create_text(450,260,text="Play",font=TILES_FONT,fill="#de8421",activefill="#ff3300")
+canvas.pack()
+canvas.bind("<Button-1> ", Joueurs)
+
+
 
 canvas.focus_set()
 canvas.pack()
