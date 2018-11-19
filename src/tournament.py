@@ -91,7 +91,7 @@ class Tournament:
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
                 self.launch_a_game(x,y,display_ai_game)
                 if self.matches[x][y] != "ex aequo":
-                    print("The winner is ", self.list_player, "\n")
+                    print("The winner is ", self.list_players[self.matches[x][y]], "\n")
                 else:
                     print(self.matches[x][y],"\n")
         self.print_leaderboard(self.leaderboard)
