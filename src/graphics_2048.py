@@ -50,7 +50,8 @@ def display():
                 text.place(x=50, y=50, anchor="center")
         list_canvas[i].grid_propagate(0)
         list_canvas[i].grid(column = i, row = 0)
-            
+
+# Update function
 def keyboard(event):
     global list_grids
     key = event.keysym
