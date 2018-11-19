@@ -10,7 +10,7 @@ import src.games.game_2048.rules_2048 as rules_2048
 g2k_game = init_game("2048")
 gp4_game = init_game("p4")
 
-game = "2048"
+game = "p4"
 
 def launch():
     if game == "2048":

@@ -56,11 +56,11 @@ class Game:
         else:
                 self.make_a_move_function(self.list_board[self.player_playing],move,self.player_playing)
 
-    def is_over(self, player = None, *args):
+    def is_over(self, *args, player = None):
         if player == None:
             player = self.player_playing
         return (self.is_over_function(self.list_board[player],*args), player)
-        
+
     def all_over(self, *args):
         test = True
         for i in range(len(self.list_board)):
