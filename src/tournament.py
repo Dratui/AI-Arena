@@ -20,7 +20,7 @@ class Tournament:
     def tournament_init(self):
         """Starts a new tournament, retrieving all relevant information on the game and the players"""
         temp_number_players = int(input("How many players are there in this tournament ? (IA included) : "))
-        while not type(temp_number_players) == "int" :
+        while not type(temp_number_players) == type(2) :
             temp_number_players = int(input("Please enter a valid integer : "))
         self.number_players = temp_number_players
         self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
