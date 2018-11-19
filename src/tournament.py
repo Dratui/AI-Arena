@@ -19,7 +19,10 @@ class Tournament:
     
     def tournament_init(self):
         """Starts a new tournament, retrieving all relevant information on the game and the players"""
-        self.number_players = int(input("How many players are there in this tournament ? (IA included) : "))
+        temp_number_players = int(input("How many players are there in this tournament ? (IA included) : "))
+        while not type(temp_number_players) == "int" :
+            temp_number_players = int(input("Please enter a valid integer : "))
+        self.number_players = temp_number_players
         self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
         self.game_name = input("What game are we going to play ? 'p4' ou '2048' ? ")
         while self.game_name != "2048" and self.game_name != "p4":
@@ -63,6 +66,7 @@ class Tournament:
                 next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
                 self.game.make_a_move(next_move)
                 self.game.next_turn()
+                self.game.score[self.game.player_playing] = self.game.calc_score()
             self.game.player_playing = (self.game.player_playing + 1) % self.number_players
         #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
