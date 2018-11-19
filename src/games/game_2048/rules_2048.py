@@ -21,7 +21,7 @@ def evolve_line(line):
     return line
 
 def make_a_move(board,direction, player = 0):
-    """evolve the grid according to the direction asked by the player"""
+    """evolve the grid accordin'g to the direction asked by the player"""
     if direction == 1: #droite
         for i in range(4):
             line = board.read_row(i)[::-1]
