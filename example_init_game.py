@@ -1,10 +1,10 @@
 from src.games.games import Game, init_game
-import src.games.game_p4.grid_p4 as grid_p4
 import src.games.game_p4.player_interaction_p4 as player_interaction_p4
 import src.games.game_p4.rules_p4 as rules_p4
-import src.games.game_2048.grid_2048 as grid_2048
 import src.games.game_2048.player_interaction_2048 as player_interaction_2048
 import src.games.game_2048.rules_2048 as rules_2048
+import src.games.game_morpion.player_interaction_morpion as player_interaction_morpion
+import src.games.game_morpion.rules_morpion as rules_morpion
 
 
 g2k_game = init_game("2048")
@@ -43,7 +43,7 @@ def launch():
         while 1:
             print("joueur", morpion_game.player_playing)
             print(morpion_game.list_board[0].grid_to_string_with_size(3))
-            move = player_interaction_p4.get_player_move(morpion_game.list_board[0])
+            move = player_interaction_morpion.get_player_move(morpion_game.list_board[0])
             morpion_game.make_a_move(move)
             if not(morpion_game.is_over(move, morpion_game.player_playing)[0]):
                 morpion_game.next_turn()
