@@ -56,7 +56,7 @@ class Game:
         return (self.is_over_function(self.list_board[self.player_playing],*args), self.player_playing)
 
     def display_board(self, board_number = 0, *args):
-        return self.list_board[i].grid_to_string_with_size(self.max_char_size)
+        return self.list_board[board_number].grid_to_string_with_size(self.max_char_size)
 
     def next_turn(self, *args):
         self.next_turn_function(self.list_board[self.player_playing])
