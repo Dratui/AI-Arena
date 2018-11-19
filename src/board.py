@@ -1,13 +1,20 @@
 import numpy as np
 from copy import deepcopy
 
+def get_higher_value(grille):
+    max=0
+    for i in range(len(grille)):
+        for j in range(len(grille[0])):
+            if int(grille[i][j])>max:
+                max = int(grille[i][j])
+    return max
 def generate_board_from_list(grille):
     width = len(grille[0])
     height = len(grille)
     tableau=Board(height,width)
     for i in range(height):
         tableau.set_row(i,grille[i])
-    print(tableau.get_grid())
+    
     return tableau
 class Board:
     def __init__(self, height, width):
