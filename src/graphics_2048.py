@@ -1,6 +1,10 @@
+# Graphical interface for a 2048 game.
+
+
+
 from tkinter import *
 
-## Valeurs graphiques
+## Graphical values
 
 TILES_BG_COLOR = {'0': "#9e948a", '2': "#eee4da", '4': "#ede0c8", '8': "#f1b078", \
                   '16': "#eb8c52", '32': "#f67c5f", '64': "#f65e3b", \
@@ -15,22 +19,27 @@ TILES_FG_COLOR = {'0': "#776e65", '2': "#776e65", '4': "#776e65", '8': "#f9f6f2"
 
 TILES_FONT = ("Verdana", 20, "bold")
 
-## 
+## Code starts here
 
-
+# Size of the grid. Should be choosen by the user thanks to another function
 grid_size = (4,4)
 
+# A grid for each player. Should be created by the init function
 game_grid1 = [['0','2','4','8'],['16','32','64','128'],['256','512','1024','2048'],['4096','8192','0','2']]
 game_grid2 = [['0','2','4','8'],['16','32','64','128'],['256','512','1024','2048'],['4096','8192','0','2']]
 list_grids = [game_grid1, game_grid2]
-fenetre = Tk()
-canvas1 = Canvas(fenetre,bg="#FFCC99", height=400, width=400)
-canvas2 = Canvas(fenetre,bg="#FFCC99", height=400, width=400)
+
+# Window of the game
+window = Tk()
+
+# A canva for each player
+canvas1 = Canvas(window,bg="#FFCC99", height=400, width=400)
+canvas2 = Canvas(window,bg="#FFCC99", height=400, width=400)
 list_canvas = [canvas1,canvas2]
 
 
-
-def afficher():
+# Display function, called at the beginning and then at every change
+def display():
     for i in range(len(list_canvas)):
         for x in range(grid_size[0]):
             for y in range(grid_size[1]):
@@ -42,66 +51,72 @@ def afficher():
         list_canvas[i].grid_propagate(0)
         list_canvas[i].grid(column = i, row = 0)
             
-def clavier_0(event):
+def keyboard(event):
     global list_grids
-    touche = event.keysym
+    key = event.keysym
     
-    if touche == "z":
-        # On fait là MàJ Haut, ici random
-        for i in range(4):
-            for j in range(4):
+    ## Updates for the player at the left 
+    if key == "z":
+        # Update "high", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[0][i][j]="0"
                 
-    elif touche == "s":
-        # On fait là MàJ Bas, ici random
-        for i in range(4):
-            for j in range(4):
+    elif key == "s":
+        # Update "down", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[0][i][j]="2"
                 
-    elif touche == "q":
-        # On fait là MàJ Gauche, ici random
-        for i in range(4):
-            for j in range(4):
+    elif key == "q":
+        # Update "left", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[0][i][j]="4"
     
-    elif touche == "d":
-        # On fait là MàJ Droite, ici random
-        for i in range(4):
-            for j in range(4):
+    elif key == "d":
+        # Update "right", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[0][i][j]="8"
     
-    if touche == "Up":
-        # On fait là MàJ Haut, ici random
-        for i in range(4):
-            for j in range(4):
+    ## Updates for the player at the right
+    if key == "Up":
+        # Update "high", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[1][i][j]="0"
                 
-    elif touche == "Down":
-        # On fait là MàJ Bas, ici random
-        for i in range(4):
-            for j in range(4):
+    elif key == "Down":
+        # Update "down", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[1][i][j]="2"
                 
-    elif touche == "Left":
-        # On fait là MàJ Gauche, ici random
-        for i in range(4):
-            for j in range(4):
+    elif key == "Left":
+        # Update "left", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[1][i][j]="4"
     
-    elif touche == "Right":
-        # On fait là MàJ Droite, ici random
-        for i in range(4):
-            for j in range(4):
+    elif key == "Right":
+        # Update "right", chosen randomly here
+        for i in range(grid_size[0]):
+            for j in range(grid_size[1]):
                 list_grids[1][i][j]="8"
     
-        
-    afficher()
-    fenetre.update()
     
+    display()
+    window.update()
+    
+## First display
+display()
 
-afficher()
-fenetre.bind("<Key>", clavier_0)
-fenetre.mainloop()
+## Handling the keyboard input
+window.bind("<Key>", clavier_0)
+
+## Window's loop
+window.mainloop()
 
     
 
