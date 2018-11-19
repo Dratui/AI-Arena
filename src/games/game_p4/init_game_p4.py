@@ -1,12 +1,10 @@
 import src.games.game_p4.grid_p4 as grid_p4
 import src.games.game_p4.player_interaction_p4 as player_interaction_p4
 import src.games.game_p4.rules_p4 as rules_p4
-from src.games.games import *
 from src.board import Board
 
 
-def create_p4():
-        new_game = Game()
+def create_p4(new_game, vertical_size, horizontal_size):
         new_game.name = "p4"
         new_game.score = [0,0]
         new_game.list_board = [Board(vertical_size, horizontal_size) for i in range(2)]

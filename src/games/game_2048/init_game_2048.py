@@ -1,12 +1,11 @@
 import src.games.game_2048.board_2048 as board_2048
 import src.games.game_2048.player_interaction_2048 as player_interaction_2048
 import src.games.game_2048.rules_2048 as rules_2048
-from src.games.games import Game
 from src.board import Board
 
 
-def create_2048():
-        new_game = G()
+
+def create_2048(new_game, players_number):
         new_game.name = "2048"
         new_game.score = [0 for i in range(players_number)]
         new_game.list_board = [board_2048.init_board(Board(4,4)) for i in range(players_number)]

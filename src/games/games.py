@@ -87,13 +87,13 @@ class Game:
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
     if name == "2048":
-        return init_game_2048.create_2048()
+        new_game = Game()
+        init_game_2048.create_2048(new_game,players_number)
+        return new_game
 
     elif name == "p4":
-        return init_game_p4.create_p4()
+        new_game = Game()
+        init_game_p4.create_p4(new_game, vertical_size, horizontal_size)
+        return new_game
     else:
         raise Exception("Jeu non reconnu")
-
-
-def test():
-    return 1
