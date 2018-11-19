@@ -60,6 +60,12 @@ class Game:
         if player == None:
             player = self.player_playing
         return (self.is_over_function(self.list_board[player],*args), player)
+        
+    def all_over(self, *args):
+        test = True
+        for i in range(len(self.list_board)):
+            test = test and is_over(self, player = i)[0]
+        return test
 
     def display_board(self, board_number = None, *args):
         if board_number == None:
