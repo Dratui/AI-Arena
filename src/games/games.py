@@ -18,10 +18,11 @@ class Game:
         - is_over : returns a tuple, with the first item being True if the game is over, and False if it is not and the second being the player that win
         - make_a_move : modifies the board according to a move given in args but don't return it
         - next_turn : modifies the board according to what is supposed to happen when a player finishes his turn but don't return it (i.e. 2k48 --> spawn a new tile)
+        - move_effective : returns the list of the move that will have an efect on the game (i.e. not the move that will do nothing)
         - display_board : returns the string used to display the board
     """
     def __init__(self, name = "", number_player = 2, move_available = [], board_size = (4,4), make_a_move_function = lambda x: None, is_over_function = lambda x: None,  next_turn_function = lambda x: None,
-                calc_score_function = lambda x: None, move_description = "", map_input_to_move = {}, map_move_to_input = {}, is_board_equal = False , theme_number = 0,
+                move_effective_function = lambda x: None, calc_score_function = lambda x: None, move_description = "", map_input_to_move = {}, map_move_to_input = {}, is_board_equal = False , theme_number = 0,
                 player_playing = 0, max_char_size = 2):
 
         self.name = name#name of the game
