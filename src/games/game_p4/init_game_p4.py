@@ -17,6 +17,7 @@ def create_p4(new_game, vertical_size, horizontal_size):
         new_game.map_input_to_move = {}
         new_game.map_move_to_input = {}
         new_game.is_board_equal = True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
+        new_game.move_effective_function = rules_p4.move_effective
         new_game.next_turn_function = lambda x: x
         new_game.calc_score_function = score(new_game)
 

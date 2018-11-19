@@ -33,3 +33,9 @@ def is_over(board):
                         return True
     return False
 
+def move_effective(board):
+    list = []
+    for i in range(board.width):
+        if board.read_tile(0,i) == " ":
+            list.append(i)
+    return list

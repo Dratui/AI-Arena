@@ -35,13 +35,16 @@ Normalization:
 Game implemented :
 
   - 2048 :
+
       - moves : 0 for up
                 1 for right
                 2 for down
                 3 for left
 
   - p4 :
+
       - moves : number of the column (starting from 0)
 
   - morpion :
+  
       - moves : tuple of the coordinates (line, column)
