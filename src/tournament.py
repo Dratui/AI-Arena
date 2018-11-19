@@ -58,11 +58,12 @@ class Tournament:
         self.game = games.init_game(self.game_name)
         while not self.game.is_over()[0]:
             if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the human players, we show them
-                self.game.display_board()
+                print(self.game.display_board())
             next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
             self.game.make_a_move(next_move)
-            self.game.next_turn()
-            self.game.player_playing = (self.game.player_playing + 1) % self.number_players
+            if not self.game.is_over()[0]:
+                self.game.next_turn()
+                self.game.player_playing = (self.game.player_playing + 1) % self.number_players
         #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
             self.score[player0] += 1
