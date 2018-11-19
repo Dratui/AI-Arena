@@ -184,7 +184,8 @@ def genetic_algorithm(individual_size, population_size, number_of_generation):
     population=initialisation(individual_size,population_size)
     for i in range(number_of_generation):
         if(i*100)%number_of_generation==0:
-            print("Genetic algorithm of {} individuals of {} size with {} iterations at {} %".format(population_size,individual_size,number_of_generation,(i*100)%number_of_generation ))
+            print("Genetic algorithm of {} individuals of {} size with {} iterations at {} %".format(population_size,individual_size,number_of_generation,(i*100)//number_of_generation ))
         population=new_generation(population)
     print(results(population))
 
+genetic_algorithm(2,10,100)
