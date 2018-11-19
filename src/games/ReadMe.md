@@ -46,5 +46,5 @@ Game implemented :
       - moves : number of the column (starting from 0)
 
   - morpion :
-  
-      - moves : tuple of the coordinates (line, column)
+
+      - moves : number of the tile (0 to 8)

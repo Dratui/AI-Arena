@@ -1,13 +1,13 @@
 def make_a_move(board,move,player):
-    if board.read_tile(move[0],move[1]) == " ":
-        board.change_tile(move[0],move[1],player)
+    if board.read_tile(move//3, move %3) == " ":
+        board.change_tile(move//3, move %3 ,player)
 
 def move_effective(board):
     list = []
     for i in range(3):
         for j in range(3):
             if board.read_tile(i,j) == " ":
-                list.append((i,j))
+                list.append(3*i+j)
     return list
 
 def is_over(board):
