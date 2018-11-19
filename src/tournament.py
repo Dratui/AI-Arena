@@ -112,7 +112,9 @@ class Tournament:
         
 def select_player(number_player):   
     """Asks a human who every player is, whether a human of the name of an AI"""
-    list_player = [player.Player()] * number_player
+    list_player = []
+    for i in range(number_player) :
+        list_player.append(player.Player())
     number_human_players = 1
     number_ai_players = 1
     for i in range(1,number_player+1):
