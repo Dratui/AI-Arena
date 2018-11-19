@@ -32,3 +32,4 @@ def is_over(board):
                     if list_near_points[k]+list_near_points[k+4] >2 :
                         return True
     return False
+
