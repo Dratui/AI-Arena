@@ -2,9 +2,12 @@ from src.games.games import Game, init_game
 import src.games.game_p4.grid_p4 as grid_p4
 import src.games.game_p4.player_interaction_p4 as player_interaction_p4
 import src.games.game_p4.rules_p4 as rules_p4
+import src.games.game_2048.grid_2048 as grid_2048
+import src.games.game_2048.player_interaction_2048 as player_interaction_2048
+import src.games.game_2048.rules_2048 as rules_2048
 
 
-"""g2k_game = init_game("2048")
+g2k_game = init_game("2048")
 
 
 def launch():
@@ -19,13 +22,13 @@ def launch():
             break
 
 if __name__ == "__main__" :
-    launch()"""
+    launch()
 
 
 gp4_game = init_game("p4")
 
 
-def launch():
+"""def launch():
     while 1:
         print("joueur", gp4_game.player_playing)
         print(gp4_game.list_board[0].grid_to_string_with_size(3))
@@ -39,4 +42,4 @@ def launch():
             break
 
 if __name__ == "__main__" :
-    launch()
+    launch()"""
