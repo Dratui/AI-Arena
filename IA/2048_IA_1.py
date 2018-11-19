@@ -7,8 +7,10 @@ def ia_output(board,game):
         return(2)
     if 3 in list_move_available:
         return(3)
-    else:
-        return(rd.randint(0,1))
+    if 2 in list_move_available:
+        return(2)
+    if 1 in list_move_available:
+        return(1)
 
 
 

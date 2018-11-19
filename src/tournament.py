@@ -20,7 +20,7 @@ class Tournament:
     def tournament_init(self):
         """Starts a new tournament, retrieving all relevant information on the game and the players"""
         temp_number_players = int(input("How many players are there in this tournament ? (IA included) : "))
-        while not type(temp_number_players) == "int" :
+        while not type(temp_number_players) == type(2) :
             temp_number_players = int(input("Please enter a valid integer : "))
         self.number_players = temp_number_players
         self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
@@ -91,7 +91,7 @@ class Tournament:
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
                 self.launch_a_game(x,y,display_ai_game)
                 if self.matches[x][y] != "ex aequo":
-                    print("The winner is ", self.list_player, "\n")
+                    print("The winner is ", self.list_players[self.matches[x][y]], "\n")
                 else:
                     print(self.matches[x][y],"\n")
         self.print_leaderboard(self.leaderboard)
