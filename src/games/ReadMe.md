@@ -25,3 +25,7 @@ Normalization:
 
     - move_effective : args : board
                        return : list of the move that would have an effect (list)
+
+
+Game implemented :
+  - 2048 :

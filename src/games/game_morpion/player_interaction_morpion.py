@@ -18,8 +18,8 @@ def player_setup_size():
 def get_player_move(board):
     """ask and return the move the player want to play"""
     size_horizontal = board.width
-    move_y = input("Où voulez-vous jouez ?\n ligne ?")
-    move_x = input("\n colonne ?")
+    move_x = input("Où voulez-vous jouez ?\n ligne ?")
+    move_y = input("\n colonne ?")
     cond = 0
     while 1:
         cond = 0
@@ -28,6 +28,6 @@ def get_player_move(board):
             cond = move_x < 3 and move_x >= 0 and move_y < 3 and move_y >= 0
             if cond:
                 break
-        move_y = input("mouvement invalide ?\n ligne ?")
-        move_x = input("\n colonne ?")
+        move_x = input("mouvement invalide ?\n ligne ?")
+        move_y = input("\n colonne ?")
     return (move_x,move_y)
