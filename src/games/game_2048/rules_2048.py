@@ -67,6 +67,7 @@ def is_over(board):
     """Check whether the grid is full or not"""
     for k in range(4):
         board_copy = make_a_move(deepcopy(board),k)
+        print(board_copy.get_all_tiles())
         free_tiles = []
         for i in range(4):
             for j in range(4):
