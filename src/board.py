@@ -7,7 +7,7 @@ def generate_board_from_list(grille):
     tableau=Board(height,width)
     for i in range(height):
         tableau.set_row(i,grille[i])
-    print(tableau.get_grid())
+    
     return tableau
 class Board:
     def __init__(self, height, width):
