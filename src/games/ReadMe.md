@@ -45,6 +45,6 @@ Game implemented :
 
       - moves : number of the column (starting from 0)
 
-  - morpion :
+  - ttt :
 
       - moves : number of the tile (0 to 8)

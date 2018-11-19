@@ -7,9 +7,9 @@ import src.games.game_p4.player_interaction_p4 as player_interaction_p4
 import src.games.game_p4.rules_p4 as rules_p4
 import src.games.game_p4.init_game_p4 as init_game_p4
 
-import src.games.game_morpion.player_interaction_morpion as player_interaction_morpion
-import src.games.game_morpion.rules_morpion as rules_morpion
-import src.games.game_morpion.init_game_morpion as init_game_morpion
+import src.games.game_ttt.player_interaction_ttt as player_interaction_ttt
+import src.games.game_ttt.rules_ttt as rules_ttt
+import src.games.game_ttt.init_game_ttt as init_game_ttt
 
 from src.board import Board
 
@@ -98,9 +98,9 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game = Game()
         init_game_p4.create_p4(new_game, vertical_size, horizontal_size)
         return new_game
-    elif name == "morpion":
+    elif name == "ttt":
         new_game = Game()
-        init_game_morpion.create_morpion(new_game)
+        init_game_ttt.create_ttt(new_game)
         return new_game
     else:
         raise Exception("Jeu non reconnu")
