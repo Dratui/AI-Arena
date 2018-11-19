@@ -1,6 +1,14 @@
 import numpy as np
 from copy import deepcopy
 
+def generate_board_from_list(grille):
+    width = len(grille[0])
+    height = len(grille)
+    tableau=Board(height,width)
+    for i in range(height):
+        tableau.set_row(i,grille[i])
+    print(tableau.get_grid())
+    return tableau
 class Board:
     def __init__(self, height, width):
         self.height = height
