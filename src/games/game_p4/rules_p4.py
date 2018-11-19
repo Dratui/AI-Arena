@@ -33,10 +33,3 @@ def is_over(board):
                         return True
     return False
 
-def score(board):
-    """Returns a score of 1 for the player that has won"""
-    score = [0,0]
-    x, y = is_over(board)
-    if x == True :
-        score[y] = 1
-    return score
