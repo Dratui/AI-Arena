@@ -82,7 +82,7 @@ class Game:
         self.player_playing = self.list_player[(self.player_playing +1)%len(self.list_player)]
 
     def calc_score(self, *args):
-        return self.calc_score_function(self.list_board[self.player_playing],*args)
+        return self.calc_score_function(self.list_board, self.player_playing,*args)
 
     def get_move_effective(self):
         return self.move_effective_function(self.list_board[self.player_playing])
