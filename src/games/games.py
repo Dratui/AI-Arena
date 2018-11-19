@@ -51,7 +51,7 @@ class Game:
         return (self.is_over_function(self.list_board[self.player_playing],*args), self.player_playing)
 
     def display_board(self, *args):
-        return grid_to_string_with_size(self.max_char_size)
+        return self.list_board[0].grid_to_string_with_size(self.max_char_size)
 
     def next_turn(self, *args):
         self.next_turn_function(self.list_board[self.player_playing])
@@ -60,7 +60,7 @@ class Game:
         self.player_playing = self.list_player[(self.player_playing +1)%len(self.list_player)]
 
     def calc_score(self, *args):
-        return calc_score_function(self.list_board[self.player_playing],*args)
+        return self.calc_score_function(self.list_board[self.player_playing],*args)
 
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
@@ -79,7 +79,7 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game.map_move_to_input = {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
         new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = rules_2048.create_new_tile
-#        new_game.calc_score_function =
+        new_game.calc_score_function = rules_2048.calc_score
 
     elif name == "p4":
         new_game = Game()

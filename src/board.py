@@ -1,10 +1,19 @@
 import numpy as np
+from copy import deepcopy
 
+def generate_board_from_list(grille):
+    width = len(grille[0])
+    height = len(grille)
+    tableau=Board(height,width)
+    for i in range(height):
+        tableau.set_row(i,grille[i])
+    
+    return tableau
 class Board:
     def __init__(self, height, width):
         self.height = height
         self.width = width
-        self.grid = [[' ' for i in range(self.width)] for j in range(self.height)]
+        self.__grid = [[' ' for i in range(self.width)] for j in range(self.height)]
 
     def change_tile(self, row, col,value):
         """
@@ -15,7 +24,7 @@ class Board:
 
         Returns nothing
         """
-        self.grid[row][col]=value
+        self.__grid[row][col]=value
 
 
     def read_tile(self, row, col):
@@ -26,22 +35,22 @@ class Board:
 
         Returns the value (row, col) of the grid
         """
-        return self.grid[row][col]
+        return self.__grid[row][col]
 
 
     def transpose_grid_clockwise(self):
         """
         TRANSPOSE THE BOARD CLOCKWISE
         """
-        return [list(elem) for elem in zip(*self.grid[::-1])]
+        return [list(elem) for elem in zip(*self.__grid[::-1])]
 
 
     def transpose_grid_anticlockwise(self):
         """
         TRANSPOSE THE BOARD ANTICLOCKWISE (CHIBRALLY)
         """
-        self.grid = self.transpose_grid_clockwise()
-        self.grid = self.transpose_grid_clockwise()
+        self.__grid = self.transpose_grid_clockwise()
+        self.__grid = self.transpose_grid_clockwise()
 
         return self.transpose_grid_clockwise()
 
@@ -53,7 +62,7 @@ class Board:
 
         Returns the row as a list
         """
-        return self.grid[row]
+        return self.__grid[row]
 
     def set_row(self, x,ROW):
         """
@@ -63,7 +72,7 @@ class Board:
 
         Returns nothing
         """
-        self.grid[x]=ROW
+        self.__grid[x]=ROW
 
     def read_column(self, col):
         """
@@ -72,7 +81,7 @@ class Board:
 
         Returns the column as a list
         """
-        return [self.grid[i][col] for i in range(self.height)]
+        return [self.__grid[i][col] for i in range(self.height)]
 
     def set_column(self, y,COL):
 
@@ -84,7 +93,7 @@ class Board:
         Returns nothing
         """
         for i in range(self.height):
-            self.grid[i][y]=COL[i]
+            self.__grid[i][y]=COL[i]
 
 
     def get_all_tiles(self):
@@ -97,6 +106,10 @@ class Board:
                 list_tiles.append(self.read_tile(i,j))
         return list_tiles
 
+    def get_grid(self):
+        return self.__grid
+
+
     def grid_to_string_with_size(self, maxsize=8):
         """
         RETURNS A STRING MODELLING THE GRID, TAKING ACCOUNT OF THE BIGGEST VALUE TO AVOID SHIFT
@@ -106,8 +119,8 @@ class Board:
         height = self.height
         list_tiles = self.get_all_tiles()
         grid_str = """"""
-        bord="="*maxsize+" "
-        sticks = " "+bord*width + """\n"""
+        bord=" "+"="*maxsize
+        sticks = bord*width + """\n"""
 
         lines_str = []
         for i in range(height) :
@@ -118,5 +131,5 @@ class Board:
             lines_str.append(line)
 
 
-        txt=sticks+sticks.join(lines_str)+" "+bord*width
+        txt=sticks+sticks.join(lines_str)+bord*width+" "
         return txt

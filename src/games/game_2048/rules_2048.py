@@ -40,7 +40,7 @@ def make_a_move(board,direction, player = 0):
             board.set_column(i, line[::-1])
 
             #board.set_column(i, evolve_line(board.read_column(i)[::-1])[::-1])
-
+    return board
 def create_new_tile(board):
     """fill an empty tile with a 2 or a 4"""
     free_tiles = []
@@ -70,5 +70,6 @@ def is_over(board):
 def calc_score(board):
     sum = 0
     for i in board.get_all_tiles():
-        sum += int(i * (np.log2(i)-1))
+        if i!=' ':
+            sum += int(int(i) * (np.log2(int(i))-1))
     return sum
