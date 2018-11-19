@@ -62,6 +62,7 @@ class Tournament:
         while not self.game.all_over():
             if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
                 print(self.game.display_board())
+                print("\n\n\n")
             if not self.game.is_over()[0]:
                 next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
                 self.game.make_a_move(next_move)
@@ -91,7 +92,7 @@ class Tournament:
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
                 self.launch_a_game(x,y,display_ai_game)
                 if self.matches[x][y] != "ex aequo":
-                    print("The winner is ", self.list_players[self.matches[x][y]], "\n")
+                    print("The winner is ", self.list_players[self.matches[x][y]].name, "\n")
                 else:
                     print(self.matches[x][y],"\n")
         self.print_leaderboard(self.leaderboard)
@@ -112,7 +113,9 @@ class Tournament:
         
 def select_player(number_player):   
     """Asks a human who every player is, whether a human of the name of an AI"""
-    list_player = [player.Player()] * number_player
+    list_player = []
+    for i in range(number_player) :
+        list_player.append(player.Player())
     number_human_players = 1
     number_ai_players = 1
     for i in range(1,number_player+1):
