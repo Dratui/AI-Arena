@@ -48,9 +48,10 @@ def create_new_tile(board):
         for j in range(4):
             if board.read_tile(i,j) == " ":
                 free_tiles.append((i,j))
-    k = random.randint(0,len(free_tiles)-1)
-    coord = free_tiles[k]
-    board.change_tile(coord[0],coord[1],random.randint(1,2)*2)
+    if free_tiles != []:
+        k = random.randint(0,len(free_tiles)-1)
+        coord = free_tiles[k]
+        board.change_tile(coord[0],coord[1],random.randint(1,2)*2)
 
 def move_possible(board):
     """return the list of the moves that are possible"""

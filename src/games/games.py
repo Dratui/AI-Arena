@@ -60,7 +60,7 @@ class Game:
         self.player_playing = self.list_player[(self.player_playing +1)%len(self.list_player)]
 
     def calc_score(self, *args):
-        return calc_score_function(self.list_board[self.player_playing],*args)
+        return self.calc_score_function(self.list_board[self.player_playing],*args)
 
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
