@@ -53,20 +53,29 @@ def create_new_tile(board):
         coord = free_tiles[k]
         board.change_tile(coord[0],coord[1],random.randint(1,2)*2)
 
-def move_possible(board):
+def move_effective(board):
     """return the list of the moves that are possible"""
     list = []
     for i in range(4):
-        if board != make_a_move(deepcopy(board),i):
+        if board.get_all_tiles() != make_a_move(deepcopy(board),i).get_all_tiles():
             list.append(i)
+            print(i)
     return list
 
 
 def is_over(board):
     """Check whether the grid is full or not"""
-    if move_possible(board) == []:
-        return True
-    return False
+    for k in range(4):
+        board_copy = make_a_move(deepcopy(board),k)
+        free_tiles = []
+        for i in range(4):
+            for j in range(4):
+                if board_copy.read_tile(i,j) == " ":
+                    free_tiles.append((i,j))
+        if free_tiles != []:
+            return False
+    return True
+
 
 def calc_score(board):
     sum = 0

@@ -42,6 +42,7 @@ class Game:
         self.next_turn_function = next_turn_function
         self.calc_score_function = calc_score_function
         self.max_char_size = max_char_size
+        self.move_effective_function = move_effective_function
 
     def get_board(self, player = 0):
         return self.list_board[player]
@@ -53,10 +54,14 @@ class Game:
         else:
                 self.make_a_move_function(self.list_board[self.player_playing],move,self.player_playing)
 
-    def is_over(self, *args):
-        return (self.is_over_function(self.list_board[self.player_playing],*args), self.player_playing)
+    def is_over(self, player = None, *args):
+        if player == None:
+            player = self.player_playing
+        return (self.is_over_function(self.list_board[player],*args), player)
 
-    def display_board(self, board_number = 0, *args):
+    def display_board(self, board_number = None, *args):
+        if board_number == None:
+            board_number = self.player_playing
         return self.list_board[board_number].grid_to_string_with_size(self.max_char_size)
 
     def next_turn(self, *args):
@@ -67,6 +72,9 @@ class Game:
 
     def calc_score(self, *args):
         return self.calc_score_function(self.list_board[self.player_playing],*args)
+
+    def get_move_effective(self):
+        return self.move_effective_function(self.list_board[self.player_playing])
 
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
@@ -86,6 +94,7 @@ def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
         new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = rules_2048.create_new_tile
         new_game.calc_score_function = rules_2048.calc_score
+        new_game.move_effective_function = rules_2048.move_effective
 
     elif name == "p4":
         new_game = Game()

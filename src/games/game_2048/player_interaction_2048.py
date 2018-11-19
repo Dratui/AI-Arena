@@ -1,6 +1,6 @@
 from src.games.game_2048.themes import THEMES
 
-move_description = "d : droite, g : gauche, h : haut, b : bas"
+move_description = "d : droite, g : gauche, h : haut, b : bas\n"
 
 
 
