@@ -28,6 +28,3 @@ def is_over(board):
                     if list_near_points[k]+list_near_points[k+4] >1 :
                         return True
     return False
-
-def move_effective(board):
-    
