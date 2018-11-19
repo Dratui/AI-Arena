@@ -59,7 +59,6 @@ def move_effective(board):
     for i in range(4):
         if board.get_all_tiles() != make_a_move(deepcopy(board),i).get_all_tiles():
             list.append(i)
-            print(i)
     return list
 
 

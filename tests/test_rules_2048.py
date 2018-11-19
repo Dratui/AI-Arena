@@ -34,4 +34,4 @@ def test_is_over():
     game.list_board[0] = generate_board_from_list([[' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [' ', ' ', ' ', ' '], [2, ' ', ' ', 2]])
     assert game.is_over()[0] == False
     game.list_board[0] = generate_board_from_list([[2*2**i,4*2**i,8*2**i,16*2**i] for i in range(4)])
-    assert game.is_over()[0] == False
+    assert game.is_over()[0] == True
