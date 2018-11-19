@@ -18,4 +18,12 @@ def create_p4(new_game, vertical_size, horizontal_size):
         new_game.map_move_to_input = {}
         new_game.is_board_equal = True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = lambda x: x
-        new_game.calc_score_function = rules_p4.score
+        new_game.calc_score_function = score(new_game)
+
+def score(self):
+    """Returns a score of 1 for the player that has won"""
+    score = [0,0]
+    x, y = self.is_over_function(self)
+    if x == True :
+        score[y] = 1
+    return score
