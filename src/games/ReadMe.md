@@ -6,6 +6,7 @@ The main functions needed to initialize the game objects are :
     - display_board : returns the string used to display the board
 
 Normalization:
+
     - is_over : mandatory args = board, optional : player
                 return = (is the game over (bool), which player has win (int)) (tuple)
 
@@ -29,3 +30,13 @@ Normalization:
 
 Game implemented :
   - 2048 :
+      - moves : 0 for up
+                1 for right
+                2 for down
+                3 for left
+
+  - p4 :
+      - moves : number of the column (starting from 0)
+
+  - morpion :
+      - moves : tuple of the coordinates (line, column)
