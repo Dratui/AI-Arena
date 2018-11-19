@@ -23,7 +23,7 @@ def create_p4(new_game, vertical_size, horizontal_size):
 def score(self):
     """Returns a score of 1 for the player that has won"""
     score = [0,0]
-    x, y = self.is_over_function(self.board)
+    x, y = self.is_over(self)
     if x == True :
         score[y] = 1
     return score
