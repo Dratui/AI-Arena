@@ -3,10 +3,13 @@ import src.games.game_2048.player_interaction_2048 as player_interaction_2048
 import src.games.game_2048.rules_2048 as rules_2048
 import src.games.game_2048.init_game_2048 as init_game_2048
 
-import src.games.game_p4.grid_p4 as grid_p4
 import src.games.game_p4.player_interaction_p4 as player_interaction_p4
 import src.games.game_p4.rules_p4 as rules_p4
 import src.games.game_p4.init_game_p4 as init_game_p4
+
+import src.games.game_morpion.player_interaction_morpion as player_interaction_morpion
+import src.games.game_morpion.rules_morpion as rules_morpion
+import src.games.game_morpion.init_game_morpion as init_game_morpion
 
 from src.board import Board
 
