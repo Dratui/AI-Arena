@@ -76,9 +76,9 @@ def is_over(board):
     return True
 
 
-def calc_score(board):
+def calc_score(list_board, current_player):
     sum = 0
-    for i in board.get_all_tiles():
+    for i in list_board[current_player].get_all_tiles():
         if i!=' ':
             sum += int(int(i) * (np.log2(int(i))-1))
     return sum
