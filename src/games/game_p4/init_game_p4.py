@@ -1,4 +1,3 @@
-import src.games.game_p4.grid_p4 as grid_p4
 import src.games.game_p4.player_interaction_p4 as player_interaction_p4
 import src.games.game_p4.rules_p4 as rules_p4
 from src.board import Board
