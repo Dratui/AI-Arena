@@ -1,5 +1,6 @@
 import src.games.game_ttt.player_interaction_ttt as player_interaction_ttt
 import src.games.game_ttt.rules_ttt as rules_ttt
+
 from src.board import Board
 
 
@@ -22,3 +23,4 @@ def create_ttt(new_game):
         new_game.is_board_equal = True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.next_turn_function = lambda x: x
         new_game.move_effective_function = rules_ttt.move_effective
+        new_game.calc_score_function = rules_ttt.calc_score

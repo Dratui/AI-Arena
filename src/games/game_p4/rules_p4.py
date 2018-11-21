@@ -1,7 +1,7 @@
 def make_a_move(board,  move, player):
     """update the grid to acknowledge the last move"""
     i= 0
-    while board.read_tile(i,move) == " ":
+    while board.read_tile(i,move) == None:
         if i < board.width-1:
             i+=1
         else:
@@ -14,10 +14,10 @@ def is_over(board):
     and return in the second argument the number of the winning player"""
 
     for move in range(board.width):
-        if board.read_tile(board.height-1 ,move) != " ":
+        if board.read_tile(board.height-1 ,move) != None:
             for player in range(2):
                 i= 0
-                while board.read_tile(i,move) == " ":
+                while board.read_tile(i,move) == None:
                     i+=1
                 list_near_points = [] #list of the number of the player payns in each direction starting from the last one beginning with up then going clockwise
                 directions = [(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1)]
@@ -35,15 +35,15 @@ def is_over(board):
     is_full = True
     for move in range(board.width):
         for i in range(board.height):
-            if board.read_tile(i,move) == " ":
+            if board.read_tile(i,move) == None:
                 is_full = False
     if is_full:
-        return is_full
+        return True
     return False
 
 def move_effective(board):
     list = []
     for i in range(board.width):
-        if board.read_tile(0,i) == " ":
+        if board.read_tile(0,i) == None:
             list.append(i)
     return list
