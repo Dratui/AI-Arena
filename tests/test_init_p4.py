@@ -21,4 +21,4 @@ def test_create_p4():
     assert new_game.is_board_equal == True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
     assert new_game.move_effective_function == rules_p4.move_effective
     #assert new_game.next_turn_function == lambda x: x
-    assert new_game.calc_score_function == rules_p4.score
+    assert new_game.calc_score_function == rules_p4.calc_score
