@@ -72,9 +72,7 @@ def is_over(board):
         for i in range(4):
             for j in range(4):
                 if board_copy.read_tile(i,j) == None:
-                    free_tiles.append((i,j))
-        if free_tiles != []:
-            return False
+                    return False
     return True
 
 

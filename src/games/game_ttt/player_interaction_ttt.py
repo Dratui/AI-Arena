@@ -17,3 +17,4 @@ def get_player_move(board):
         move_x = input("mouvement invalide ?\n ligne ?")
         move_y = input("\n colonne ?")
     return move_x*3 + move_y
+

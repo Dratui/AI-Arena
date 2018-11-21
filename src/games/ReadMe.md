@@ -1,4 +1,4 @@
-The main functions needed to initialize the game objects are :
+The main functions needed to initialize game objects are :
 
     - is_over : returns a tuple, with the first item being True if the game is over, and False if it is not and the second being the player that win
 
@@ -12,18 +12,18 @@ The main functions needed to initialize the game objects are :
 
 Normalization:
 
-    - is_over : mandatory args = board, optional : player
-                return = (is the game over (bool), which player has win (int)) (tuple)
+    - is_over : mandatory args : board, optional : player
+                return : (is the game over (bool), which player has win (int)) (tuple)
 
 
-    - make_a_move : args = board, move, player
-                    return = updated board (Board)
+    - make_a_move : args : board, move, player
+                    return : updated board (Board)
 
                     Also update the board attribute from the game object
 
 
     - next_turn : args : None
-                  return None
+                  return : None
 
                   Update the board at the end of each turn
 
@@ -31,20 +31,27 @@ Normalization:
     - move_effective : args : board
                        return : list of the move that would have an effect (list)
 
+    - An exemple of a game initialization can be found in the init_game_xxxx.py of the three games that are already implemented
 
-Game implemented :
 
-  - 2048 :
+Game already implemented :
 
-      - moves : 0 for up
-                1 for right
-                2 for down
-                3 for left
+    - 2048 :
 
-  - p4 :
+        - moves : 0 for up
+                  1 for right
+                  2 for down
+                  3 for left
 
-      - moves : number of the column (starting from 0)
+      - p4 :
 
-  - ttt :
+          - moves : number of the column (starting from 0)
 
-      - moves : number of the tile (0 to 8)
+      - ttt :
+
+          - moves : number of the tile (0 to 8)
+                    |0|1|2|
+                    |3|4|5|
+                    |6|7|8|
+
+
