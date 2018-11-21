@@ -12,6 +12,7 @@ def make_a_move(board,  move, player):
 def is_over(board):
     """check if the last move played makes the player who played it win,
     and return in the second argument the number of the winning player"""
+
     for move in range(board.width):
         if board.read_tile(board.height-1 ,move) != " ":
             for player in range(2):
@@ -31,6 +32,13 @@ def is_over(board):
                 for k in range(4):
                     if list_near_points[k]+list_near_points[k+4] >2 :
                         return True
+    is_full = True
+    for move in range(board.width):
+        for i in range(board.height):
+            if board.read_tile(i,move) == " ":
+                is_full = False
+    if is_full:
+        return is_full
     return False
 
 def move_effective(board):
