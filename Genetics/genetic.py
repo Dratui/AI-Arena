@@ -1,21 +1,12 @@
 import random as rd
+from Genetics.score_functions import calc_score
 GAME = '2048'
 MOVES= [0,1,2,3]
 #Initialisation of a community : number of movements
 import src.games.games as games
 
+
 #Way to attribute a score to algorithms
-def calc_score_sum(board):
-    """
-    Simple sum of all the tiles
-    :param board:
-    :return:
-    """
-    sum = 0
-    for i in board.get_all_tiles():
-        if i!=' ':
-            sum += int(int(i))
-    return sum
 
 def calc_score_sum_squared(board):
     """
@@ -44,7 +35,7 @@ def initialisation(move_numb,pop_size):
     return population
 
 #Evaluation
-def evaluation(population):
+def evaluation(population,calc_score):
     """
     Generate a list of scores to rate each individual compared to each other
     :param population:
@@ -53,7 +44,7 @@ def evaluation(population):
     scores = []
     for individual in population:
         game=games.init_game(name=GAME)
-        game.calc_score_function=calc_score_sum
+        game.calc_score_function=calc_score
         i=0
 
         while not(game.is_over()[0] or len([x for x in individual if x in game.get_move_effective()])):
@@ -67,13 +58,13 @@ def evaluation(population):
     return scores
 
 #Selection of the best individuals
-def selection(population):
+def selection(population,calc_score):
     """
     Split the population between the best and the worst.
     :param population:
     :return: the best half of the population.
     """
-    ev_pop= evaluation(population)
+    ev_pop= evaluation(population,calc_score)
     pop_score=[]
     for i in range(len(population)):
         pop_score.append([population[i],ev_pop[i]])
@@ -134,14 +125,14 @@ def mutation(ind):
     return ind
 
 #Creation of a new generation with
-def new_generation(population):
+def new_generation(population,calc_score):
     """
     Creates a new generation population.
     :param population:
     :return: a new population : the next generation
     """
     pop_size= len(population)
-    population=selection(population)
+    population=selection(population,calc_score)
     i=0
     while(len(population) < pop_size):
         if (i==pop_size-2):
@@ -173,19 +164,19 @@ def results(population):
     return sorted([(sequences[i],numb_ind_per_sequence[i]) for i in range(len(sequences))],key=lambda x:x[1],reverse=True)
             #Return the descendant list of (individual, number of presence)
 
-def genetic_algorithm(individual_size, population_size, number_of_generation):
+def genetic_algorithm(individual_size, population_size, number_of_generation,calc_score):
     """
     Final algorithme which print the result of the wanted algorithm
     :param population_size:
     :param individual_size:
     :param number_of_generation:
-    :return: Nothing
+    :return: results
     """
     population=initialisation(individual_size,population_size)
     for i in range(number_of_generation):
         if(i*100)%number_of_generation==0:
             print("Genetic algorithm of {} individuals of {} size with {} iterations at {} %".format(population_size,individual_size,number_of_generation,(i*100)//number_of_generation ))
-        population=new_generation(population)
-    print(results(population))
+        population=new_generation(population,calc_score)
+    return results(population)
 
-genetic_algorithm(2,10,100)
+#print(genetic_algorithm(2,10,100,calc_score))
