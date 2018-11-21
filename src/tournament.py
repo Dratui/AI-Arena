@@ -26,13 +26,16 @@ class Tournament:
             temp_number_players = int(input("Please enter a valid integer : "))
         self.number_players = temp_number_players
         self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
-        self.game_name = input("What game are we going to play ? 'p4' ou '2048' ? ")
-        while self.game_name != "2048" and self.game_name != "p4":
+        self.game_name = input("What game are we going to play ? 'p4', '2048' or 'TicTacToe' ? ")
+        while self.game_name != "2048" and self.game_name != "p4" and self.game_name != "TicTacToe":
             self.game_name = input("Not a valid game, try again : ")
         if self.game_name == "2048": #Import of all relevant function to the game
-            self.import_2048
+            self.import_2048()
         if self.game_name == "p4": #Same
-            self.import_p4
+            self.import_p4()
+        if self.game_name == "TicTacToe":
+            self.game_name = "ttt"
+            self.import_TicTacToe()
         self.score = []
         for _ in range(self.number_players):
             self.score.append(0)
@@ -62,6 +65,13 @@ class Tournament:
         self.player_interaction = src.games.game_p4.player_interaction_p4
         import src.games.game_p4.rules_p4
         self.rules = src.games.game_p4.rules_p4
+        
+    def import_TicTacToe(self):
+        """Imports the game Tic Tac Toe into the attributes of self"""
+        import src.games.game_ttt.player_interaction_ttt
+        self.player_interaction = src.games.game_ttt.player_interaction_ttt
+        import src.games.game_ttt.rules_ttt
+        self.rules = src.games.game_ttt.rules_ttt
         
     def launch_a_game(self, player0, player1, display_ai_game = False):
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
@@ -94,7 +104,7 @@ class Tournament:
             self.tournament_score[player1] += .5
             self.matches[player0][player1] = "ex aequo"
             self.matches[player1][player0] = "ex aequo"
-        self.reset_score
+        self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
         
     def launch_tournament(self,display_ai_game = False):
