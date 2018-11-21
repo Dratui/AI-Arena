@@ -8,15 +8,15 @@ class Tournament:
     """This is the class that is going to manage tournaments, it includes all necessary information"""
     number_players = 0
     game_name = "" #Holds the name of the game
-    list_players = []
+    list_players = [] #List of objects of the class Player, players are called by their index in this list.
     score=[] #score[i] holds the temporary score of the players for the current game
     tournament_score=[] #Holds the number of games a player has won
     leaderboard=[] #Leaderboard[i] hold the rank of player i.
     #The following three hold the modules that correspond to the game being played
-    grid = None
-    player_interaction = None
-    rules = None
-    game = games.Game()
+    grid = None #Contains all the functions that are imported from the grid file of the game
+    player_interaction = None #Contains all the functions that are imported from the player_interaction file of the game
+    rules = None #Contains all the functions that are imported from the rules file of the game
+    game = games.Game() #Is a Game class that contains all the relevant information concerning the game
     matches = [[]] #Is a nested list where matches[x][y] is an integer where -1 means the game between players x and y has not been played yet and otherwise this integer being the winner of the match
     
     def tournament_init(self):
@@ -27,7 +27,7 @@ class Tournament:
         self.number_players = temp_number_players
         self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
         self.game_name = input("What game are we going to play ? 'p4', '2048' or 'TicTacToe' ? ")
-        while self.game_name != "2048" and self.game_name != "p4" and self.game_name != "TicTacToe":
+        while self.game_name != "2048" and self.game_name != "p4" and self.game_name != "TicTacToe": #Note that this does not allow for games to be automatically imported but the effort to add a game to the list is marginal. 
             self.game_name = input("Not a valid game, try again : ")
         if self.game_name == "2048": #Import of all relevant function to the game
             self.import_2048()
@@ -73,20 +73,20 @@ class Tournament:
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
         self.game.player_playing = 0
-        while not self.game.all_over():
-            if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
+        while not self.game.all_over(): #All_over checks if ALL of the boards used are in an "over" state to know if the game must carry on
+            if display_ai_game or not self.list_players[player0].is_ai or not self.list_players[player1].is_ai: #If there is at least one human or if we have decided to watch the non-human players, we show them
                 print(self.game.display_board())
                 print("\n\n\n")
-            if not self.game.is_over()[0]:
+            if not self.game.is_over()[0]: #If the current player's board is not an ended game, he/she/it can play
                 if self.game.player_playing == 0 :
                     next_move = self.list_players[player0].get_move(self.game.list_board[0],self.game) #We retrieve the move that the current player wants to make.
-                else :
+                else : #Same here
                     next_move = self.list_players[player1].get_move(self.game.list_board[1],self.game)
                 self.game.make_a_move(next_move)
                 self.game.next_turn()
-                self.game.score[self.game.player_playing] = self.game.calc_score()
-            self.game.player_playing = (self.game.player_playing + 1) % 2
-        #Next part updates the scores and the values of matches
+                self.game.score[self.game.player_playing] = self.game.calc_score() #The score is updated every turn to allow later on for a display of the score in real time.
+            self.game.player_playing = (self.game.player_playing + 1) % 2 #We give the turn to the other player
+        #Next part updates the scores and the values of matches. At this point in the function, the game has been completely played
         if self.game.score[0] > self.game.score[1]:
             self.tournament_score[player0] += 1
             self.matches[player1][player0] = player0
@@ -100,7 +100,7 @@ class Tournament:
             self.tournament_score[player1] += .5
             self.matches[player0][player1] = "ex aequo"
             self.matches[player1][player0] = "ex aequo"
-        self.reset_score()
+        self.reset_score() #We reset the score to avoid conflict within the next game played.
         self.leaderboard = calculate_leaderboard(self.tournament_score)
         
     def launch_tournament(self,display_ai_game = False):
@@ -139,13 +139,13 @@ def select_player(number_player):
     number_ai_players = 1
     for i in range(1,number_player+1):
         temp_player = input("State the name of the AI for the player number {} (simply state h for a human player) : ".format(i))
-        if temp_player == "h": #If we have a human, we wish to give a different name to them
+        if temp_player == "h": #Here we give different names to different human player
             list_player[i-1].is_ai = False
             temp_player = "human_" + str(number_human_players)
             number_human_players += 1
             list_player[i-1].name = temp_player
             list_player[i-1].file = "human_console"
-        else:
+        else: #Here we do the same with the different AIs
             list_player[i-1].is_ai = True
             list_player[i-1].file = temp_player
             temp_player = "ai_" + str(number_ai_players) + "_" + temp_player
