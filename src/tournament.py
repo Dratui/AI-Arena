@@ -18,36 +18,9 @@ class Tournament:
     rules = None
     game = games.Game()
     matches = [[]] #Is a nested list where matches[x][y] is an integer where -1 means the game between players x and y has not been played yet and otherwise this integer being the winner of the match
-    
-    def tournament_init(self):
-        """Starts a new tournament, retrieving all relevant information on the game and the players"""
-        temp_number_players = int(input("How many players are there in this tournament ? (AI included) : "))
-        while not type(temp_number_players) == type(2) :
-            temp_number_players = int(input("Please enter a valid integer : "))
-        self.number_players = temp_number_players
-        self.list_players = select_player(self.number_players) #We create the list of all players of the Player class.
-        self.game_name = input("What game are we going to play ? 'p4', '2048' or 'TicTacToe' ? ")
-        while self.game_name != "2048" and self.game_name != "p4" and self.game_name != "TicTacToe":
-            self.game_name = input("Not a valid game, try again : ")
-        if self.game_name == "2048": #Import of all relevant function to the game
-            self.import_2048()
-        if self.game_name == "p4": #Same
-            self.import_p4()
-        if self.game_name == "TicTacToe":
-            self.game_name = "ttt"
-            self.import_TicTacToe()
-        self.score = []
-        for _ in range(self.number_players):
-            self.score.append(0)
-        matches = []
-        for i in range(self.number_players): #Here we create the matrix for all 1 one 1 match.
-            tempRow=[-1]*self.number_players
-            matches.append(tempRow)
-        self.matches = matches
-        self.tournament_score = []
-        for _ in range(self.number_players):
-            self.tournament_score.append(0)
-        
+
+    #Importations functions
+
     def import_2048(self):
         """Imports the game 2048 into the attributes of self"""
         import src.games.game_2048.player_interaction_2048
@@ -61,14 +34,14 @@ class Tournament:
         self.player_interaction = src.games.game_p4.player_interaction_p4
         import src.games.game_p4.rules_p4
         self.rules = src.games.game_p4.rules_p4
-        
+
     def import_TicTacToe(self):
         """Imports the game Tic Tac Toe into the attributes of self"""
         import src.games.game_ttt.player_interaction_ttt
         self.player_interaction = src.games.game_ttt.player_interaction_ttt
         import src.games.game_ttt.rules_ttt
         self.rules = src.games.game_ttt.rules_ttt
-        
+
     def launch_a_game(self, player0, player1, display_ai_game = False):
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
@@ -102,7 +75,7 @@ class Tournament:
             self.matches[player1][player0] = "ex aequo"
         self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
-        
+
     def launch_tournament(self,display_ai_game = False):
         """This function launches a tournament and manages the launching of the games, prints who wins every time and finally displays the leaderboard"""
         for x in range(self.number_players):
@@ -113,7 +86,7 @@ class Tournament:
                 else:
                     print(self.matches[x][y],"\n")
         self.print_leaderboard(self.leaderboard)
-                    
+
     def print_leaderboard(self, leaderboard):
         """This function prints the leaderboard, line by line, showing the name of the players and their rank"""
         print("RANKING : \n")
@@ -121,38 +94,64 @@ class Tournament:
             current_best, current_rank = max(enumerate(leaderboard), key=operator.itemgetter(1))
             print(self.list_players[current_best].name, " is number ", current_rank, "\n")
             leaderboard[current_best] = 0
-            
+
     def reset_score(self):
         self.score = []
         for _ in range(self.number_players):
             self.score.append(0)
-        
-        
-        
-        
-def select_player(number_player):   
-    """Asks a human who every player is, whether a human of the name of an AI"""
-    list_player = []
-    for i in range(number_player) :
-        list_player.append(player.Player())
-    number_human_players = 1
-    number_ai_players = 1
-    for i in range(1,number_player+1):
-        temp_player = input("State the name of the AI for the player number {} (simply state h for a human player) : ".format(i))
-        if temp_player == "h": #If we have a human, we wish to give a different name to them
-            list_player[i-1].is_ai = False
-            temp_player = "human_" + str(number_human_players)
-            number_human_players += 1
-            list_player[i-1].name = temp_player
-            list_player[i-1].file = "human_console"
-        else:
-            list_player[i-1].is_ai = True
-            list_player[i-1].file = temp_player
-            temp_player = "ai_" + str(number_ai_players) + "_" + temp_player
-            list_player[i-1].name = temp_player
-            number_ai_players += 1
-    return list_player
-    
+
+
+    def Gtournament_init(self,number_players):
+        """Starts a new tournament, retrieving all relevant information on the game and the players"""
+
+        self.number_players=number_players
+        self.score = []
+        for _ in range(self.number_players):
+            self.score.append(0)
+        matches = []
+        for i in range(self.number_players): #Here we create the matrix for all 1 one 1 match.
+            tempRow=[-1]*self.number_players
+            matches.append(tempRow)
+        self.matches = matches
+        self.tournament_score = []
+        for _ in range(self.number_players):
+            self.tournament_score.append(0)
+    def Gchoose_game(self, game):
+        """Function that select the game script depending on the game (string) entered"""
+        if game=="2048":
+            self.import_2048()
+            self.game_name="2048"
+        elif game=="Puissance 4":
+            self.import_p4()
+            self.game_name="p4"
+        if self.game_name == "TicTacToe":
+            self.game_name = "ttt"
+            self.import_TicTacToe()
+
+
+    def Gselect_players(self,Glist_names):
+        """Asks a human who every player is, whether a human of the name of an AI"""
+        list_players = []
+        for i in range(self.number_players) :
+            list_player.append(player.Player())
+        number_human_players = 1
+        number_ai_players = 1
+        for i in range(1,self.number_players+1):
+            temp_player = Glist_names[i-1]
+            if temp_player == "h": #If we have a human, we wish to give a different name to them
+                list_player[i-1].is_ai = False
+                temp_player = "human_" + str(number_human_players)
+                number_human_players += 1
+                list_player[i-1].name = temp_player
+                list_player[i-1].file = "human_console"
+            else:
+                list_player[i-1].is_ai = True
+                list_player[i-1].file = temp_player
+                temp_player = "ai_" + str(number_ai_players) + "_" + temp_player
+                list_player[i-1].name = temp_player
+                number_ai_players += 1
+        self.list_players=list_players
+
 def calculate_leaderboard(score):
     """Recieves the list of the score of every player and returns the rank of each player"""
     size = len(score)
