@@ -138,7 +138,7 @@ def select_player(number_player):
             temp_player = "human_" + str(number_human_players)
             number_human_players += 1
             list_player[i-1].name = temp_player
-            list_player[i-1].file = "human_ai"
+            list_player[i-1].file = "human_console"
         else:
             list_player[i-1].is_ai = True
             list_player[i-1].file = temp_player

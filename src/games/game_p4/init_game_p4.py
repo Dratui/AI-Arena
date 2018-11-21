@@ -4,6 +4,7 @@ import src.games.game_p4.rules_p4 as rules_p4
 from src.board import Board
 
 
+
 def create_p4(new_game, vertical_size, horizontal_size):
         new_game.name = "p4"
         new_game.score = [0,0]
