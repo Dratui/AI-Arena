@@ -17,7 +17,7 @@ def calc_score_sum_squared(board):
     """
     sum = 0
     for i in board.get_all_tiles():
-        if i!=' ':
+        if i!=None:
             sum += int(int(i))
     return sum
 

@@ -129,7 +129,7 @@ class Board:
         list_tiles = self.get_all_tiles()
         for i in range(len(list_tiles)):
             if list_tiles[i]==None:
-                list_tiles[i]=' '
+                list_tiles[i]=None
             else:
                 list_tiles[i]=str(list_tiles[i])
         grid_str = """"""

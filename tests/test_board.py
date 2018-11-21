@@ -4,7 +4,7 @@ import pytest
 def test_change_tile():
 	A=Board(4,4)
 	A.change_tile(1,1,"Salut")
-	assert A.get_grid()==[[' ',' ',' ',' '],[' ','Salut',' ',' '],[' ',' ',' ',' '],[' ',' ',' ',' ']]
+	assert A.get_grid()==[[None,None,None,None],[None,'Salut',None,None],[None,None,None,None],[None,None,None,None]]
 
 
 def test_read_tile():
