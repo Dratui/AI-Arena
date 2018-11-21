@@ -7,16 +7,16 @@ def evolve_line(line):
     """evolve a line as if it yas pushed to the left"""
     for i in range(4):
         for k in range(i+1,4):
-            if line[i] == line[k] and line[i] != " ":
-                line[i],line[k] = 2*line[k]," "
+            if line[i] == line[k] and line[i] != None:
+                line[i],line[k] = 2*line[k],None
                 break
-            if line[k]!=line[i] and line[k] != " ":
+            if line[k]!=line[i] and line[k] != None:
                 break
     for i in range(4):
-        if line[i] == " ":
+        if line[i] == None:
             for k in range(i,4):
-                if line[k] != " ":
-                    line[i],line[k] = line[k]," "
+                if line[k] != None:
+                    line[i],line[k] = line[k],None
                     break
     return line
 
@@ -46,7 +46,7 @@ def create_new_tile(board):
     free_tiles = []
     for i in range(4):
         for j in range(4):
-            if board.read_tile(i,j) == " ":
+            if board.read_tile(i,j) == None:
                 free_tiles.append((i,j))
     if free_tiles != []:
         k = random.randint(0,len(free_tiles)-1)
@@ -69,7 +69,7 @@ def is_over(board):
         free_tiles = []
         for i in range(4):
             for j in range(4):
-                if board_copy.read_tile(i,j) == " ":
+                if board_copy.read_tile(i,j) == None:
                     free_tiles.append((i,j))
         if free_tiles != []:
             return False

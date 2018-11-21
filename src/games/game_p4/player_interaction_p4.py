@@ -21,12 +21,12 @@ def get_player_move(board):
     move = input("Où voulez-vous jouez")
     cond = True
     if move.isdigit():
-        cond  = not(int(move)-1 < size_horizontal and int(move)-1 >= 0) or board.read_tile(0,int(move)-1) != " "
+        cond  = not(int(move)-1 < size_horizontal and int(move)-1 >= 0) or board.read_tile(0,int(move)-1) != None
 
     while cond:
         move = input("Coup non valide, recommencez")
         cond = True
         if move.isdigit():
-            cond  = not(int(move) -1 < size_horizontal and int(move) -1 >= 0) or board.read_tile(0,int(move)-1) != " "
+            cond  = not(int(move) -1 < size_horizontal and int(move) -1 >= 0) or board.read_tile(0,int(move)-1) != None
 
     return int(move)-1
