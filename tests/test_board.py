@@ -16,14 +16,14 @@ def test_transpose_grid_clockwise():
 	A=Board(2,2)
 	A.change_tile(1,1,"Bonjour")
 	B=A.transpose_grid_clockwise()
-	C=[[" "," "],["Bonjour"," "]]
+	C=[[None,None],["Bonjour",None]]
 	assert B==C
 
 def test_transpose_grid_anticlockwise():
 	A=Board(2,2)
 	A.change_tile(1,1,"Bonjour")
 	B=A.transpose_grid_anticlockwise()
-	C=[[" ","Bonjour"],[" "," "]]
+	C=[[None,"Bonjour"],[None,None]]
 	assert B==C
 def test_get_all_tiles():
 	A=Board(2,2)
