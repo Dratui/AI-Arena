@@ -7,7 +7,7 @@ TILES_FONT = ("Verdana", 40, "bold")
 fenetre = Tk()
 fenetre.title("AI Arena")
 canvas = Canvas(fenetre, width=900, height=700, cursor="target")
-photo = PhotoImage(file="graphics/menu.PNG")
+photo = PhotoImage(file="graphics/menu.png")
 Nombre=0
 Entree=[]
 liste=0
@@ -75,8 +75,9 @@ def select_game():
         liste.insert(i+1, ele)
 
     liste.pack()
-    case = Checkbutton(fenetre, text="Display Ai Game")
-    case.pack()
+    case = IntVar()
+    checkbox = Checkbutton(fenetre, text="Display Ai Game",variable=case)
+    checkbox.pack()
     bouton = Button(fenetre,text="Valider",command=launch_game)
     bouton.pack()
 
@@ -85,13 +86,12 @@ def launch_game():
     global liste
     Jeu=liste.get(ACTIVE)
     global case
-    display_ai_game=case.get()
+    display_ai_game=(case.get()==1)
 
     global Tournoi
     Tournoi.Gchoose_game(Jeu)
 
     print('Launching the game')
-
     Tournoi.launch_tournament()
 
 
@@ -100,7 +100,7 @@ def launch_game():
 canvas.create_image(0, 0, anchor=NW, image=photo)
 canvas.create_text(450,260,text="Play",font=TILES_FONT,fill="#de8421",activefill="#ff3300")
 canvas.pack()
-canvas.bind("<Button-1> ", play)
+canvas.bind("<Button-1> ", display_nbrJoueurs)
 
 canvas.focus_set()
 canvas.pack()
