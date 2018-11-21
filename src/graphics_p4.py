@@ -3,7 +3,7 @@ from board import Board
 
 ## Graphical values
 
-TILES_FG_COLOR = {' ':"#ffffff", 0:"#ff0000", 1:"#ffff00"}
+TILES_FG_COLOR = {None:"#ffffff", 0:"#ff0000", 1:"#ffff00"}
 
 TILES_FONT = ("Verdana", 20, "bold")
 
@@ -22,8 +22,8 @@ def update_display():
     game_grid = Board.get_grid()
     
     # Lists of canvas and buttons
-    list_canvas = [[' ' for j in range(grid_size[1])] for i in range(grid_size[0])]
-    list_buttons = [' ' for j in range(grid_size[1])]
+    list_canvas = [[None for j in range(grid_size[1])] for i in range(grid_size[0])]
+    list_buttons = [None for j in range(grid_size[1])]
     
     # Display function, called at the beginning and then at every change
     def display():
@@ -36,25 +36,14 @@ def update_display():
                 text = Label(case, text = 'O', fg = TILES_FG_COLOR[game_grid[x][y]], bg = "#ffffff", font = TILES_FONT)
                 text.place(x=25, y=25, anchor="center")
         for y in range(grid_size[1]) :
-            button = Button(window, text = "Ici", height = 3, width = 6, command = lambda arg = y : clic(arg))
+            button = Button(window, text = "Ici", height = 3, width = 6, command = lambda arg = y : click(arg))
             button.grid_propagate(0)
             button.grid(column = y, row = 0)
             list_buttons[y] = button
             
     # Update function
-    def clic(i):
-        # Totally random, should be done better
-        global game_grid
-        
-        if i == 0 :
-            game_grid = [[' ',' ',' ',' ',' ',' ',' ',' ',' ',' '] for i in range(10)]
-        
-        elif i == 1 :
-            game_grid = [[0,0,0,0,0,0,0,0,0,0] for i in range(10)]
-            
-        elif i == 2 :    
-            game_grid = [[1,1,1,1,1,1,1,1,1,1] for i in range(10)]
-            
+    def click(i):
+        Board.input = str(i+1)
     
         display()
         window.update()

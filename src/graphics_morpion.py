@@ -3,8 +3,8 @@ from board import Board
 
 ## Graphical values
 
-NUM2SYM = {' ': ' ', 0:'X', 1:'O'}
-TILES_FG_COLOR = {' ':"#ffffff", 0:"#ff0000", 1:"#0009ff"}
+NUM2SYM = {None: ' ', 0:'X', 1:'O'}
+TILES_FG_COLOR = {None:"#ffffff", 0:"#ff0000", 1:"#0009ff"}
 TILES_FONT = ("Verdana", 20, "bold")
 
 ## Code starts here
@@ -25,25 +25,21 @@ def update_display(Board, window):
     game_grid = Board.get_grid()
     
     # A button for each case
-    list_buttons = [[' ' for j in range(grid_size[1])] for i in range(grid_size[0])]
+    list_buttons = [[None for j in range(grid_size[1])] for i in range(grid_size[0])]
     
     # Display function, called at the beginning and then at every change
     def display():
         
         for x in range(grid_size[0]):
             for y in range(grid_size[1]):
-                button = Button(window, text = NUM2SYM[game_grid[x][y]], fg = TILES_FG_COLOR[game_grid[x][y]], height = 3, width = 6, command = lambda arg1 = x, arg2 = y : clic(arg1,arg2), font = TILES_FONT)
+                button = Button(window, text = NUM2SYM[game_grid[x][y]], fg = TILES_FG_COLOR[game_grid[x][y]], height = 3, width = 6, command = lambda arg1 = x, arg2 = y : click(arg1,arg2), font = TILES_FONT)
                 button.grid_propagate(0)
                 button.grid(column = y, row = x)
                 list_buttons[x][y] = button
     
     # Update function
     def click(x,y):
-        # Should be doing something else
-        global game_grid
-        
-        print(x,y)
-        # afficher()
+        Board.input = str(x+1) + "," + str(y+1)
         
         
     display()
@@ -52,7 +48,9 @@ def update_display(Board, window):
     
 def close_window(window):
     # Closes the window
-    close.destroy
+    window.destroy
+    
+boar = [[None, 0, 1], [0, None, 1], [1, 0, None]]
     
 
 
