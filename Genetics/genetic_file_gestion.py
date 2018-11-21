@@ -14,10 +14,10 @@ def do_work_for_genetic(worktodo):
     source_file = open(worktodo,'r')
     lines_source_file=[]
     for line in source_file:
-        if not(line in ['\n',' \n',' ','','\n ']):
+        if not(line in ['\n',' \n',None,'','\n ']):
             lines_source_file.append(line)
 
-    for line in source_file:
+    for line in lines_source_file:
         parameters=line.replace('\n','').split(' ') #parameters must be : genetic_algorithm population_number moves_number generation_number score_function=
         i=1
         dict_parameters={}
@@ -45,3 +45,5 @@ def do_work_for_genetic(worktodo):
         import Genetics.score_functions
         score_function=getattr(Genetics.score_functions,dict_parameters[SCORE_FUNCTION[0]])
         results_file.write("Results of {} for {} = {} and {} = {} and {} = {} with {} = {} are {}. \n \n".format(parameters[0],MOVES_NUMB[0],dict_parameters[MOVES_NUMB[0]],POP_NUMB[0],dict_parameters[POP_NUMB[0]],GENE_NUMB[0],dict_parameters[GENE_NUMB[0]],SCORE_FUNCTION[0],dict_parameters[SCORE_FUNCTION[0]],genetic_algorithm(int(dict_parameters[MOVES_NUMB[0]]),int(dict_parameters[POP_NUMB[0]]),int(dict_parameters[GENE_NUMB[0]]),score_function)))
+
+do_work_for_genetic('to_do_simple_sum.txt')

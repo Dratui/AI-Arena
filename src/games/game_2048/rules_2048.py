@@ -41,6 +41,8 @@ def make_a_move(board,direction, player = 0):
 
             #board.set_column(i, evolve_line(board.read_column(i)[::-1])[::-1])
     return board
+
+
 def create_new_tile(board):
     """fill an empty tile with a 2 or a 4"""
     free_tiles = []
@@ -79,7 +81,7 @@ def is_over(board):
 def calc_score(list_board, current_player):
     sum = 0
     for i in list_board[current_player].get_all_tiles():
-        if i!=' ':
+        if i!=None:
             sum += int(int(i) * (np.log2(int(i))-1))
     return sum
 
@@ -87,6 +89,6 @@ def calc_score(list_board, current_player):
 def calc_score(list_board, current_player):
     sum = 0
     for i in list_board[current_player].get_all_tiles():
-        if i!=' ':
+        if i!=None:
             sum += int(int(i))
     return sum

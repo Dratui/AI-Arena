@@ -1,5 +1,5 @@
 import random as rd
-from Genetics.score_functions import calc_score
+#from Genetics.score_functions import calc_score
 GAME = '2048'
 MOVES= [0,1,2,3]
 #Initialisation of a community : number of movements
@@ -10,13 +10,14 @@ import src.games.games as games
 
 def calc_score_sum_squared(board):
     """
+    Somme tous les tiles au carré
     Sum of all the tiles by squared
     :param board:
     :return:
     """
     sum = 0
     for i in board.get_all_tiles():
-        if i!=' ':
+        if i!=None:
             sum += int(int(i))
     return sum
 
