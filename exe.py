@@ -4,14 +4,13 @@ from src.tournament import Tournament
 
 TILES_FONT = ("Verdana", 40, "bold")
 
-fenetre = Tk()
-fenetre.title("AI Arena")
-canvas = Canvas(fenetre, width=900, height=700, cursor="target")
-photo = PhotoImage(file="graphics/menu.png")
+fenetre=0
+canvas=0
 Nombre=0
 Entree=[]
 liste=0
 case=0
+photo=0
 
 Tournoi=0
 listeGames=["2048","Puissance 4","Tic-Tac-Toe (ToDo)","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
@@ -84,25 +83,44 @@ def select_game():
 
 def launch_game():
     global liste
+    global fenetre
+
     Jeu=liste.get(ACTIVE)
     global case
     display_ai_game=(case.get()==1)
-
+    fenetre.destroy()
     global Tournoi
     Tournoi.Gchoose_game(Jeu)
 
     print('Launching the game')
-    Tournoi.launch_tournament()
+    classement=Tournoi.launch_tournament(display_ai_game)
 
+    #END Game
+    #SHOW THE LEADERBOARD
+    fenetre=Tk()
 
+    label = Label(fenetre, text=classement)
+    label.pack()
+    bouton = Button(fenetre, text="Menu Principal",command=init_window)
+    bouton.pack()
 
+def init_window():
+    global fenetre
+    global canvas
+    global photo
+    if fenetre!=0:
+        fenetre.destroy()
+    fenetre = Tk()
+    fenetre.title("AI Arena")
+    canvas = Canvas(fenetre, width=900, height=700, cursor="target")
+    photo = PhotoImage(file="graphics/menu.png")
 
-canvas.create_image(0, 0, anchor=NW, image=photo)
-canvas.create_text(450,260,text="Play",font=TILES_FONT,fill="#de8421",activefill="#ff3300")
-canvas.pack()
-canvas.bind("<Button-1> ", display_nbrJoueurs)
+    canvas.create_image(0, 0, anchor=NW, image=photo)
+    canvas.create_text(450,260,text="Play",font=TILES_FONT,fill="#de8421",activefill="#ff3300")
+    canvas.pack()
+    canvas.bind("<Button-1> ", display_nbrJoueurs)
 
-canvas.focus_set()
-canvas.pack()
-
+    canvas.focus_set()
+    canvas.pack()
+init_window()
 fenetre.mainloop()
