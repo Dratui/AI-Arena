@@ -9,3 +9,4 @@ htmlcov/
 /src/games/__pycache__/__init__.cpython-36.pyc
 /src/games/game_2048/__pycache__/__init__.cpython-36.pyc
 .idea/
+amalio
