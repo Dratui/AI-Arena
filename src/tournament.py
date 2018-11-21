@@ -133,22 +133,22 @@ class Tournament:
         """Asks a human who every player is, whether a human of the name of an AI"""
         list_players = []
         for i in range(self.number_players) :
-            list_player.append(player.Player())
+            list_players.append(player.Player())
         number_human_players = 1
         number_ai_players = 1
         for i in range(1,self.number_players+1):
             temp_player = Glist_names[i-1]
             if temp_player == "h": #If we have a human, we wish to give a different name to them
-                list_player[i-1].is_ai = False
+                list_players[i-1].is_ai = False
                 temp_player = "human_" + str(number_human_players)
                 number_human_players += 1
-                list_player[i-1].name = temp_player
-                list_player[i-1].file = "human_console"
+                list_players[i-1].name = temp_player
+                list_players[i-1].file = "human_console"
             else:
-                list_player[i-1].is_ai = True
-                list_player[i-1].file = temp_player
+                list_players[i-1].is_ai = True
+                list_players[i-1].file = temp_player
                 temp_player = "ai_" + str(number_ai_players) + "_" + temp_player
-                list_player[i-1].name = temp_player
+                list_players[i-1].name = temp_player
                 number_ai_players += 1
         self.list_players=list_players
 
