@@ -7,7 +7,7 @@ TILES_FONT = ("Verdana", 40, "bold")
 fenetre = Tk()
 fenetre.title("AI Arena")
 canvas = Canvas(fenetre, width=900, height=700, cursor="target")
-photo = PhotoImage(file="../graphics/menu.PNG")
+photo = PhotoImage(file="graphics/menu.PNG")
 Nombre=0
 Entree=[]
 liste=0
