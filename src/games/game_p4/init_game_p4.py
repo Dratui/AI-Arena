@@ -14,8 +14,8 @@ def create_p4(new_game, vertical_size, horizontal_size):
         new_game.is_over_function = rules_p4.is_over
         new_game.make_a_move_function = rules_p4.make_a_move
         new_game.move_description = player_interaction_p4.move_description # ex :"d : droite, g : gauche, h : haut, b : bas" what would be displayed to help the player uderstand what input corresponds to which move
-        new_game.map_input_to_move = {}
-        new_game.map_move_to_input = {}
+        new_game.map_input_to_move = {"1" : 0,'2' : 1,'3' : 2,'4' : 3,'5' : 4,'6' : 5,'7' : 6,'8' : 7,'9' : 8}
+        new_game.map_move_to_input = {0 : "1",1 : '2',2 : '3',3 : '4',4 : '5',5 : '6',6 : '7',7 : '8',8 : '9'}
         new_game.is_board_equal = True #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
         new_game.move_effective_function = rules_p4.move_effective
         new_game.next_turn_function = lambda x: x

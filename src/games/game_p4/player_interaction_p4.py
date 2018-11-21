@@ -1,4 +1,4 @@
-move_description =""" Entrer le numéro de la colonne """
+move_description =""" Entrer le numéro de la colonne :"""
 
 
 def player_setup_size():
