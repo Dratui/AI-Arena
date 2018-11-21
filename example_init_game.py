@@ -11,7 +11,7 @@ g2k_game = init_game("2048")
 gp4_game = init_game("p4")
 ttt_game = init_game("ttt")
 
-game = "p4"
+game = "ttt"
 
 def launch():
     if game == "2048":
