@@ -5,3 +5,4 @@ __pycache__/
 htmlcov/
 .coverage
 *.html
+board_2.py

@@ -11,7 +11,7 @@ TILES_FONT = ("Verdana", 20, "bold")
 grid_size = (10,10)
 
 game_grid = [[' ',1,0,1,0,1,' ',0,0,' '] for i in range(10)]
-list_canvas = [[' ' for j in range(10)] for i in range(10)]
+# list_canvas = [[' ' for j in range(10)] for i in range(10)]
 list_buttons = [' ' for j in range(grid_size[1])]
 
 fenetre = Tk()
@@ -52,5 +52,4 @@ def clic(i):
     fenetre.update()
 
 afficher()
-
 fenetre.mainloop()
