@@ -5,8 +5,9 @@ def get_higher_value(grille):
     max=0
     for i in range(len(grille)):
         for j in range(len(grille[0])):
-            if int(grille[i][j])>max:
-                max = int(grille[i][j])
+            if grille[i][j]==None: continue
+            if grille[i][j]>max:
+                max = grille[i][j]
     return max
 def generate_board_from_list(grille):
     width = len(grille[0])
@@ -20,7 +21,7 @@ class Board:
     def __init__(self, height, width):
         self.height = height
         self.width = width
-        self.__grid = [[' ' for i in range(self.width)] for j in range(self.height)]
+        self.__grid = [[None for i in range(self.width)] for j in range(self.height)]
 
     def change_tile(self, row, col,value):
         """
@@ -125,6 +126,11 @@ class Board:
         width = self.width
         height = self.height
         list_tiles = self.get_all_tiles()
+        for i in range(len(list_tiles)):
+            if list_tiles[i]==None:
+                list_tiles[i]=' '
+            else:
+                list_tiles[i]=str(list_tiles[i])
         grid_str = """"""
         bord=" "+"="*maxsize
         sticks = bord*width + """\n"""
