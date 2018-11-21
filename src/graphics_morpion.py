@@ -50,7 +50,6 @@ def close_window(window):
     # Closes the window
     window.destroy
     
-boar = [[None, 0, 1], [0, None, 1], [1, 0, None]]
     
 
 
