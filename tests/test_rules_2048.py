@@ -5,8 +5,8 @@ from src.games.game_2048.themes import THEMES
 from src.games.games import *
 
 def test_evolve_line():
-    assert evolve_line([" " for i in range(4)]) == [" " for i in range(4)]
-    assert evolve_line([" ",4,4,8]) == [8,8," "," "]
+    assert evolve_line([None for i in range(4)]) == [None for i in range(4)]
+    assert evolve_line([None,4,4,8]) == [8,8,None,None]
     assert evolve_line([2, None, None, 2]) == [4,None,None,None]
     assert evolve_line([2, 4, None, 2]) == [2,4,2,None]
 
