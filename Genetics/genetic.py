@@ -1,20 +1,10 @@
 import random as rd
+from Genetics.score_functions import calc_score
 GAME = '2048'
 MOVES= [0,1,2,3]
 #Initialisation of a community : number of movements
 import src.games.games as games
 
-def calc_score_sum(board):
-    """
-    Simple sum of all the tiles
-    :param board:
-    :return:
-    """
-    sum = 0
-    for i in board.get_all_tiles():
-        if i!=' ':
-            sum += int(int(i))
-    return sum
 
 #Way to attribute a score to algorithms
 
@@ -189,4 +179,4 @@ def genetic_algorithm(individual_size, population_size, number_of_generation,cal
         population=new_generation(population,calc_score)
     return results(population)
 
-print(genetic_algorithm(2,10,100,calc_score_sum))
+#print(genetic_algorithm(2,10,100,calc_score))
