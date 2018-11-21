@@ -1,3 +1,0 @@
-genetic_algorithm population_number 100 moves_number 4 generation_number 100 score_function calc_score file_name outputfile
-
-

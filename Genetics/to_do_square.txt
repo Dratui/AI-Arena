@@ -1,0 +1,4 @@
+genetic_algorithm population_number 10000 moves_number 4 generation_number 100 score_function score_eulerian file_name outputfile_square
+genetic_algorithm population_number 100 moves_number 4 generation_number 10000 score_function score_eulerian file_name outputfile_square
+genetic_algorithm population_number 1000 moves_number 4 generation_number 1000 score_function score_eulerian file_name outputfile_square
+genetic_algorithm population_number 10000 moves_number 4 generation_number 10000 score_function score_eulerian file_name outputfile_square
