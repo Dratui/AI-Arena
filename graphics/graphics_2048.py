@@ -3,14 +3,15 @@
 
 
 from tkinter import *
-from board import Board0
-from board import Board1
+from src.board import Board
+from src.games.games import Game
+from src.board import generate_board_from_list
 
 ## Graphical values
 
-TILES_BG_COLOR = {'0': "#9e948a", '2': "#eee4da", '4': "#ede0c8", '8': "#f1b078", \
-                  '16': "#eb8c52", '32': "#f67c5f", '64': "#f65e3b", \
-                  '128': "#edcf72", '256': "#edcc61", '512': "#edc850", \
+TILES_BG_COLOR = {None: "#9e948a", 2: "#eee4da", 4: "#ede0c8", 8: "#f1b078", \
+                  16: "#eb8c52", 32: "#f67c5f", 64: "#f65e3b", \
+                  128: "#edcf72", 256: "#edcc61", 512: "#edc850", \
                   '1024': "#edc53f", '2048': "#edc22e", '4096': "#5eda92", \
                   '8192': "#24ba63"}
 
@@ -28,7 +29,35 @@ def initialization():
     window = Tk()
     return window
 
-def update_display(Board0, Board1, window)
+test_game=Game()
+board1=generate_board_from_list([[2],[None]])
+board0=generate_board_from_list([[2],[None]])
+test_game.list_board=[board0,board1]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def update_display(window, game=test_game):
 # Size of the grid. Should be choosen by the user thanks to another function
     grid_size = (Board0.height,Board0.width)
     
