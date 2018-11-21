@@ -65,10 +65,7 @@ class Game:
         return (self.is_over_function(self.list_board[player],*args), player)
 
     def all_over(self, *args):
-        test = True
-        for i in range(len(self.list_board)):
-            test = test and self.is_over_function(self.list_board[i])
-        return test
+        return self.is_over_function(self.list_board[0]) and self.is_over_function(self.list_board[1])
 
     def display_board(self, board_number = None, *args):
         if board_number == None:

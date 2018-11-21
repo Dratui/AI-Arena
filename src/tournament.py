@@ -1,6 +1,7 @@
 import operator
 import src.players as player
 import src.games.games as games
+from copy import copy
 
 
 class Tournament:
@@ -8,7 +9,8 @@ class Tournament:
     number_players = 0
     game_name = "" #Holds the name of the game
     list_players = []
-    score=[] #score[i] holds the number of matches that player i has won
+    score=[] #score[i] holds the temporary score of the players for the current game
+    tournament_score=[] #Holds the number of games a player has won
     leaderboard=[] #Leaderboard[i] hold the rank of player i.
     #The following three hold the modules that correspond to the game being played
     grid = None
@@ -31,12 +33,17 @@ class Tournament:
             self.import_2048
         if self.game_name == "p4": #Same
             self.import_p4
-        self.score = [0] * self.number_players
+        self.score = []
+        for _ in range(self.number_players):
+            self.score.append(0)
         matches = []
         for i in range(self.number_players): #Here we create the matrix for all 1 one 1 match.
             tempRow=[-1]*self.number_players
             matches.append(tempRow)
         self.matches = matches
+        self.tournament_score = []
+        for _ in range(self.number_players):
+            self.tournament_score.append(0)
         
     def import_2048(self):
         """Imports the game 2048 into the attributes of self"""
@@ -59,32 +66,36 @@ class Tournament:
     def launch_a_game(self, player0, player1, display_ai_game = False):
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
+        self.game.player_playing = 0
         while not self.game.all_over():
             if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
                 print(self.game.display_board())
                 print("\n\n\n")
             if not self.game.is_over()[0]:
-                next_move = self.list_players[self.game.player_playing].get_move(self.game.list_board[self.game.player_playing],self.game) #We retrieve the move that the current player wants to make.
+                if self.game.player_playing == 0 :
+                    next_move = self.list_players[player0].get_move(self.game.list_board[0],self.game) #We retrieve the move that the current player wants to make.
+                else :
+                    next_move = self.list_players[player1].get_move(self.game.list_board[1],self.game)
                 self.game.make_a_move(next_move)
                 self.game.next_turn()
                 self.game.score[self.game.player_playing] = self.game.calc_score()
-            self.game.player_playing = (self.game.player_playing + 1) % self.number_players
+            self.game.player_playing = (self.game.player_playing + 1) % 2
         #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
-            self.score[player0] += 1
+            self.tournament_score[player0] += 1
             self.matches[player1][player0] = player0
             self.matches[player0][player1] = player0
         elif self.game.score[1] > self.game.score[0]:
-            self.score[player1] += 1
+            self.tournament_score[player1] += 1
             self.matches[player0][player1] = player1
             self.matches[player1][player0] = player1
         else:
-            self.score[player0] += .5
-            self.score[player1] += .5
+            self.tournament_score[player0] += .5
+            self.tournament_score[player1] += .5
             self.matches[player0][player1] = "ex aequo"
             self.matches[player1][player0] = "ex aequo"
-            
-        self.leaderboard = calculate_leaderboard(self.score)
+        self.reset_score
+        self.leaderboard = calculate_leaderboard(self.tournament_score)
         
     def launch_tournament(self,display_ai_game = False):
         """This function launches a tournament and manages the launching of the games, prints who wins every time and finally displays the leaderboard"""
@@ -105,8 +116,10 @@ class Tournament:
             print(self.list_players[current_best].name, " is number ", current_rank, "\n")
             leaderboard[current_best] = 0
             
-            
-        
+    def reset_score(self):
+        self.score = []
+        for _ in range(self.number_players):
+            self.score.append(0)
         
         
         
@@ -137,8 +150,10 @@ def select_player(number_player):
 def calculate_leaderboard(score):
     """Recieves the list of the score of every player and returns the rank of each player"""
     size = len(score)
-    copy_score=score
-    leaderboard = [0]*size
+    copy_score=copy(score)
+    leaderboard = []
+    for _ in range(size):
+        leaderboard.append(0)
     index_of_max, current_max = max(enumerate(copy_score), key=operator.itemgetter(1)) #The index of the max value and said max value
     current_rank = 1
     current_rank_without_equal = 1 #This variable will always be incremented as it will give the value current_rank must take after managing two players with the same rank (E.G. to have 1,1,3 as ranks and not 1,1,2)
