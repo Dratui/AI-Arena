@@ -1,7 +1,7 @@
 from src.games.games import Game
 import random as rd
 
-def ia_output(board,game):
+def ai_output(board,game):
     list_move_available=game.get_move_effective()
     if 2 in list_move_available:
         return(2)
