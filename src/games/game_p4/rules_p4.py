@@ -38,7 +38,7 @@ def is_over(board):
             if board.read_tile(i,move) == None:
                 is_full = False
     if is_full:
-        return is_full
+        return True
     return False
 
 def move_effective(board):

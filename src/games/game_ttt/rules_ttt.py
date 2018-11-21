@@ -27,6 +27,13 @@ def is_over(board):
                 for k in range(4):
                     if list_near_points[k]+list_near_points[k+4] >1 :
                         return True
+    is_full = True
+    for move in range(board.width):
+        for i in range(board.height):
+            if board.read_tile(i,move) == None:
+                is_full = False
+    if is_full:
+        return True
     return False
 
 def calc_score(list_board, player):
