@@ -9,7 +9,7 @@ def do_work_for_genetic(worktodo):
     """
     Execution to a text file
     :param worktodo: a texte file with commands to execute
-    :return: 
+    :return:
     """
     source_file = open(worktodo,'r')
     lines_source_file=[]
@@ -45,5 +45,3 @@ def do_work_for_genetic(worktodo):
         import Genetics.score_functions
         score_function=getattr(Genetics.score_functions,dict_parameters[SCORE_FUNCTION[0]])
         results_file.write("Results of {} for {} = {} and {} = {} and {} = {} with {} = {} are {}. \n \n".format(parameters[0],MOVES_NUMB[0],dict_parameters[MOVES_NUMB[0]],POP_NUMB[0],dict_parameters[POP_NUMB[0]],GENE_NUMB[0],dict_parameters[GENE_NUMB[0]],SCORE_FUNCTION[0],dict_parameters[SCORE_FUNCTION[0]],genetic_algorithm(int(dict_parameters[MOVES_NUMB[0]]),int(dict_parameters[POP_NUMB[0]]),int(dict_parameters[GENE_NUMB[0]]),score_function)))
-
-do_work_for_genetic('to_do_simple_sum.txt')

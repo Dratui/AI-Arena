@@ -9,13 +9,13 @@ from src.games.games import *
 def test_is_over():
     game = init_game("p4")
     game.list_board[0] = generate_board_from_list([[None, None, None, None], [None, None, None, None], [None, None, None, None], [0, None, None, 1]])
-    assert game.is_over(0, 0)[0] == False
+    assert game.is_over()[0] == False
     game.list_board[0] = generate_board_from_list([[None, None, None, None], [None, None, None, None], [None, None, None, None], [0, 0, 0, 0]])
-    assert game.is_over(0, 0)[0] == True
+    assert game.is_over()[0] == True
     game.list_board[0] = generate_board_from_list([[None, None, None, None], [None, None, None, None], [None, None, None, None], [1, 1, 1, 1]])
-    assert game.is_over(0, 1)[0] == True
+    assert game.is_over()[0] == True
     game.list_board[0] = generate_board_from_list([[0, None, None, None], [0, None, None, None], [0, None, None, None], [0, None, None, 1]])
-    assert game.is_over(0, 0)[0] == True
+    assert game.is_over()[0] == True
 
 
 def test_make_a_move():

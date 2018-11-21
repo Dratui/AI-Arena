@@ -11,7 +11,20 @@ g2k_game = init_game("2048")
 gp4_game = init_game("p4")
 ttt_game = init_game("ttt")
 
-game = "p4"
+game = "2048AI"
+def AI(move_effective, last_move):
+    if (0 in move_effective) or (1 in move_effective):
+        if last_move in [0,1]:
+            if 1-last_move in move_effective:
+                return 1-last_move
+            else:
+                return last_move
+        else:
+            return move_effective[0]
+    else:
+        return move_effective[0]
+
+
 
 def launch():
     if game == "2048":
@@ -23,6 +36,22 @@ def launch():
                 move = player_interaction_2048.get_player_move()
             g2k_game.make_a_move(move)
             if not(g2k_game.is_over()[0]):
+                g2k_game.next_turn()
+            else:
+                print("Vous avez perdu, dommage")
+                break
+    if game == "2048AI":
+        last_move = 0
+        while 1:
+            print(g2k_game.list_board[0].grid_to_string_with_size(8))
+            move = AI(g2k_game.get_move_effective(),last_move)
+            last_move = move
+            while not(move in g2k_game.get_move_effective()):
+                print("mouvement inutile")
+                move = player_interaction_2048.get_player_move()
+            g2k_game.make_a_move(move)
+            if not(g2k_game.is_over()[0]):
+                print(g2k_game.is_over()[0])
                 g2k_game.next_turn()
             else:
                 print("Vous avez perdu, dommage")
