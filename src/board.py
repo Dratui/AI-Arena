@@ -19,6 +19,7 @@ def generate_board_from_list(grille):
     return tableau
 class Board:
     def __init__(self, height, width):
+        self.input=""
         self.height = height
         self.width = width
         self.__grid = [[None for i in range(self.width)] for j in range(self.height)]
