@@ -1,4 +1,5 @@
 from tkinter import *
+from board import Board
 
 ## Graphical values
 
