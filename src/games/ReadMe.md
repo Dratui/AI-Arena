@@ -6,7 +6,7 @@ The main functions needed to initialize game objects are :
 
     - next_turn : modifies the board according to what is supposed to happen when a player finishes his turn but don't return it (i.e. 2k48 --> spawn a new tile)
 
-    - move_effective : returns the list of the move that will have an efect on the game (i.e. not the move that will do nothing)
+    - move_effective : returns the list of the move that will have an effect on the game (i.e. not the move that will do nothing)
 
     - display_board : returns the string used to display the board
 
