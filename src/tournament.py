@@ -85,15 +85,19 @@ class Tournament:
                     print("The winner of a game between player ", self.list_players[x].name, " and player ", self.list_players[y].name, " is ", self.list_players[self.matches[x][y]].name, "\n")
                 else:
                     print(self.matches[x][y],"\n")
-        self.print_leaderboard(self.leaderboard)
+        return self.print_leaderboard(self.leaderboard)
 
     def print_leaderboard(self, leaderboard):
         """This function prints the leaderboard, line by line, showing the name of the players and their rank"""
-        print("RANKING : \n")
+        txt=""
         for i in range(self.number_players):
             current_best, current_rank = max(enumerate(leaderboard), key=operator.itemgetter(1))
-            print(self.list_players[current_best].name, " is number ", current_rank, "\n")
+            if (self.list_players[current_best].file!="human_console"):
+                txt+=self.list_players[current_best].name+" is number "+str(current_rank)+ "\n"
+            else:
+                txt+=self.list_players[current_best].file+" is number "+str(current_rank)+ "\n"
             leaderboard[current_best] = 0
+        return txt
 
     def reset_score(self):
         self.score = []
