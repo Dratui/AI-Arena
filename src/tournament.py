@@ -50,8 +50,6 @@ class Tournament:
         
     def import_2048(self):
         """Imports the game 2048 into the attributes of self"""
-        import src.games.game_2048.grid_2048
-        self.grid = src.games.game_2048.grid_2048
         import src.games.game_2048.player_interaction_2048
         self.player_interaction = src.games.game_2048.player_interaction_2048
         import src.games.game_2048.rules_2048
@@ -59,8 +57,6 @@ class Tournament:
 
     def import_p4(self):
         """Imports the game p4 into the attributes of self"""
-        import src.games.game_p4.grid_p4
-        self.grid = src.games.game_p4.grid_p4
         import src.games.game_p4.player_interaction_p4
         self.player_interaction = src.games.game_p4.player_interaction_p4
         import src.games.game_p4.rules_p4
