@@ -1,5 +1,5 @@
 import random as rd
-#from Genetics.score_functions import calc_score
+#from genetics.score_functions import calc_score
 GAME = '2048'
 MOVES= [0,1,2,3]
 #Initialisation of a community : number of movements
