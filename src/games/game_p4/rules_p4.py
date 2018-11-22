@@ -50,7 +50,7 @@ def move_effective(board):
 
 def calc_score(list_board, player_playing):
     """Returns a score of 1 for the player that has won"""
-    if rules_p4.is_over(list_board[0]) :
+    if is_over(list_board[0]) :
         return 1
     else :
         return 0
