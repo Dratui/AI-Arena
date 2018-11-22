@@ -3,9 +3,11 @@ from tkinter import font
 from src.tournament import Tournament
 from random import randint
 
+#Creation of the fonts used in the interface
 Play_font = ("Verdana", 40, "bold")
 normal_font=("Verdana", 20)
 
+#Global variables used in the differents functions and steps of the programm
 fenetre=0
 canvas=0
 Nombre=0
@@ -13,12 +15,21 @@ Entree=[]
 liste=0
 case=0
 photo=0
-
 Tournoi=0
-listeGames=["2048","Puissance 4","Tic-Tac-Toe (ToDo)","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
-liste_ai=['ai_2048_1','random_ai']
+
+#Data from the games and AI (only available for them) that are shown in the interface
+listeGames=["2048","Puissance 4","Tic-Tac-Toe","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
+liste_ai=['ai_2048_1','random_ai','bruteforce_ai']
+
+"""
+The idea I used for Tkinter is about creating an object fenetre (window)
+Each time I want to change the window, I delete it and recreate it from its ashes, like a phoenix
+"""
 
 def display_nbrJoueurs(event):
+    """
+    Function that display the window that allow the user to write the number of players he wants for the tournament
+    """
     global Nombre
     global fenetre
     global Tournoi
@@ -27,6 +38,8 @@ def display_nbrJoueurs(event):
     fenetre=Tk()
     fenetre.title('Players')
 
+
+
     label=Label(fenetre,text="Number of players:",font=normal_font).pack(padx=10, pady=10)
     Nombre=Spinbox(fenetre, from_=2, to=10,font=normal_font)
     Nombre.pack()
@@ -34,6 +47,9 @@ def display_nbrJoueurs(event):
     bouton.pack()
 
 def name_players():
+    """
+    Function that shows the list of players names, that can be changed.
+    """
     global Nombre
     global fenetre
     global Entree
@@ -57,6 +73,9 @@ def name_players():
     bouton.pack()
 
 def select_game():
+    """
+    Functions that display the game selection menu, and also the option to show the option to display the AI
+    """
     listeJoueurs=[]
     for i in range(len(Entree)):
         name=Entree[i].get()
@@ -85,6 +104,10 @@ def select_game():
 
 
 def launch_game():
+    """
+    Function that use the tournament class and launch the tournament, and at the end, shows the leaderboard
+
+    """
     global liste
     global fenetre
 
@@ -108,6 +131,9 @@ def launch_game():
     bouton.pack()
 
 def init_window():
+    """
+    Function to initialise the window object at each beginning (main menu)
+    """
     global fenetre
     global canvas
     global photo
@@ -125,5 +151,6 @@ def init_window():
 
     canvas.focus_set()
     canvas.pack()
+#Main loop
 init_window()
 fenetre.mainloop()
