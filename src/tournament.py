@@ -2,6 +2,8 @@ import operator
 import src.players as player
 import src.games.games as games
 from copy import copy
+from tkinter import *
+from graphics.graphic import update_display
 
 
 class Tournament:
@@ -42,21 +44,25 @@ class Tournament:
         import src.games.game_ttt.rules_ttt
         self.rules = src.games.game_ttt.rules_ttt
 
-    def launch_a_game(self, player0, player1, display_ai_game = False):
+    def Glaunch_a_game(self, player0, player1,window, display_ai_game = False):
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
         self.game.player_playing = 0
         while not self.game.all_over():
             if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
-                print(self.game.display_board())
-                print("\n\n\n")
+
+                update_display(window,self.game)
+
             if not self.game.is_over()[0]:
                 if self.game.player_playing == 0 :
                     next_move = self.list_players[player0].get_move(self.game.list_board[0],self.game) #We retrieve the move that the current player wants to make.
                 else :
                     next_move = self.list_players[player1].get_move(self.game.list_board[1],self.game)
                 self.game.make_a_move(next_move)
+
                 self.game.next_turn()
+
+
                 self.game.score[self.game.player_playing] = self.game.calc_score()
             self.game.player_playing = (self.game.player_playing + 1) % 2
         #Next part updates the scores and the values of matches
@@ -76,16 +82,24 @@ class Tournament:
         self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
 
-    def launch_tournament(self,display_ai_game = False):
+
+
+    def Glaunch_tournament(self,window,display_ai_game = False):
         """This function launches a tournament and manages the launching of the games, prints who wins every time and finally displays the leaderboard"""
         for x in range(self.number_players):
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
-                self.launch_a_game(x,y,display_ai_game)
+
+                window.destroy()
+                window=Tk()
+
+                self.launch_a_game(x,y,window,display_ai_game)
                 if self.matches[x][y] != "ex aequo":
                     print("The winner of a game between player ", self.list_players[x].name, " and player ", self.list_players[y].name, " is ", self.list_players[self.matches[x][y]].name, "\n")
                 else:
                     print(self.matches[x][y],"\n")
         return self.print_leaderboard(self.leaderboard)
+
+
 
     def print_leaderboard(self, leaderboard):
         """This function prints the leaderboard, line by line, showing the name of the players and their rank"""
@@ -120,6 +134,8 @@ class Tournament:
         self.tournament_score = []
         for _ in range(self.number_players):
             self.tournament_score.append(0)
+
+
     def Gchoose_game(self, game):
         """Function that select the game script depending on the game (string) entered"""
         if game=="2048":
@@ -174,4 +190,4 @@ def calculate_leaderboard(score):
         if current_max_temp != current_max:
             current_max = current_max_temp
             current_rank = current_rank_without_equal
-return leaderboard
+    return leaderboard
