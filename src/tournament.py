@@ -120,6 +120,7 @@ class Tournament:
         self.tournament_score = []
         for _ in range(self.number_players):
             self.tournament_score.append(0)
+            
     def Gchoose_game(self, game):
         """Function that select the game script depending on the game (string) entered"""
         if game=="2048":
@@ -174,4 +175,4 @@ def calculate_leaderboard(score):
         if current_max_temp != current_max:
             current_max = current_max_temp
             current_rank = current_rank_without_equal
-return leaderboard
+    return leaderboard
