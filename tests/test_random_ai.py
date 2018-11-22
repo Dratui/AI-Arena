@@ -1,5 +1,5 @@
 import src.games.games as Games
-import AI.random_ai as AI
+import ai.random_ai as AI
 from src.board import *
 from pytest import *
 
