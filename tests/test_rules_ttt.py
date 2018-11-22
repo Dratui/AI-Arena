@@ -11,6 +11,9 @@ def test_make_a_move():
 def test_move_effective():
     board = generate_board_from_list([[None,1,None],[1,0,0],[None,1,None]])
     assert move_effective(board) == [0,2,6,8]
+    board = generate_board_from_list([[1,1,0],[None,0,None],[1,None,None]])
+    assert move_effective(board) == [3,5,7,8]
+
 
 def test_is_over():
     board = generate_board_from_list([[None,1,None],[1,0,0],[None,1,None]])
