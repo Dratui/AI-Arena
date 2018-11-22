@@ -3,6 +3,9 @@ from tkinter import font
 from src.tournament import Tournament
 from random import randint
 
+
+
+
 #Creation of the fonts used in the interface
 Play_font = ("Verdana", 40, "bold")
 normal_font=("Verdana", 20)
@@ -125,10 +128,12 @@ def launch_game():
     #SHOW THE LEADERBOARD
     fenetre=Tk() # pragma: no cover
 
+    
     label = Label(fenetre, text=classement,font=normal_font) # pragma: no cover
     label.pack() # pragma: no cover
-    bouton = Button(fenetre, text="Menu Principal",command=init_window,font=normal_font) # pragma: no cover
+    bouton = Button(fenetre, text="Quitter",command=fenetre.destroy,font=normal_font) # pragma: no cover
     bouton.pack() # pragma: no cover
+
 
 def init_window():
     """
@@ -137,11 +142,10 @@ def init_window():
     global fenetre
     global canvas
     global photo
-
-    fenetre = Tk()
+    if fenetre==0:
+        fenetre = Tk()
     fenetre.title("AI Arena")
     canvas = Canvas(fenetre, width=900, height=700, cursor="target")
-    photo = PhotoImage(file="graphics/menu.png")
 
     canvas.create_image(0, 0, anchor=NW, image=photo)
     canvas.create_text(450,260,text="Play",font=Play_font,fill="#de8421",activefill="#ff3300")
@@ -152,6 +156,7 @@ def init_window():
     canvas.pack()
 
 #Main loop
-
+fenetre=Tk()
+photo = PhotoImage(file="graphics/menu.png")
 init_window()
 fenetre.mainloop()
