@@ -42,7 +42,7 @@ In this file xxx is the name of your game
 # III. How to run a game alone:
 
   * use a script like this one (more examples can be found is example_init_game.py):
-    xxx_game = init_game("xxx")
+    ````xxx_game = init_game("xxx")
     while 1:
        print("joueur", xxx_game.player_playing)
       print(xxx_game.list_board[0].grid_to_string_with_size(3))
@@ -53,7 +53,7 @@ In this file xxx is the name of your game
         xxx_game.change_player()
       else:
         print("Le joueur ",  xxx_game.player_playing, "gagne")
-        break
+        break```
 
 
 # IV. Game() attributes:
