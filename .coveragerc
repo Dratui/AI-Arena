@@ -1,5 +1,4 @@
 [run]
-branch=True
 source=
 	./exe.py
 	./genetic_file_gestion.py
@@ -11,6 +10,7 @@ source=
 [report]
 omit =
 	./example_init_game.py
+	./genetics/*
 
 [html]
 directory=./htmlcov

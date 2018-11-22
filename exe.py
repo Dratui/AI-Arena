@@ -33,19 +33,19 @@ def display_nbrJoueurs(event):
     global Nombre
     global fenetre
     global Tournoi
-    Tournoi = Tournament()
-    fenetre.destroy()
-    fenetre=Tk()
-    fenetre.title('Players')
+    Tournoi = Tournament() # pragma: no cover
+    fenetre.destroy() # pragma: no cover
+    fenetre=Tk() # pragma: no cover
+    fenetre.title('Players') # pragma: no cover
 
 
 
-    label=Label(fenetre,text="Number of players:",font=normal_font).pack(padx=10, pady=10)
-    Nombre=Spinbox(fenetre, from_=2, to=10,font=normal_font)
-    Nombre.pack()
-    bouton = Button(fenetre,text="Send",command=name_players,font=normal_font)
-    bouton.pack()
-
+    label=Label(fenetre,text="Number of players:",font=normal_font).pack(padx=10, pady=10) # pragma: no cover
+    Nombre=Spinbox(fenetre, from_=2, to=10,font=normal_font) # pragma: no cover
+    Nombre.pack() # pragma: no cover
+    bouton = Button(fenetre,text="Send",command=name_players,font=normal_font) # pragma: no cover
+    bouton.pack() # pragma: no cover
+ 
 def name_players():
     """
     Function that shows the list of players names, that can be changed.
@@ -54,53 +54,53 @@ def name_players():
     global fenetre
     global Entree
     global Tournoi
-    nbrJoueurs=int(Nombre.get())
+    nbrJoueurs=int(Nombre.get()) # pragma: no cover
+#Note : pragma: no cover means this line of bloc will not be counted in the coverage (useful for graphical functions which cannot be tested properly with pytest
+    Tournoi = Tournament() # pragma: no cover
+    Tournoi.Gtournament_init(nbrJoueurs) # pragma: no cover
 
-    Tournoi = Tournament()
-    Tournoi.Gtournament_init(nbrJoueurs)
-
-    fenetre.destroy()
-    fenetre=Tk()
-    fenetre.title('State the name of the AI (simply state h for a human player)')
-    Entree=[]
-    for i in range(nbrJoueurs):
+    fenetre.destroy() # pragma: no cover
+    fenetre=Tk() # pragma: no cover
+    fenetre.title('State the name of the AI (simply state h for a human player)') # pragma: no cover
+    Entree=[] # pragma: no cover
+    for i in range(nbrJoueurs): # pragma: no cover
         string=liste_ai[randint(0,len(liste_ai)-1)]
         entree=Entry(fenetre,width=20,font=normal_font)
         entree.insert(END,string)
         entree.pack()
         Entree.append(entree)
-    bouton = Button(fenetre,text="Valider",command=select_game,font=normal_font)
-    bouton.pack()
+    bouton = Button(fenetre,text="Valider",command=select_game,font=normal_font) # pragma: no cover
+    bouton.pack() # pragma: no cover
 
 def select_game():
     """
     Functions that display the game selection menu, and also the option to show the option to display the AI
     """
-    listeJoueurs=[]
-    for i in range(len(Entree)):
+    listeJoueurs=[] # pragma: no cover
+    for i in range(len(Entree)): # pragma: no cover
         name=Entree[i].get()
         listeJoueurs.append(name)
 
     global Tournoi
-    Tournoi.Gselect_players(listeJoueurs)
+    Tournoi.Gselect_players(listeJoueurs) # pragma: no cover
 
     global fenetre
     global liste
     global case
-    fenetre.destroy()
-    fenetre=Tk()
-    fenetre.title('Liste des games')
-    liste = Listbox(fenetre,font=normal_font)
+    fenetre.destroy() # pragma: no cover
+    fenetre=Tk() # pragma: no cover
+    fenetre.title('Liste des games') # pragma: no cover
+    liste = Listbox(fenetre,font=normal_font) # pragma: no cover
     global listeGames
-    for i,ele in enumerate(listeGames):
+    for i,ele in enumerate(listeGames): # pragma: no cover
         liste.insert(i+1, ele)
 
-    liste.pack()
-    case = IntVar()
-    checkbox = Checkbutton(fenetre, text="Display Ai Game",variable=case,font=normal_font)
-    checkbox.pack()
-    bouton = Button(fenetre,text="Valider",command=launch_game,font=normal_font)
-    bouton.pack()
+    liste.pack() # pragma: no cover
+    case = IntVar() # pragma: no cover
+    checkbox = Checkbutton(fenetre, text="Display Ai Game",variable=case,font=normal_font) # pragma: no cover
+    checkbox.pack() # pragma: no cover
+    bouton = Button(fenetre,text="Valider",command=launch_game,font=normal_font) # pragma: no cover
+    bouton.pack() # pragma: no cover
 
 
 def launch_game():
@@ -111,24 +111,24 @@ def launch_game():
     global liste
     global fenetre
 
-    Jeu=liste.get(ACTIVE)
+    Jeu=liste.get(ACTIVE) # pragma: no cover
     global case
-    display_ai_game=(case.get()==1)
-    fenetre.destroy()
+    display_ai_game=(case.get()==1) # pragma: no cover
+    fenetre.destroy() # pragma: no cover
     global Tournoi
-    Tournoi.Gchoose_game(Jeu)
+    Tournoi.Gchoose_game(Jeu) # pragma: no cover
 
-    print('Launching the game')
-    classement=Tournoi.launch_tournament(display_ai_game)
+    print('Launching the game') # pragma: no cover
+    classement=Tournoi.launch_tournament(display_ai_game) # pragma: no cover
 
     #END Game
     #SHOW THE LEADERBOARD
-    fenetre=Tk()
+    fenetre=Tk() # pragma: no cover
 
-    label = Label(fenetre, text=classement,font=normal_font)
-    label.pack()
-    bouton = Button(fenetre, text="Menu Principal",command=init_window,font=normal_font)
-    bouton.pack()
+    label = Label(fenetre, text=classement,font=normal_font) # pragma: no cover
+    label.pack() # pragma: no cover
+    bouton = Button(fenetre, text="Menu Principal",command=init_window,font=normal_font) # pragma: no cover
+    bouton.pack() # pragma: no cover
 
 def init_window():
     """

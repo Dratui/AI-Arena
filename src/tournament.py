@@ -47,7 +47,7 @@ class Tournament:
         self.game = games.init_game(self.game_name)
         self.game.player_playing = 0
         while not self.game.all_over():
-            if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
+            if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: # pragma: no cover #If there is at least one human or if we have decided to watch the non-human players, we show them
                 print(self.game.display_board())
                 print("\n\n\n")
             if not self.game.is_over()[0]:
@@ -59,7 +59,7 @@ class Tournament:
                 self.game.next_turn()
                 self.game.score[self.game.player_playing] = self.game.calc_score()
             self.game.player_playing = (self.game.player_playing + 1) % 2
-        if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
+        if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: # pragma: no cover #If there is at least one human or if we have decided to watch the non-human players, we show them
             print(self.game.display_board())
             print("\n\n\n")
         #Next part updates the scores and the values of matches
@@ -90,7 +90,7 @@ class Tournament:
                     print(self.matches[x][y],"\n")
         return self.print_leaderboard(self.leaderboard)
 
-    def print_leaderboard(self, leaderboard):
+    def print_leaderboard(self, leaderboard): # pragma: no cover
         """This function prints the leaderboard, line by line, showing the name of the players and their rank"""
         txt=""
         for i in range(self.number_players):
