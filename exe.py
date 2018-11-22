@@ -13,7 +13,7 @@ case=0
 photo=0
 
 Tournoi=0
-listeGames=["2048","Puissance 4","Tic-Tac-Toe (ToDo)","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
+listeGames=["2048","Puissance 4","TicTacToe","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
 
 
 def name_players():

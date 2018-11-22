@@ -86,6 +86,7 @@ class Game:
 
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
+    print(name)
     if name == "2048":
         new_game = Game()
         init_game_2048.create_2048(new_game,players_number)
