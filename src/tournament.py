@@ -59,6 +59,9 @@ class Tournament:
                 self.game.next_turn()
                 self.game.score[self.game.player_playing] = self.game.calc_score()
             self.game.player_playing = (self.game.player_playing + 1) % 2
+        if display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name: #If there is at least one human or if we have decided to watch the non-human players, we show them
+            print(self.game.display_board())
+            print("\n\n\n")
         #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
             self.tournament_score[player0] += 1
@@ -120,7 +123,7 @@ class Tournament:
         self.tournament_score = []
         for _ in range(self.number_players):
             self.tournament_score.append(0)
-            
+
     def Gchoose_game(self, game):
         """Function that select the game script depending on the game (string) entered"""
         if game=="2048":
@@ -176,4 +179,3 @@ def calculate_leaderboard(score):
             current_max = current_max_temp
             current_rank = current_rank_without_equal
     return leaderboard
-
