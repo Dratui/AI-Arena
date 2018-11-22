@@ -79,18 +79,20 @@ class Tournament:
             self.matches[player1][player0] = "ex aequo"
         self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
+        window.quit()
 
 
 
-    def Glaunch_tournament(self,window,display_ai_game = False):
+    def Glaunch_tournament(self,display_ai_game = False):
         """This function launches a tournament and manages the launching of the games, prints who wins every time and finally displays the leaderboard"""
         for x in range(self.number_players):
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
 
-                window.destroy()
                 window=Tk()
 
                 self.Glaunch_a_game(x,y,window,display_ai_game)
+                window.destroy()
+                window.mainloop()
 
                 if self.matches[x][y] != "ex aequo":
                     print("The winner of a game between player ", self.list_players[x].name, " and player ", self.list_players[y].name, " is ", self.list_players[self.matches[x][y]].name, "\n")

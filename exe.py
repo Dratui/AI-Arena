@@ -59,6 +59,7 @@ def select_game():
         liste.insert(i+1, ele)
 
     liste.pack()
+    global case
     case = IntVar()
     checkbox = Checkbutton(fenetre, text="Display Ai Game",variable=case)
     checkbox.pack()
@@ -71,24 +72,10 @@ def launch_game():
     global fenetre
 
     Jeu=liste.get(ACTIVE)
-    global case
-    display_ai_game=(case.get()==1)
     fenetre.destroy()
-    fenetre=Tk()
     global Tournoi
     Tournoi.Gchoose_game(Jeu)
-
-    print('Launching the game')
-    classement=Tournoi.Glaunch_tournament(fenetre,display_ai_game)
-
-    #END Game
-    #SHOW THE LEADERBOARD
-    fenetre=Tk()
-
-    label = Label(fenetre, text=classement)
-    label.pack()
-    bouton = Button(fenetre, text="Menu Principal",command=init_window)
-    bouton.pack()
+    fenetre.destroy() #we go out of the mainloop for fenetre here
 
 def init_window():
     global fenetre
@@ -126,4 +113,22 @@ def display_nbrJoueurs(event):
     bouton.pack()
 
 init_window()
+fenetre.mainloop()
+
+
+
+
+print('Launching the game')
+
+display_ai_game=(case.get()==1)
+
+classement=Tournoi.Glaunch_tournament(display_ai_game)
+
+#END Game
+#SHOW THE LEADERBOARD
+fenetre=Tk()
+label = Label(fenetre, text=classement)
+label.pack()
+bouton = Button(fenetre, text="Menu Principal",command=init_window)
+bouton.pack()
 fenetre.mainloop()

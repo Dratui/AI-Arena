@@ -12,17 +12,16 @@ test_game.list_board=[board0,board1]
 
 
 def update_display(window, game=test_game):
+    game.window=window
     Board0=game.list_board[0]
     Board1=game.list_board[1]
     # Size of the grid. Should be choosen by the user thanks to another function
     grid_size = (Board0.height,Board0.width)
 
     def keyboard(event):
-        print("testqzd")
         key = event.keysym
         if key == "z":
             Board0.input = "h"
-            print("hello")
         elif key == "s":
             Board0.input = "b"
 
@@ -44,7 +43,6 @@ def update_display(window, game=test_game):
         elif key == "Right":
             Board1.input ="d"
 
-    # A grid for each player. Should be created by the init function
     game_grid0 = Board0.get_grid()
     game_grid1 = Board1.get_grid()
 
@@ -57,7 +55,7 @@ def update_display(window, game=test_game):
                           1024: "#edc53f", 2048: "#edc22e", 4096: "#5eda92", \
                           8192: "#24ba63"}
 
-        TILES_FG_COLOR = {None: "#776e65", 2: "#776e65", 4: "#776e65", 8: "#f9f6f2", \
+        TILES_FG_COLOR = {None: "#9e948a", 2: "#776e65", 4: "#776e65", 8: "#f9f6f2", \
                           16: "#f9f6f2", 32: "#f9f6f2", 64: "#f9f6f2", 128: "#f9f6f2", \
                           256: "#f9f6f2", 512: "#f9f6f2", 1024: "#f9f6f2", \
                           2048: "#f9f6f2", 4096: "#f9f6f2", 8192: "#f9f6f2"}
@@ -68,9 +66,7 @@ def update_display(window, game=test_game):
 
         canvas0 = Canvas(window,bg="#FFCC99", height=400, width=400)
         canvas1 = Canvas(window,bg="#FFCC99", height=400, width=400)
-
-        canvas0.bind("<1>", lambda event: print('ihfudh'))
-        canvas0.bind("<Key>", keyboard)
+        canvas0.focus_set()
 
         list_canvas = [canvas0,canvas1]
 
@@ -88,6 +84,8 @@ def update_display(window, game=test_game):
             list_canvas[i].grid(column = i, row = 0)
 
         window.update()
+        window.bind("<Key>",keyboard)
+
 
     if game.name=='ttt':
         NUM2SYM = {None: ' ', 0:'X', 1:'O'}
