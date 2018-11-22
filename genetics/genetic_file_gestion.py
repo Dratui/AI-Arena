@@ -1,4 +1,4 @@
-from Genetics.genetic import genetic_algorithm
+from genetics.genetic import genetic_algorithm
 POP_NUMB=["population_number","pop_number","pop_numb"]
 MOVES_NUMB=["moves_numb","individual_size","individuals_size","ind_size","move_number","moves_number"]
 GENE_NUMB=['generation_number',"gen_number","gene_numb","gene_number","generation_size","gene_size","gen_size"]
@@ -9,7 +9,7 @@ def do_work_for_genetic(worktodo):
     """
     Execution to a text file
     :param worktodo: a texte file with commands to execute
-    :return: 
+    :return:
     """
     source_file = open(worktodo,'r')
     lines_source_file=[]
