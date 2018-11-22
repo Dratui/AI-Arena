@@ -2,7 +2,7 @@ This file describe how to add a game to the library with the normalization that 
 
 In this file xxx is the name of your game
 
-## I. How to create the game:
+# I. How to create the game:
 
     - Create a folder in src/games named game_xxx
     - In it place these files:
@@ -16,7 +16,7 @@ In this file xxx is the name of your game
             - is_over(board): return True if the game is over, else return False
             - calc_score(list_board, current_player): return the score of the current_player (can be 1 or 0 whether he has win or the score like in 2048)
 
-## II. How to initialize a Game() object :
+# II. How to initialize a Game() object :
 
     - in init_game_xxx.py in your game folder create a function create_xxx() which should look like this :
 
@@ -39,7 +39,7 @@ In this file xxx is the name of your game
 
     - update the init_game() function in src.games.games.py to add the choice for your game like for the other games using the create_xxx() function defined in init_game_xxx.py in your game folder
 
-## III. How to run a game alone:
+# III. How to run a game alone:
 
     - use a script like this one (more examples can be found is example_init_game.py):
         xxx_game = init_game("xxx")
@@ -56,7 +56,7 @@ In this file xxx is the name of your game
                 break
 
 
-## IV. Game() attributes:
+# IV. Game() attributes:
 
     - name = name of the game
       list_board = list of the boards (one for each players)
