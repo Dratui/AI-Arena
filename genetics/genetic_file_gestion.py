@@ -1,4 +1,4 @@
-from Genetics.genetic import genetic_algorithm
+from genetics.genetic import genetic_algorithm
 POP_NUMB=["population_number","pop_number","pop_numb"]
 MOVES_NUMB=["moves_numb","individual_size","individuals_size","ind_size","move_number","moves_number"]
 GENE_NUMB=['generation_number',"gen_number","gene_numb","gene_number","generation_size","gene_size","gen_size"]
@@ -14,7 +14,7 @@ def do_work_for_genetic(worktodo):
     source_file = open(worktodo,'r')
     lines_source_file=[]
     for line in source_file:
-        if not(line in ['\n',' \n',None,'','\n ']):
+        if not(line in ['\n',' \n',None,' ','','\n ']):
             lines_source_file.append(line)
 
     for line in lines_source_file:
@@ -42,6 +42,8 @@ def do_work_for_genetic(worktodo):
         print(dict_parameters)
         print(dict_parameters[FILE_NAME[0]])
         results_file = open(dict_parameters[FILE_NAME[0]]+'.txt' ,'a+')
-        import Genetics.score_functions
-        score_function=getattr(Genetics.score_functions,dict_parameters[SCORE_FUNCTION[0]])
+        import genetics.score_functions
+        score_function=getattr(genetics.score_functions, dict_parameters[SCORE_FUNCTION[0]])
         results_file.write("Results of {} for {} = {} and {} = {} and {} = {} with {} = {} are {}. \n \n".format(parameters[0],MOVES_NUMB[0],dict_parameters[MOVES_NUMB[0]],POP_NUMB[0],dict_parameters[POP_NUMB[0]],GENE_NUMB[0],dict_parameters[GENE_NUMB[0]],SCORE_FUNCTION[0],dict_parameters[SCORE_FUNCTION[0]],genetic_algorithm(int(dict_parameters[MOVES_NUMB[0]]),int(dict_parameters[POP_NUMB[0]]),int(dict_parameters[GENE_NUMB[0]]),score_function)))
+
+#do_work_for_genetic('to_do_simple_sum.txt')
