@@ -20,7 +20,7 @@ In this file xxx is the name of your game
 
   * in init_game_xxx.py in your game folder create a function create_xxx() which should look like this :
 
-     - def create_xxx(new_game, args):
+        def create_xxx(new_game, args):
            new_game.name = "xxx"
            new_game.score = [0 for i in range(players_number)]
            new_game.list_board = [board_xxx.init_board(Board(4,4)) for i in range(players_number)]
@@ -42,18 +42,18 @@ In this file xxx is the name of your game
 # III. How to run a game alone:
 
   * use a script like this one (more examples can be found is example_init_game.py):
-      xxx_game = init_game("xxx")
-      while 1:
-        print("joueur", xxx_game.player_playing)
-        print(xxx_game.list_board[0].grid_to_string_with_size(3))
-        move = player_interaction_p4.get_player_move(xxx_game.list_board[0])
-        xxx_game.make_a_move(move)
-        if not(xxx_game.is_over()[0]):
-          xxx_game.next_turn()
-          xxx_game.change_player()
-        else:
-          print("Le joueur ",  xxx_game.player_playing, "gagne")
-          break
+    xxx_game = init_game("xxx")
+    while 1:
+       print("joueur", xxx_game.player_playing)
+      print(xxx_game.list_board[0].grid_to_string_with_size(3))
+      move = player_interaction_p4.get_player_move(xxx_game.list_board[0])
+      xxx_game.make_a_move(move)
+      if not(xxx_game.is_over()[0]):
+        xxx_game.next_turn()
+        xxx_game.change_player()
+      else:
+        print("Le joueur ",  xxx_game.player_playing, "gagne")
+        break
 
 
 # IV. Game() attributes:
