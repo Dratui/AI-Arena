@@ -3,7 +3,7 @@ from board import Board
 
 ## Graphical values
 
-TILES_FG_COLOR = {None:"#ffffff", 0:"#ff0000", 1:"#ffff00"}
+TILES_FG_COLOR = {None:"#ffffff", 0:"#ff0000", 1:"#009900"}
 
 TILES_FONT = ("Verdana", 20, "bold")
 
@@ -33,7 +33,7 @@ def update_display():
                 case = Canvas(window, bg = "#ffffff", height = 50, width = 50)
                 case.grid_propagate(0)
                 case.grid(column = y, row = x)
-                text = Label(case, text = 'O', fg = TILES_FG_COLOR[game_grid[x][y]], bg = "#ffffff", font = TILES_FONT)
+                text = Label(case, text = '○', fg = TILES_FG_COLOR[game_grid[x][y]], bg = "#ffffff", font = TILES_FONT)
                 text.place(x=25, y=25, anchor="center")
         for y in range(grid_size[1]) :
             button = Button(window, text = "Ici", height = 3, width = 6, command = lambda arg = y : click(arg))
