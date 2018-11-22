@@ -1,6 +1,7 @@
 def make_a_move(board,move,player):
     if board.read_tile(move//3, move %3) == None:
         board.change_tile(move//3, move %3 ,player)
+    return board
 
 def move_effective(board):
     list = []

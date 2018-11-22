@@ -6,7 +6,7 @@ The main functions needed to initialize game objects are :
 
     - next_turn : modifies the board according to what is supposed to happen when a player finishes his turn but don't return it (i.e. 2k48 --> spawn a new tile)
 
-    - move_effective : returns the list of the move that will have an efect on the game (i.e. not the move that will do nothing)
+    - move_effective : returns the list of the move that will have an effect on the game (i.e. not the move that will do nothing)
 
     - display_board : returns the string used to display the board
 
@@ -31,7 +31,7 @@ Normalization:
     - move_effective : args : board
                        return : list of the move that would have an effect (list)
 
-    - An exemple of a game initialization can be found in the init_game_xxxx.py of the three games that are already implemented
+    - An exemple of a game initialization can be found in the init_game_xxxx.py inside the folders of the three games that are already implemented
 
 
 Game already implemented :
@@ -53,5 +53,3 @@ Game already implemented :
                     |0|1|2|
                     |3|4|5|
                     |6|7|8|
-
-

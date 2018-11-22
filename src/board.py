@@ -15,7 +15,7 @@ def generate_board_from_list(grille):
     tableau=Board(height,width)
     for i in range(height):
         tableau.set_row(i,grille[i])
-    
+
     return tableau
 class Board:
     def __init__(self, height, width):
@@ -129,7 +129,7 @@ class Board:
         list_tiles = self.get_all_tiles()
         for i in range(len(list_tiles)):
             if list_tiles[i]==None:
-                list_tiles[i]=None
+                list_tiles[i]=" "
             else:
                 list_tiles[i]=str(list_tiles[i])
         grid_str = """"""

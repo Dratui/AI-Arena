@@ -10,10 +10,7 @@ def create_ttt(new_game):
         new_game.list_board = [Board(3,3) for i in range(2)]
         new_game.list_player = [0,1]
         new_game.board_size = (3,3)
-        move_available = []
-        for i in range(3):
-            for j in range(3):
-                move_available.append((i,j))
+        move_available = [i for i in range(9)]
         new_game.move_available = move_available#list of the input available
         new_game.is_over_function = rules_ttt.is_over
         new_game.make_a_move_function = rules_ttt.make_a_move
