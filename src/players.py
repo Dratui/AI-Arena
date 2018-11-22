@@ -14,14 +14,12 @@ class Player:  #Player class
         self.file=ai_file_name
 
 
-    def get_move(self,board,game): 
+    def get_move(self,board,game):
         """
         Player function that gives you the move according to the ai that was selected
-        
+
         """
-        package="AI."+self.file
+        package="ai."+self.file
         name="ai_output"
         imported = getattr(__import__(package, fromlist=[name]), name)
         return(imported(board,game))
-
-
