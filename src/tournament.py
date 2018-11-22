@@ -89,7 +89,6 @@ class Tournament:
 
                 window.destroy()
                 window=Tk()
-                print("1")
 
                 self.Glaunch_a_game(x,y,window,display_ai_game)
 

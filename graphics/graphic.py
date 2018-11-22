@@ -15,60 +15,42 @@ def update_display(window, game=test_game):
     Board0=game.list_board[0]
     Board1=game.list_board[1]
     # Size of the grid. Should be choosen by the user thanks to another function
+    grid_size = (Board0.height,Board0.width)
 
     def keyboard(event):
-        global list_grids
+        print("testqzd")
         key = event.keysym
-
-        ## Updates for the player at the left
         if key == "z":
-            # Update "high", chosen randomly here
             Board0.input = "h"
+            print("hello")
         elif key == "s":
-            # Update "down", chosen randomly here
             Board0.input = "b"
 
         elif key == "q":
-            # Update "left", chosen randomly here
             Board0.input = "g"
 
         elif key == "d":
-            # Update "right", chosen randomly here
             Board0.input = "d"
 
-        ## Updates for the player at the right
-        if key == "Up":
-            # Update "high", chosen randomly here
+        elif key == "Up":
             Board1.input = "h"
 
         elif key == "Down":
-            # Update "down", chosen randomly here
             Board1.input = "b"
 
         elif key == "Left":
-            # Update "left", chosen randomly here
             Board1.input = "g"
 
         elif key == "Right":
-            # Update "right", chosen randomly here
             Board1.input ="d"
 
-    ## Handling the keyboard input
-    window.bind("<Key>", keyboard)
-
-
-    grid_size = (Board0.height,Board0.width)
-
     # A grid for each player. Should be created by the init function
-
-
     game_grid0 = Board0.get_grid()
     game_grid1 = Board1.get_grid()
 
     list_grids = [game_grid0, game_grid1]
 
     if game.name=="2048":
-        print("2")
         TILES_BG_COLOR = {None: "#9e948a", 2: "#eee4da", 4: "#ede0c8", 8: "#f1b078", \
                           16: "#eb8c52", 32: "#f67c5f", 64: "#f65e3b", \
                           128: "#edcf72", 256: "#edcc61", 512: "#edc850", \
@@ -86,6 +68,9 @@ def update_display(window, game=test_game):
 
         canvas0 = Canvas(window,bg="#FFCC99", height=400, width=400)
         canvas1 = Canvas(window,bg="#FFCC99", height=400, width=400)
+
+        canvas0.bind("<1>", lambda event: print('ihfudh'))
+        canvas0.bind("<Key>", keyboard)
 
         list_canvas = [canvas0,canvas1]
 

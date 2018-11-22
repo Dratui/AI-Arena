@@ -16,21 +16,6 @@ Tournoi=0
 listeGames=["2048","Puissance 4","Tic-Tac-Toe (ToDo)","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
 
 
-def display_nbrJoueurs(event):
-    global Nombre
-    global fenetre
-    global Tournoi
-    Tournoi = Tournament()
-    fenetre.destroy()
-    fenetre=Tk()
-    fenetre.title('Players')
-
-    label=Label(fenetre,text="Number of players:",bg="yellow").pack(padx=10, pady=10)
-    Nombre=Spinbox(fenetre, from_=2, to=10)
-    Nombre.pack()
-    bouton = Button(fenetre,text="Send",command=name_players)
-    bouton.pack()
-
 def name_players():
     global Nombre
     global fenetre
@@ -123,5 +108,22 @@ def init_window():
 
     canvas.focus_set()
     canvas.pack()
+
+
+def display_nbrJoueurs(event):
+    global Nombre
+    global fenetre
+    global Tournoi
+    Tournoi = Tournament()
+    fenetre.destroy()
+    fenetre=Tk()
+    fenetre.title('Players')
+
+    label=Label(fenetre,text="Number of players:",bg="yellow").pack(padx=10, pady=10)
+    Nombre=Spinbox(fenetre, from_=2, to=10)
+    Nombre.pack()
+    bouton = Button(fenetre,text="Send",command=name_players)
+    bouton.pack()
+
 init_window()
 fenetre.mainloop()
