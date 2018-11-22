@@ -11,11 +11,51 @@ board0=generate_board_from_list([[2],[None]])
 test_game.list_board=[board0,board1]
 
 
-
 def update_display(window, game=test_game):
     Board0=game.list_board[0]
     Board1=game.list_board[1]
     # Size of the grid. Should be choosen by the user thanks to another function
+
+    def keyboard(event):
+        global list_grids
+        key = event.keysym
+
+        ## Updates for the player at the left
+        if key == "z":
+            # Update "high", chosen randomly here
+            Board0.input = "h"
+        elif key == "s":
+            # Update "down", chosen randomly here
+            Board0.input = "b"
+
+        elif key == "q":
+            # Update "left", chosen randomly here
+            Board0.input = "g"
+
+        elif key == "d":
+            # Update "right", chosen randomly here
+            Board0.input = "d"
+
+        ## Updates for the player at the right
+        if key == "Up":
+            # Update "high", chosen randomly here
+            Board1.input = "h"
+
+        elif key == "Down":
+            # Update "down", chosen randomly here
+            Board1.input = "b"
+
+        elif key == "Left":
+            # Update "left", chosen randomly here
+            Board1.input = "g"
+
+        elif key == "Right":
+            # Update "right", chosen randomly here
+            Board1.input ="d"
+
+    ## Handling the keyboard input
+    window.bind("<Key>", keyboard)
+
 
     grid_size = (Board0.height,Board0.width)
 
@@ -28,6 +68,7 @@ def update_display(window, game=test_game):
     list_grids = [game_grid0, game_grid1]
 
     if game.name=="2048":
+        print("2")
         TILES_BG_COLOR = {None: "#9e948a", 2: "#eee4da", 4: "#ede0c8", 8: "#f1b078", \
                           16: "#eb8c52", 32: "#f67c5f", 64: "#f65e3b", \
                           128: "#edcf72", 256: "#edcc61", 512: "#edc850", \
@@ -48,7 +89,9 @@ def update_display(window, game=test_game):
 
         list_canvas = [canvas0,canvas1]
 
-        for i in range(len(list_canvas)):
+        if not game.is_over()[0]:
+
+            i=game.player_playing
             for x in range(grid_size[0]):
                 for y in range(grid_size[1]):
                     case = LabelFrame(list_canvas[i], bg = TILES_BG_COLOR[list_grids[i][x][y]], height = 100, width = 100)

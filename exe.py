@@ -89,11 +89,12 @@ def launch_game():
     global case
     display_ai_game=(case.get()==1)
     fenetre.destroy()
+    fenetre=Tk()
     global Tournoi
     Tournoi.Gchoose_game(Jeu)
 
     print('Launching the game')
-    classement=Tournoi.launch_tournament(display_ai_game)
+    classement=Tournoi.Glaunch_tournament(fenetre,display_ai_game)
 
     #END Game
     #SHOW THE LEADERBOARD
