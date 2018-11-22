@@ -137,8 +137,7 @@ def init_window():
     global fenetre
     global canvas
     global photo
-    if fenetre!=0:
-        fenetre.destroy()
+
     fenetre = Tk()
     fenetre.title("AI Arena")
     canvas = Canvas(fenetre, width=900, height=700, cursor="target")
@@ -151,6 +150,8 @@ def init_window():
 
     canvas.focus_set()
     canvas.pack()
+
 #Main loop
+
 init_window()
 fenetre.mainloop()
