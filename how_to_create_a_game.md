@@ -20,59 +20,59 @@ In this file xxx is the name of your game
 
   * in init_game_xxx.py in your game folder create a function create_xxx() which should look like this :
 
-    def create_xxx(new_game, args):
-        new_game.name = "xxx"
-        new_game.score = [0 for i in range(players_number)]
-        new_game.list_board = [board_xxx.init_board(Board(4,4)) for i in range(players_number)]
-        new_game.list_player = [i for i in range(players_number)]
-        new_game.board_size = (4,4)
-        new_game.move_available = [0,1,2,3] #list of the input available
-        new_game.is_over_function = rules_xxx.is_over
-        new_game.make_a_move_function = rules_xxx.make_a_move
-        new_game.move_description = player_interaction_xxx.move_description # ex :"d : droite, g : gauche, h : haut, b : bas" what would be displayed to help the player uderstand what input corresponds to which move
-        new_game.map_input_to_move = {'h' : 0,'d' : 1,'b' : 2,'g' : 3}
-        new_game.map_move_to_input = {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
-        new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
-        new_game.next_turn_function = rules_xxx.create_new_tile
-        new_game.calc_score_function = rules_xxx.calc_score
-        new_game.move_effective_function = rules_xxx.move_effective
+      def create_xxx(new_game, args):
+          new_game.name = "xxx"
+          new_game.score = [0 for i in range(players_number)]
+          new_game.list_board = [board_xxx.init_board(Board(4,4)) for i in range(players_number)]
+          new_game.list_player = [i for i in range(players_number)]
+          new_game.board_size = (4,4)
+          new_game.move_available = [0,1,2,3] #list of the input available
+          new_game.is_over_function = rules_xxx.is_over
+          new_game.make_a_move_function = rules_xxx.make_a_move
+          new_game.move_description = player_interaction_xxx.move_description # ex :"d : droite, g : gauche, h : haut, b : bas" what would be displayed to help the player uderstand what input corresponds to which move
+          new_game.map_input_to_move = {'h' : 0,'d' : 1,'b' : 2,'g' : 3}
+          new_game.map_move_to_input = {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
+          new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
+          new_game.next_turn_function = rules_xxx.create_new_tile
+          new_game.calc_score_function = rules_xxx.calc_score
+          new_game.move_effective_function = rules_xxx.move_effective
 
   * update the init_game() function in src.games.games.py to add the choice for your game like for the other games using the create_xxx() function defined in init_game_xxx.py in your game folder
 
 # III. How to run a game alone:
 
   * use a script like this one (more examples can be found is example_init_game.py):
-    xxx_game = init_game("xxx")
-    while 1:
-      print("joueur", xxx_game.player_playing)
-      print(xxx_game.list_board[0].grid_to_string_with_size(3))
-      move = player_interaction_p4.get_player_move(xxx_game.list_board[0])
-      xxx_game.make_a_move(move)
-      if not(xxx_game.is_over()[0]):
-        xxx_game.next_turn()
-        xxx_game.change_player()
-      else:
-        print("Le joueur ",  xxx_game.player_playing, "gagne")
-        break
+      xxx_game = init_game("xxx")
+      while 1:
+        print("joueur", xxx_game.player_playing)
+        print(xxx_game.list_board[0].grid_to_string_with_size(3))
+        move = player_interaction_p4.get_player_move(xxx_game.list_board[0])
+        xxx_game.make_a_move(move)
+        if not(xxx_game.is_over()[0]):
+          xxx_game.next_turn()
+          xxx_game.change_player()
+        else:
+          print("Le joueur ",  xxx_game.player_playing, "gagne")
+          break
 
 
 # IV. Game() attributes:
 
   * name = name of the game
-    list_board = list of the boards (one for each players)
-    score = list of the scores
-    list_player = list of the id of players (0,1,2,...)
-    move_available = list of the inputs available
-    board_size = tuple (vertical_size, horizontal_size)
-    is_over_function = the function is_over of your game
-    make_a_move_function = the function make_a_move of your game
-    move_description = what should be displayed to help the player understand what input corresponds to which move
-    map_input_to_move = convert input to move number i.e. {'h' : 0,'d' : 1,'b' : 2,'g' : 3}
-    map_move_to_input = convert move number to input i.e. {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
-    is_board_equal = set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
-    theme_number = theme_number if needed (deprecated)
-    player_playing = id of the player which is currently playing
-    next_turn_function = the function next_turn of your game
-    calc_score_function = the function calc_score of your game
-    max_char_size = the size of the biggest character that will be used to display the board (i.e. 4 for 4096, 5 for 16384)
-    move_effective_function = the function move_effective of your game
+    * list_board = list of the boards (one for each players)
+    * score = list of the scores
+    * list_player = list of the id of players (0,1,2,...)
+    * move_available = list of the inputs available
+    * board_size = tuple (vertical_size, horizontal_size)
+    * is_over_function = the function is_over of your game
+    * make_a_move_function = the function make_a_move of your game
+    * move_description = what should be displayed to help the player understand what input corresponds to which move
+    * map_input_to_move = convert input to move number i.e. {'h' : 0,'d' : 1,'b' : 2,'g' : 3}
+    * map_move_to_input = convert move number to input i.e. {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
+    * is_board_equal = set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
+    * theme_number = theme_number if needed (deprecated)
+    * player_playing = id of the player which is currently playing
+    * next_turn_function = the function next_turn of your game
+    * calc_score_function = the function calc_score of your game
+    * max_char_size = the size of the biggest character that will be used to display the board (i.e. 4 for 4096, 5 for 16384)
+    * move_effective_function = the function move_effective of your game
