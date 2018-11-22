@@ -1,0 +1,16 @@
+[run]
+branch=True
+source=
+	./exe.py
+	./genetic_file_gestion.py
+	./ai/*
+	./genetics/*
+	./graphics/*
+	./src/*
+
+[report]
+omit =
+	./example_init_game.py
+
+[html]
+directory=./htmlcov
