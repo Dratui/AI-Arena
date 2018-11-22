@@ -4,21 +4,21 @@ In this file xxx is the name of your game
 
 # I. How to create the game:
 
-    - Create a folder in src/games named game_xxx
-    - In it place these files:
-        - __init__.py which can be blank
-        - board_xxx.py if the board needs to be initialized (i.e. 2048 needs 2 tiles at the beginning) with the function that will be needed to do it
-        - player_interaction_xxx.py which states how the game will ask the player which move he wants to play
-        - init_game_xxx.py in which you set every attribute of the Game() object that will hold your game as done in the 2048 example (it will be explained later)
-        - rules_xxx.py which describes with functions the rules of the game, it is essential that this file contains four crucial functions:
-            - make_a_move(board, move): both update and return the board according to the move specified
-            - move_effective(board): return the list of the moves that will have an effect on the game (i.e. if all the tiles are on the left on 2k48 you can't go left)
-            - is_over(board): return True if the game is over, else return False
-            - calc_score(list_board, current_player): return the score of the current_player (can be 1 or 0 whether he has win or the score like in 2048)
+    * Create a folder in src/games named game_xxx
+    * In it place these files:
+        * __init__.py which can be blank
+        * board_xxx.py if the board needs to be initialized (i.e. 2048 needs 2 tiles at the beginning) with the function that will be needed to do it
+        * player_interaction_xxx.py which states how the game will ask the player which move he wants to play
+        * init_game_xxx.py in which you set every attribute of the Game() object that will hold your game as done in the 2048 example (it will be explained later)
+        * rules_xxx.py which describes with functions the rules of the game, it is essential that this file contains four crucial functions:
+            * make_a_move(board, move): both update and return the board according to the move specified
+            * move_effective(board): return the list of the moves that will have an effect on the game (i.e. if all the tiles are on the left on 2k48 you can't go left)
+            * is_over(board): return True if the game is over, else return False
+            * calc_score(list_board, current_player): return the score of the current_player (can be 1 or 0 whether he has win or the score like in 2048)
 
 # II. How to initialize a Game() object :
 
-    - in init_game_xxx.py in your game folder create a function create_xxx() which should look like this :
+    * in init_game_xxx.py in your game folder create a function create_xxx() which should look like this :
 
         def create_xxx(new_game, args):
                 new_game.name = "xxx"
@@ -37,11 +37,11 @@ In this file xxx is the name of your game
                 new_game.calc_score_function = rules_xxx.calc_score
                 new_game.move_effective_function = rules_xxx.move_effective
 
-    - update the init_game() function in src.games.games.py to add the choice for your game like for the other games using the create_xxx() function defined in init_game_xxx.py in your game folder
+    * update the init_game() function in src.games.games.py to add the choice for your game like for the other games using the create_xxx() function defined in init_game_xxx.py in your game folder
 
 # III. How to run a game alone:
 
-    - use a script like this one (more examples can be found is example_init_game.py):
+    * use a script like this one (more examples can be found is example_init_game.py):
         xxx_game = init_game("xxx")
         while 1:
             print("joueur", xxx_game.player_playing)
@@ -58,7 +58,7 @@ In this file xxx is the name of your game
 
 # IV. Game() attributes:
 
-    - name = name of the game
+    * name = name of the game
       list_board = list of the boards (one for each players)
       score = list of the scores
       list_player = list of the id of players (0,1,2,...)
