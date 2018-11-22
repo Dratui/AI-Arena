@@ -28,7 +28,7 @@ def name_players():
 
     fenetre.destroy()
     fenetre=Tk()
-    fenetre.title('State the name of the AI (simply state h for a human player)')
+    fenetre.title('State the name of the ai (simply state h for a human player)')
     for i in range(nbrJoueurs):
         string="Joueurs "+str(i+1)
         entree=Entry(fenetre,textvariable=string,width=20)
@@ -84,7 +84,7 @@ def init_window():
     if fenetre!=0:
         fenetre.destroy()
     fenetre = Tk()
-    fenetre.title("AI Arena")
+    fenetre.title("ai Arena")
     canvas = Canvas(fenetre, width=900, height=700, cursor="target")
     photo = PhotoImage(file="graphics/menu.png")
 

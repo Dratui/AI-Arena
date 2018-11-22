@@ -61,7 +61,6 @@ class Tournament:
                 self.game.make_a_move(next_move)
                 self.game.next_turn()
                 self.game.score[self.game.player_playing] = self.game.calc_score()
-                print(self.game.all_over())
             self.game.player_playing = (self.game.player_playing + 1) % 2
         #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
@@ -146,13 +145,12 @@ class Tournament:
             self.import_p4()
             self.game_name="p4"
         if game == "TicTacToe":
-            print("salut")
             self.game_name = "ttt"
             self.import_TicTacToe()
 
 
     def Gselect_players(self,Glist_names):
-        """Asks a human who every player is, whether a human of the name of an AI"""
+        """Asks a human who every player is, whether a human of the name of an ai"""
         list_players = []
         for i in range(self.number_players) :
             list_players.append(player.Player())
