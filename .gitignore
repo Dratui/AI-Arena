@@ -5,12 +5,9 @@ __pycache__/
 htmlcov/
 .coverage
 *.html
-<<<<<<< HEAD
 /tournament.py
 /src/games/__pycache__/__init__.cpython-36.pyc
 /src/games/game_2048/__pycache__/__init__.cpython-36.pyc
 .idea/
 amalio
-=======
 board_2.py
->>>>>>> 4c00fa58bc23e55ee43b10228eb0bf1a549d51b7
