@@ -20,22 +20,22 @@ In this file xxx is the name of your game
 
   * in init_game_xxx.py in your game folder create a function create_xxx() which should look like this :
 
-      def create_xxx(new_game, args):
-          new_game.name = "xxx"
-          new_game.score = [0 for i in range(players_number)]
-          new_game.list_board = [board_xxx.init_board(Board(4,4)) for i in range(players_number)]
-          new_game.list_player = [i for i in range(players_number)]
-          new_game.board_size = (4,4)
-          new_game.move_available = [0,1,2,3] #list of the input available
-          new_game.is_over_function = rules_xxx.is_over
-          new_game.make_a_move_function = rules_xxx.make_a_move
-          new_game.move_description = player_interaction_xxx.move_description # ex :"d : droite, g : gauche, h : haut, b : bas" what would be displayed to help the player uderstand what input corresponds to which move
-          new_game.map_input_to_move = {'h' : 0,'d' : 1,'b' : 2,'g' : 3}
-          new_game.map_move_to_input = {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
-          new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
-          new_game.next_turn_function = rules_xxx.create_new_tile
-          new_game.calc_score_function = rules_xxx.calc_score
-          new_game.move_effective_function = rules_xxx.move_effective
+     - def create_xxx(new_game, args):
+           new_game.name = "xxx"
+           new_game.score = [0 for i in range(players_number)]
+           new_game.list_board = [board_xxx.init_board(Board(4,4)) for i in range(players_number)]
+           new_game.list_player = [i for i in range(players_number)]
+           new_game.board_size = (4,4)
+           new_game.move_available = [0,1,2,3] #list of the input available
+           new_game.is_over_function = rules_xxx.is_over
+           new_game.make_a_move_function = rules_xxx.make_a_move
+           new_game.move_description = player_interaction_xxx.move_description # ex :"d : droite, g : gauche, h : haut, b : bas" what would be displayed to help the player uderstand what input corresponds to which move
+           new_game.map_input_to_move = {'h' : 0,'d' : 1,'b' : 2,'g' : 3}
+           new_game.map_move_to_input = {0 : 'h',1 : 'd',2 : 'b',3 : 'g'}
+           new_game.is_board_equal = False #set it to true if the board of both player must be the same (i.e. in the Puissance 4 game)
+           new_game.next_turn_function = rules_xxx.create_new_tile
+           new_game.calc_score_function = rules_xxx.calc_score
+           new_game.move_effective_function = rules_xxx.move_effective
 
   * update the init_game() function in src.games.games.py to add the choice for your game like for the other games using the create_xxx() function defined in init_game_xxx.py in your game folder
 
