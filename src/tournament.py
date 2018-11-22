@@ -59,11 +59,9 @@ class Tournament:
                 else :
                     next_move = self.list_players[player1].get_move(self.game.list_board[1],self.game)
                 self.game.make_a_move(next_move)
-
                 self.game.next_turn()
-
-
                 self.game.score[self.game.player_playing] = self.game.calc_score()
+                print(self.game.all_over())
             self.game.player_playing = (self.game.player_playing + 1) % 2
         #Next part updates the scores and the values of matches
         if self.game.score[0] > self.game.score[1]:
@@ -91,8 +89,10 @@ class Tournament:
 
                 window.destroy()
                 window=Tk()
+                print("1")
 
-                self.launch_a_game(x,y,window,display_ai_game)
+                self.Glaunch_a_game(x,y,window,display_ai_game)
+
                 if self.matches[x][y] != "ex aequo":
                     print("The winner of a game between player ", self.list_players[x].name, " and player ", self.list_players[y].name, " is ", self.list_players[self.matches[x][y]].name, "\n")
                 else:
@@ -106,7 +106,7 @@ class Tournament:
         txt=""
         for i in range(self.number_players):
             current_best, current_rank = max(enumerate(leaderboard), key=operator.itemgetter(1))
-            if (self.list_players[current_best].file!="human_console"):
+            if (self.list_players[current_best].file!="human"):
                 txt+=self.list_players[current_best].name+" is number "+str(current_rank)+ "\n"
             else:
                 txt+=self.list_players[current_best].file+" is number "+str(current_rank)+ "\n"
@@ -163,7 +163,7 @@ class Tournament:
                 temp_player = "human_" + str(number_human_players)
                 number_human_players += 1
                 list_players[i-1].name = temp_player
-                list_players[i-1].file = "human_console"
+                list_players[i-1].file = "human"
             else:
                 list_players[i-1].is_ai = True
                 list_players[i-1].file = temp_player
