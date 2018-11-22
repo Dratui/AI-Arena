@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import font
 from src.tournament import Tournament
+from random import randint
 
 Play_font = ("Verdana", 40, "bold")
 normal_font=("Verdana", 20)
@@ -15,7 +16,7 @@ photo=0
 
 Tournoi=0
 listeGames=["2048","Puissance 4","Tic-Tac-Toe (ToDo)","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
-
+liste_ai=['ai_2048_1','random_ai']
 
 def display_nbrJoueurs(event):
     global Nombre
@@ -27,7 +28,7 @@ def display_nbrJoueurs(event):
     fenetre.title('Players')
 
     label=Label(fenetre,text="Number of players:",font=normal_font).pack(padx=10, pady=10)
-    Nombre=Spinbox(fenetre, from_=2, to=10)
+    Nombre=Spinbox(fenetre, from_=2, to=10,font=normal_font)
     Nombre.pack()
     bouton = Button(fenetre,text="Send",command=name_players,font=normal_font)
     bouton.pack()
@@ -45,9 +46,10 @@ def name_players():
     fenetre.destroy()
     fenetre=Tk()
     fenetre.title('State the name of the AI (simply state h for a human player)')
+    Entree=[]
     for i in range(nbrJoueurs):
-        string="Joueurs "+str(i+1)
-        entree=Entry(fenetre,textvariable=string,width=20,font=normal_font)
+        string=liste_ai[randint(0,len(liste_ai)-1)]
+        entree=Entry(fenetre,width=20,font=normal_font)
         entree.insert(END,string)
         entree.pack()
         Entree.append(entree)
@@ -100,7 +102,7 @@ def launch_game():
     #SHOW THE LEADERBOARD
     fenetre=Tk()
 
-    label = Label(fenetre, text=classement)
+    label = Label(fenetre, text=classement,font=normal_font)
     label.pack()
     bouton = Button(fenetre, text="Menu Principal",command=init_window,font=normal_font)
     bouton.pack()
