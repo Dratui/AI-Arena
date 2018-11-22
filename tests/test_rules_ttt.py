@@ -7,12 +7,19 @@ def test_make_a_move():
     assert generate_board_from_list([[None,1,None],[None,None,None],[None,None,None]]).get_all_tiles() == make_a_move(board,1,1).get_all_tiles()
     board = generate_board_from_list([[None for i in range(3)] for j in range(3)])
     assert generate_board_from_list([[None,None,None],[None,None,None],[None,None,0]]).get_all_tiles() == make_a_move(board,8,0).get_all_tiles()
+    board = generate_board_from_list([[None for i in range(5)] for j in range(5)])
+    assert generate_board_from_list([[None,None,None,None,None],[None,None,None,0,None],[None,None,None,None,None],[None,None,None,None,None],[None,None,None,None,None]]).get_all_tiles() == make_a_move(board,8,0).get_all_tiles()
+    board = generate_board_from_list([[None for i in range(5)] for j in range(5)])
+    assert generate_board_from_list([[None,None,None,None,None],[None,None,None,None,None],[None,None,None,None,None],[None,None,None,None,None],[None,None,None,0,None]]).get_all_tiles() == make_a_move(board,23,0).get_all_tiles()
 
 def test_move_effective():
     board = generate_board_from_list([[None,1,None],[1,0,0],[None,1,None]])
     assert move_effective(board) == [0,2,6,8]
     board = generate_board_from_list([[1,1,0],[None,0,None],[1,None,None]])
     assert move_effective(board) == [3,5,7,8]
+    board = generate_board_from_list([[0, 0, 0], [None, 0, 0], [0, 0, 0]])
+    assert move_effective(board) == [3]
+
 
 
 def test_is_over():

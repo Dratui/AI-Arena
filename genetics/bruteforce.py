@@ -1,5 +1,5 @@
 #Not_smart_algorithm
-from Genetics.genetic import evaluation,selection
+from genetics.genetic import evaluation,selection
 from copy import deepcopy
 from src.games.game_2048.rules_2048 import calc_score
 DEPTH = 5

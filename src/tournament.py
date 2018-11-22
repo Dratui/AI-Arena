@@ -176,3 +176,4 @@ def calculate_leaderboard(score):
             current_max = current_max_temp
             current_rank = current_rank_without_equal
     return leaderboard
+
