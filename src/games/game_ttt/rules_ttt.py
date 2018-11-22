@@ -1,20 +1,20 @@
 def make_a_move(board,move,player):
-    if board.read_tile(move//3, move %3) == None:
-        board.change_tile(move//3, move %3 ,player)
+    if board.read_tile(move//board.width, move %board.width) == None:
+        board.change_tile(move//board.width, move %board.width ,player)
     return board
 
 def move_effective(board):
     list = []
-    for i in range(3):
-        for j in range(3):
+    for i in range(board.height):
+        for j in range(board.width):
             if board.read_tile(i,j) == None:
                 list.append(3*i+j)
     return list
 
 def is_over(board):
     for player in range(2):
-        for move_x in range(3):
-            for move_y in range(3):
+        for move_x in range(board.height):
+            for move_y in range(board.width):
                 list_near_points = [] #list of the number of the player payns in each direction starting from the last one beginning with up then going clockwise
                 directions = [(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1)]
                 for dir in directions:
@@ -39,8 +39,8 @@ def is_over(board):
 
 def calc_score(list_board, player):
     board = list_board[player]
-    for move_x in range(3):
-        for move_y in range(3):
+    for move_x in range(list_board[player].height):
+        for move_y in range(list_board[player].width):
             list_near_points = [] #list of the number of the player payns in each direction starting from the last one beginning with up then going clockwise
             directions = [(-1,0),(-1,1),(0,1),(1,1),(1,0),(1,-1),(0,-1),(-1,-1)]
             for dir in directions:
