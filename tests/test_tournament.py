@@ -61,3 +61,6 @@ def test_launch_a_game():
     assert tournoi5.matches[3][1] != -1
     assert tournoi5.matches[1][3] != -1
     assert tournoi5.leaderboard != []
+    
+tournoi.import_p4()
+tournoi.import_TicTacToe()
