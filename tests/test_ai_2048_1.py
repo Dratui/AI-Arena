@@ -1,4 +1,4 @@
-import AI.ai_2048_1 as AI
+import ai.ai_2048_1 as AI
 from pytest import *
 import src.games.games as Games
 
