@@ -6,6 +6,8 @@ By default, the library comes with three games implemented  :
   * 2048
   * Connect 4
   * TicTacToe
+  
+Also by default, some AI are implemented but the goal is that you implement our own to test it against others.
 
 The rules to implement a new game are listed both in the wiki and in the how_to_create_a_game.md file.
 
