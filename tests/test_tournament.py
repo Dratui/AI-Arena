@@ -62,5 +62,12 @@ def test_launch_a_game():
     assert tournoi5.matches[1][3] != -1
     assert tournoi5.leaderboard != []
     
-tournoi.import_p4()
-tournoi.import_TicTacToe()
+def test_Gchoose_game():
+    global tournoi
+    tournoi6 = tournoi
+    tournoi6.Gchoose_game("2048")
+    assert tournoi6.game_name == "2048"
+    tournoi6.Gchoose_game("Puissance 4")
+    assert tournoi6.game_name == "p4"
+    tournoi6.Gchoose_game("TicTacToe")
+    assert tournoi6.game_name == "ttt"

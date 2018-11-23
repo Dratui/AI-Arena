@@ -35,3 +35,8 @@ def test_is_over():
     assert game.is_over()[0] == False
     game.list_board[0] = generate_board_from_list([[2*2**i,4*2**i,8*2**i,16*2**i] for i in range(4)])
     assert game.is_over()[0] == True
+
+def test_calc_score():
+	game = init_game("2048")
+	game.list_board[0] = generate_board_from_list([[None, None, None, None], [None, None, None, None], [None, None, None, 2048], [2, 4, 16, 2]])
+	assert calc_score(game.list_board, 0) == 2072

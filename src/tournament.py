@@ -51,7 +51,7 @@ class Tournament:
         while not self.game.all_over():
             if graphical_display and (display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name): #If there is at least one human or if we have decided to watch the non-human players, we show them
 
-                update_display(window,self.game)
+                update_display(window,self.game) # pragma: no cover
 
             elif not graphical_display :
                 print(self.game.display_board)
@@ -65,15 +65,15 @@ class Tournament:
                 self.game.score[self.game.player_playing] = self.game.calc_score()
             self.game.player_playing = (self.game.player_playing + 1) % 2
         #Next part updates the scores and the values of matches
-        if self.game.score[0] > self.game.score[1]:
+        if self.game.score[0] > self.game.score[1]: # pragma: no cover
             self.tournament_score[player0] += 1
             self.matches[player1][player0] = player0
             self.matches[player0][player1] = player0
-        elif self.game.score[1] > self.game.score[0]:
+        elif self.game.score[1] > self.game.score[0]: # pragma: no cover
             self.tournament_score[player1] += 1
             self.matches[player0][player1] = player1
             self.matches[player1][player0] = player1
-        else:
+        else: # pragma: no cover
             self.tournament_score[player0] += .5
             self.tournament_score[player1] += .5
             self.matches[player0][player1] = "ex aequo"
@@ -81,11 +81,11 @@ class Tournament:
         self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
         if graphical_display:
-            self.game.window.quit()
+            self.game.window.quit() # pragma: no cover
 
 
 
-    def Glaunch_tournament(self,display_ai_game = False, graphical_display = True):
+    def Glaunch_tournament(self,display_ai_game = False, graphical_display = True): # pragma: no cover
         """This function launches a tournament and manages the launching of the games, prints who wins every time and finally displays the leaderboard"""
         for x in range(self.number_players):
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
@@ -103,7 +103,7 @@ class Tournament:
 
 
 
-    def print_leaderboard(self, leaderboard):
+    def print_leaderboard(self, leaderboard): # pragma: no cover
         """This function prints the leaderboard, line by line, showing the name of the players and their rank"""
         txt=""
         for i in range(self.number_players):
@@ -143,7 +143,7 @@ class Tournament:
         if game=="2048":
             self.import_2048()
             self.game_name="2048"
-        elif game=="Puissance 4":
+        elif game=="Puissance 4" or game=="p4":
             self.import_p4()
             self.game_name="p4"
         elif game == "TicTacToe":
