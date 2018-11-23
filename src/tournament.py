@@ -146,7 +146,7 @@ class Tournament:
         elif game=="Puissance 4":
             self.import_p4()
             self.game_name="p4"
-        if game == "TicTacToe":
+        elif game == "TicTacToe":
             self.game_name = "ttt"
             self.import_TicTacToe()
 
