@@ -5,6 +5,7 @@ from src.board import Board
 
 
 def create_ttt(new_game,vertical_size=3,horizontal_size= 3):
+    """Set the attributes of the Game() object for ttt"""
         new_game.name = "ttt"
         new_game.score = [0,0]
         new_game.list_board = [Board(vertical_size,horizontal_size) for i in range(2)]

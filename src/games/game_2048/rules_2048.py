@@ -77,6 +77,7 @@ def is_over(board):
 
 
 def calc_score(list_board, current_player):
+    """returns the score of a given player (th escore of the original game)"""
     sum = 0
     for i in list_board[current_player].get_all_tiles():
         if i!=None:
@@ -85,6 +86,7 @@ def calc_score(list_board, current_player):
 
 
 def calc_score(list_board, current_player):
+    """returns the score of a given player (a simpler score)"""
     sum = 0
     for i in list_board[current_player].get_all_tiles():
         if i!=None:

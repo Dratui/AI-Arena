@@ -1,9 +1,11 @@
 def make_a_move(board,move,player):
+    """Updates and returns the board after making the move asked in args"""
     if board.read_tile(move//board.width, move %board.width) == None:
         board.change_tile(move//board.width, move %board.width ,player)
     return board
 
 def move_effective(board):
+    """Returns the list of the move that would have an effect on the game"""
     list = []
     for i in range(board.height):
         for j in range(board.width):
@@ -12,6 +14,7 @@ def move_effective(board):
     return list
 
 def is_over(board):
+    """Returns True if the game is over, False if not"""
     for player in range(2):
         for move_x in range(board.height):
             for move_y in range(board.width):
@@ -38,6 +41,7 @@ def is_over(board):
     return False
 
 def calc_score(list_board, player):
+    """Resturns the score of a given player"""
     board = list_board[player]
     for move_x in range(list_board[player].height):
         for move_y in range(list_board[player].width):
