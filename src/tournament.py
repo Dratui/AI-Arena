@@ -49,7 +49,7 @@ class Tournament:
         self.game = games.init_game(self.game_name)
         self.game.player_playing = 0
         while not self.game.all_over():
-            if graphical_display and (display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name): #If there is at least one human or if we have decided to watch the non-human players, we show them
+            if graphical_display and (display_ai_game or self.list_players[player0].is_ai == False or self.list_players[player1].is_ai == False): #If there is at least one human or if we have decided to watch the non-human players, we show them
 
                 update_display(window,self.game) # pragma: no cover
 
@@ -81,7 +81,10 @@ class Tournament:
         self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
         if graphical_display:
-            self.game.window.quit() # pragma: no cover
+
+            if display_ai_game or self.list_players[player0].is_ai == False or self.list_players[player1].is_ai == False: # pragma: no cover
+                self.game.window.quit()
+
 
 
 
