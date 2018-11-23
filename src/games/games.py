@@ -29,7 +29,7 @@ class Game:
     def __init__(self, name = "", number_player = 2, move_available = [], board_size = (4,4), make_a_move_function = lambda x: None, is_over_function = lambda x: None,  next_turn_function = lambda x: None,
                 move_effective_function = lambda x: None, calc_score_function = lambda x: None, move_description = "", map_input_to_move = {}, map_move_to_input = {}, is_board_equal = False , theme_number = 0,
                 player_playing = 0, max_char_size = 2):
-
+        self.window=None
         self.name = name#name of the game
         self.list_board = [Board(board_size[0], board_size[1]) for i in range(number_player)] #list of the boards (one for each players)
         self.score = [0 for i in range(number_player)]
@@ -86,6 +86,7 @@ class Game:
 
 def init_game(name, vertical_size = 6, horizontal_size = 6, players_number = 2):
     """Create a new game with the name given in args"""
+    print(name)
     if name == "2048":
         new_game = Game()
         init_game_2048.create_2048(new_game,players_number)
