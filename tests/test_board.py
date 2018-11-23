@@ -1,4 +1,5 @@
 from src.board import Board
+from src.board import get_higher_value
 import pytest
 
 def test_change_tile():
@@ -33,6 +34,9 @@ def test_get_all_tiles():
 	A.change_tile(0,1,"Guten Tag")
 	L=['Bonjour','Guten Tag','Hi','Salut']
 	assert A.get_all_tiles()==L
+
+def test_get_higher_value():
+	assert get_higher_value([[None,None,None,1],[2,3,4,5],[6,7,8,6],[1550,8,4,2]]) == 1550
 
 def test_grid_to_string_with_size():
 	A=Board(2,2)
