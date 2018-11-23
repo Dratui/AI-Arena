@@ -3,9 +3,9 @@ from tkinter import font
 from src.tournament import Tournament
 from random import randint
 
-game_font = ("Verdana", 30, "bold")
-play_font = ("Verdana", 40, "bold")
-text_font = ("Verdana", 35, "bold")
+game_font = ("Verdana", 25, "bold")
+play_font = ("Verdana", 50, "bold")
+text_font = ("Verdana", 20, "bold")
 
 fenetre=0
 canvas=0
@@ -57,8 +57,8 @@ def select_game():
     fenetre=Tk()
     fenetre.title('Liste des games')
     liste = Listbox(fenetre,font=text_font)
-    global liste_games
-    for i,ele in enumerate(liste_games):
+    global list_games
+    for i,ele in enumerate(list_games):
         liste.insert(i+1, ele)
 
     liste.pack()

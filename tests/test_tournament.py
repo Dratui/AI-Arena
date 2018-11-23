@@ -57,7 +57,7 @@ def test_reset_score():
 def test_launch_a_game():
     global tournoi
     tournoi5 = tournoi
-    tournoi5.Glaunch_a_game(1,3, graphical_display = False)
+    tournoi5.Glaunch_a_game(1, 3, None, graphical_display = False)
     assert tournoi5.matches[3][1] != -1
     assert tournoi5.matches[1][3] != -1
     assert tournoi5.leaderboard != []

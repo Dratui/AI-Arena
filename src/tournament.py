@@ -44,14 +44,15 @@ class Tournament:
         import src.games.game_ttt.rules_ttt
         self.rules = src.games.game_ttt.rules_ttt
 
-    def Glaunch_a_game(self, player0, player1, display_ai_game = False, graphical_display = True):
+    def Glaunch_a_game(self, player0, player1,window, display_ai_game = False, graphical_display = True):
         """Starts a game of the tournament, takes into argument the index of the two players, and display_ai_game which states if the games with only AIs must be displayed"""
         self.game = games.init_game(self.game_name)
         self.game.player_playing = 0
         while not self.game.all_over():
             if graphical_display and (display_ai_game or "human" in self.list_players[player0].name + self.list_players[player1].name): #If there is at least one human or if we have decided to watch the non-human players, we show them
 
-                update_display(self.game.window,self.game)
+                update_display(window,self.game)
+
             elif not graphical_display :
                 print(self.game.display_board)
             if not self.game.is_over()[0]:
@@ -90,8 +91,7 @@ class Tournament:
             for y in range(x+1, self.number_players): #These loops launch every possible game between two players and counts the number of win for each player
 
                 window=Tk()
-
-                self.Glaunch_a_game(x,y,display_ai_game, graphical_display)
+                self.Glaunch_a_game(x,y,window,display_ai_game, graphical_display)
                 window.destroy()
                 window.mainloop()
 
@@ -146,7 +146,7 @@ class Tournament:
         elif game=="Puissance 4":
             self.import_p4()
             self.game_name="p4"
-        if game == "TicTacToe":
+        elif game == "TicTacToe":
             self.game_name = "ttt"
             self.import_TicTacToe()
 
