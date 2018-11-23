@@ -81,7 +81,8 @@ class Tournament:
         self.reset_score()
         self.leaderboard = calculate_leaderboard(self.tournament_score)
         if graphical_display:
-            self.game.window.quit()
+            if display_ai_game:
+                self.game.window.quit()
 
 
 
