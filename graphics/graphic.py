@@ -4,20 +4,24 @@ from src.board import Board
 from src.games.games import Game
 from src.board import generate_board_from_list
 
+# a test game class in order to be able to test the graphical functions
 
 test_game=Game()
 board1=generate_board_from_list([[2],[None]])
 board0=generate_board_from_list([[2],[None]])
 test_game.list_board=[board0,board1]
 
-
+# the function you need to call to update the graphical display
 def update_display(window, game=test_game):
+
+    #the two boards
     Board0=game.list_board[0]
     Board1=game.list_board[1]
+    #we add the window attribute to be able to update the window elsewhere
     game.window=window
-    # Size of the grid. Should be choosen by the user thanks to another function
     grid_size = (Board0.height,Board0.width)
 
+    #the keyboard function that triggers when a key is pressed
     def keyboard(event):
         key = event.keysym
         if key == "z":
@@ -48,7 +52,9 @@ def update_display(window, game=test_game):
 
     list_grids = [game_grid0, game_grid1]
 
+
     if game.name=="2048":
+        #the tiles are colored
         TILES_BG_COLOR = {None: "#9e948a", 2: "#eee4da", 4: "#ede0c8", 8: "#f1b078", \
                           16: "#eb8c52", 32: "#f67c5f", 64: "#f65e3b", \
                           128: "#edcf72", 256: "#edcc61", 512: "#edc850", \
@@ -70,6 +76,7 @@ def update_display(window, game=test_game):
 
         list_canvas = [canvas0,canvas1]
 
+        #only modifies the canvas of the player that is playing
         if not game.is_over()[0]:
 
             i=game.player_playing
@@ -94,7 +101,7 @@ def update_display(window, game=test_game):
 
         list_buttons = [[None for j in range(grid_size[1])] for i in range(grid_size[0])]
 
-        # Update function
+
         def click(x,y):
             Board0.input = str(x+1) + "," + str(y+1)
             Board1.input = str(x+1) + "," + str(y+1)
