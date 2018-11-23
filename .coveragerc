@@ -11,6 +11,7 @@ source=
 omit =
 	./example_init_game.py
 	./genetics/*
+	./exe.py
 
 [html]
 directory=./htmlcov
