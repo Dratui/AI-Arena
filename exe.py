@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import font
 from src.tournament import Tournament
+from random import randint
 
 TILES_FONT = ("Verdana", 40, "bold")
 
@@ -13,8 +14,8 @@ case=0
 photo=0
 
 Tournoi=0
-listeGames=["2048","Puissance 4","TicTacToe","Dames (ToDo)","Echecs (ToDo)","Tetris (ToDo)"]
-
+listeGames=["2048","Puissance 4","TicTacToe"]
+liste_ai=['random_ai','ai_2048_1']
 
 def name_players():
     global Nombre
@@ -30,8 +31,8 @@ def name_players():
     fenetre=Tk()
     fenetre.title('State the name of the ai (simply state h for a human player)')
     for i in range(nbrJoueurs):
-        string="Joueurs "+str(i+1)
-        entree=Entry(fenetre,textvariable=string,width=20)
+        string=liste_ai[randint(0,len(liste_ai)-1)]
+        entree=Entry(fenetre,width=20)
         entree.insert(END,string)
         entree.pack()
         Entree.append(entree)
@@ -129,6 +130,6 @@ classement=Tournoi.Glaunch_tournament(display_ai_game)
 fenetre=Tk()
 label = Label(fenetre, text=classement)
 label.pack()
-bouton = Button(fenetre, text="Menu Principal",command=init_window)
+bouton = Button(fenetre, text="Menu Principal",command=fenetre.quit)
 bouton.pack()
 fenetre.mainloop()
