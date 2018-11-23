@@ -8,10 +8,17 @@ source=
 	./src/*
 
 [report]
+#We have chosen to ignore certain files, including those that we do not use (e.g. genetics or #example code) and all the files and functions that use a graphical display or need a human to #input something. Also ignored are functions with output that is random because there is no
+#way to be sure all outputs will be tested.
+# All of these functions have of course been manually tested.
 omit =
 	./example_init_game.py
 	./genetics/*
 	./exe.py
+	./graphics/*
+	./genetic_file_gestion.py
+	./ai/human.py
+	./ai/human_console.py
 
 [html]
 directory=./htmlcov
