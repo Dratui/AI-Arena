@@ -4,6 +4,7 @@ from copy import deepcopy
 from src.games.game_2048.rules_2048 import calc_score
 DEPTH = 5
 def ia_output(game,depth=DEPTH):
+    """returns the move chosen by the AI"""
     game=deepcopy(game)
     possibilities =  generate_all_move(game)
     scores=evaluation(possibilities,calc_score)
@@ -11,6 +12,7 @@ def ia_output(game,depth=DEPTH):
     return next_move
 
 def generate_all_move(game,depth):
+    """returns every move possible according the args"""
     possibilites = [[]]
     new_possibilities=[]
     for depth in range(depth):
