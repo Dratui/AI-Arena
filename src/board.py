@@ -2,6 +2,7 @@ import numpy as np
 from copy import deepcopy
 
 def get_higher_value(grille):
+    """return the maximum value of the grid"""
     max=0
     for i in range(len(grille)):
         for j in range(len(grille[0])):
@@ -10,6 +11,7 @@ def get_higher_value(grille):
                 max = grille[i][j]
     return max
 def generate_board_from_list(grille):
+    """return aBoard() object with the grid set to the list given in args"""
     width = len(grille[0])
     height = len(grille)
     tableau=Board(height,width)
