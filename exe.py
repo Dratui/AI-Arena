@@ -57,8 +57,8 @@ def select_game():
     fenetre=Tk()
     fenetre.title('Liste des games')
     liste = Listbox(fenetre,font=text_font)
-    global liste_games
-    for i,ele in enumerate(liste_games):
+    global list_games
+    for i,ele in enumerate(list_games):
         liste.insert(i+1, ele)
 
     liste.pack()
