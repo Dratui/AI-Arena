@@ -10,9 +10,10 @@ The main functions needed to initialize game objects are :
 
     - display_board : returns the string used to display the board
 
+
 Normalization:
 
-    - is_over : mandatory args : board, optional : player
+    - is_over : mandatory args : board, optional : player (if player given returns whether the player has win or not )
                 return : (is the game over (bool), which player has win (int)) (tuple)
 
 
