@@ -76,3 +76,23 @@ In this file xxx is the name of your game
     * calc_score_function = the function calc_score of your game
     * max_char_size = the size of the biggest character that will be used to display the board (i.e. 4 for 4096, 5 for 16384)
     * move_effective_function = the function move_effective of your game
+
+# V. Add your game to the tournament : 
+ 
+Now that your game is fully functional, you should make it accessible from the tournament, to do so :
+  * At the top of the code of the file /exe.py, add the name of your game to the list "listeGames"
+  * In the file /src/tournament.py next to the functions import_2048 etc. add a function with the following syntax
+```
+def import_xxx(self) :
+    import src.games.game_xxx.player_interaction_xxx
+    self.player_interaction = src.games.game_xxx.player_interaction_xxx
+    import src.games.game_xxx.rules_xxx
+    self.rules = src.games.game_xxx.rules_xxx
+```
+* Now in /src/tournament.py, in the function Gchoose_game add the following lines at the end 
+```
+elif game == "xxx":
+    self.game_name = "xxx"
+    self.import_xxx()
+```
+  * There, now your game should be accessible from within the tournament.
