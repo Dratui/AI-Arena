@@ -5,7 +5,7 @@ from random import randint
 
 game_font = ("Verdana", 25, "bold")
 play_font = ("Verdana", 50, "bold")
-text_font = ("Verdana", 30, "bold")
+text_font = ("Verdana", 20, "bold")
 
 fenetre=0
 canvas=0
