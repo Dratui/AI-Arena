@@ -20,3 +20,5 @@ def generate_all_move(game,depth):
         possibilites=new_possibilities
         new_possibilities=[]
     return possibilites
+
+#dddldkl
