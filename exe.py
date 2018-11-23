@@ -17,7 +17,7 @@ photo=0
 
 Tournoi=0
 list_games=["2048","Puissance 4","TicTacToe"]
-list_ai=['random_ai','ai_2048_1']
+list_ai=['random_ai']
 
 def name_players():
     global Nombre
