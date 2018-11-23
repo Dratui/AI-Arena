@@ -3,7 +3,9 @@ from tkinter import font
 from src.tournament import Tournament
 from random import randint
 
-TILES_FONT = ("Verdana", 40, "bold")
+game_font = ("Verdana", 30, "bold")
+play_font = ("Verdana", 40, "bold")
+text_font = ("Verdana", 35, "bold")
 
 fenetre=0
 canvas=0
@@ -14,8 +16,8 @@ case=0
 photo=0
 
 Tournoi=0
-listeGames=["2048","Puissance 4","TicTacToe"]
-liste_ai=['random_ai','ai_2048_1']
+list_games=["2048","Puissance 4","TicTacToe"]
+list_ai=['random_ai','ai_2048_1']
 
 def name_players():
     global Nombre
@@ -31,12 +33,12 @@ def name_players():
     fenetre=Tk()
     fenetre.title('State the name of the ai (simply state h for a human player)')
     for i in range(nbrJoueurs):
-        string=liste_ai[randint(0,len(liste_ai)-1)]
-        entree=Entry(fenetre,width=20)
+        string=list_ai[randint(0,len(list_ai)-1)]
+        entree=Entry(fenetre,width=20,font=text_font)
         entree.insert(END,string)
         entree.pack()
         Entree.append(entree)
-    bouton = Button(fenetre,text="Valider",command=select_game)
+    bouton = Button(fenetre,text="Valider",font=game_font,command=select_game)
     bouton.pack()
 
 def select_game():
@@ -54,17 +56,17 @@ def select_game():
     fenetre.destroy()
     fenetre=Tk()
     fenetre.title('Liste des games')
-    liste = Listbox(fenetre)
-    global listeGames
-    for i,ele in enumerate(listeGames):
+    liste = Listbox(fenetre,font=text_font)
+    global liste_games
+    for i,ele in enumerate(liste_games):
         liste.insert(i+1, ele)
 
     liste.pack()
     global case
     case = IntVar()
-    checkbox = Checkbutton(fenetre, text="Display Ai Game",variable=case)
+    checkbox = Checkbutton(fenetre, text="Display Ai Game",font=game_font,variable=case)
     checkbox.pack()
-    bouton = Button(fenetre,text="Valider",command=launch_game)
+    bouton = Button(fenetre,text="Valider",font=text_font,command=launch_game)
     bouton.pack()
 
 
@@ -90,7 +92,7 @@ def init_window():
     photo = PhotoImage(file="graphics/menu.png")
 
     canvas.create_image(0, 0, anchor=NW, image=photo)
-    canvas.create_text(450,260,text="Play",font=TILES_FONT,fill="#de8421",activefill="#ff3300")
+    canvas.create_text(450,260,text="Play",font=play_font,fill="#de8421",activefill="#ff3300")
     canvas.pack()
     canvas.bind("<Button-1> ", display_nbrJoueurs)
 
@@ -107,10 +109,10 @@ def display_nbrJoueurs(event):
     fenetre=Tk()
     fenetre.title('Players')
 
-    label=Label(fenetre,text="Number of players:",bg="yellow").pack(padx=10, pady=10)
-    Nombre=Spinbox(fenetre, from_=2, to=10)
+    label=Label(fenetre,text="Number of players:",font=game_font,bg="yellow").pack(padx=10, pady=10)
+    Nombre=Spinbox(fenetre, from_=2, to=10,font=text_font)
     Nombre.pack()
-    bouton = Button(fenetre,text="Send",command=name_players)
+    bouton = Button(fenetre,text="Send",font=game_font,command=name_players)
     bouton.pack()
 
 init_window()
@@ -128,8 +130,8 @@ classement=Tournoi.Glaunch_tournament(display_ai_game)
 #END Game
 #SHOW THE LEADERBOARD
 fenetre=Tk()
-label = Label(fenetre, text=classement)
+label = Label(fenetre, text=classement,font=text_font)
 label.pack()
-bouton = Button(fenetre, text="Menu Principal",command=fenetre.quit)
+bouton = Button(fenetre, text="Leave",font=game_font,command=fenetre.quit)
 bouton.pack()
 fenetre.mainloop()
