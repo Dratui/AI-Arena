@@ -12,9 +12,9 @@ test_game.list_board=[board0,board1]
 
 
 def update_display(window, game=test_game):
-    game.window=window
     Board0=game.list_board[0]
     Board1=game.list_board[1]
+    game.window=window
     # Size of the grid. Should be choosen by the user thanks to another function
     grid_size = (Board0.height,Board0.width)
 
